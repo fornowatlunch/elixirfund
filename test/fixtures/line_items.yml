@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  order: 
+  product: 
+  partner: 
+  name: MyString
+  price: 1.5
+
+two:
+  order: 
+  product: 
+  partner: 
+  name: MyString
+  price: 1.5

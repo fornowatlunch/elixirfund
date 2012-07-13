@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  subtotal: 1.5
+  status: MyString
+  user: 
+
+two:
+  name: MyString
+  subtotal: 1.5
+  status: MyString
+  user: 
