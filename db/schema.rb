@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120713231626) do
+ActiveRecord::Schema.define(:version => 20120714002158) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -164,12 +164,10 @@ ActiveRecord::Schema.define(:version => 20120713231626) do
     t.string   "title"
     t.text     "description"
     t.integer  "user_id"
-    t.integer  "product_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "wishlists", ["product_id"], :name => "index_wishlists_on_product_id"
   add_index "wishlists", ["user_id"], :name => "index_wishlists_on_user_id"
 
 end
