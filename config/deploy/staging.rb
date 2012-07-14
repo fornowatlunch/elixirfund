@@ -33,7 +33,7 @@
  
  namespace :deploy do
    %w(start stop restart).each do |action|
-     task(action) { run "cd #{current_path} && script/unicorn #{action}" }
+     task(action) { run "cd #{current_path} && unicorn #{action}" }
    end
  
    task :symlink_shared, :except => { :no_release => true } do
