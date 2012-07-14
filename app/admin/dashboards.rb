@@ -11,6 +11,10 @@ ActiveAdmin::Dashboards.build do
   end
 
   section "Recent Registrations" do
+    table_for User.last(5).collect do |user|
+      user.column("Name") { |u| link_to(u.profile.name, admin_user_path(u)) }
+      user.column("Email") { |u| u.email }
+    end
   end
 # Define your dashboard sections here. Each block will be
   # rendered on the dashboard in the context of the view. So just
