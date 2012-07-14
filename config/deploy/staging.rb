@@ -1,8 +1,6 @@
  #$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
  
- require 'bundler/capistrano'
- require 'rvm/capistrano'
- require './config/boot'
+ require 'bundler/assets'
  
  ssh_options[:username] = 'deployer'
  ssh_options[:forward_agent] = true
@@ -25,7 +23,7 @@
  role :db,  "#{ec2_server}", :primary => true # This is where Rails migrations will run
  
  # if you want to clean up old releases on each deploy uncomment this:
- before 'deploy:assets:precompile', 'deploy:symlink_shared'
+ before 'deploy:create_symlink', 'deploy:symlink_shared'
  after 'deploy:symlink_shared', 'deploy:rake_tasks'
  after 'deploy:rake_tasks', 'nginx:config'
  after 'nginx:config', 'nginx:reload'
