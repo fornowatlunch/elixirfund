@@ -51,7 +51,7 @@ end
 puts "Creating Partners..."
 5.times do |n|
   Partner.create!(
-    :name => Faker::Name.name,
+    :name => Faker::Company.bs,
     :description => Faker::Lorem.paragraph,
     :contact_name => Faker::Name.name,
     :contact_email => Faker::Internet.email,
@@ -67,5 +67,13 @@ User.all.each do |user|
     :title => 'My Wishlist',
     :description => Faker::Lorem.sentence(10),
     :user => user,
+  )
+end
+
+puts "Creating Products..."
+20.times do |n|
+  Product.create!(
+    :title => Faker::Company.bs,
+    :description => Faker::Lorem.paragraph,
   )
 end
