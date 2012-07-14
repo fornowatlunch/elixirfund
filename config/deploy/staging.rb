@@ -1,7 +1,5 @@
  #$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
  
- require 'bundler/assets'
- 
  ssh_options[:username] = 'deployer'
  ssh_options[:forward_agent] = true
  
