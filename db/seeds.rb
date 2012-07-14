@@ -25,9 +25,6 @@ system("rm -rf #{Rails.root.to_s}/public/uploads")
 puts "Creating AdminUser: admin@example.com / password"
 AdminUser.create! :email => 'admin@example.com', :password => 'password', :password_confirmation => 'password'
 
-users = []
-partners = []
-
 puts "Creating Users..."
 5.times do |n|
   User.create!(
@@ -54,7 +51,7 @@ end
 puts "Creating Partners..."
 5.times do |n|
   Partner.create!(
-    :name => Faker::Name.name,
+    :name => Faker::Company.bs,
     :description => Faker::Lorem.paragraph,
     :contact_name => Faker::Name.name,
     :contact_email => Faker::Internet.email,
@@ -63,3 +60,10 @@ puts "Creating Partners..."
     :fax => Faker::PhoneNumber.phone_number,
   )
 end
+
+puts "Creating Products..."
+20.times do |n|
+  Product.create!(
+    :title => Faker::Company.bs,
+    :description => Faker::Lorem.paragraph,
+  )
