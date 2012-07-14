@@ -10,5 +10,6 @@ ActiveAdmin.register User do
     column :email
     column :created_at
     column :updated_at
+    default_actions
   end  
 end

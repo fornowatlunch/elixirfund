@@ -12,6 +12,9 @@ ActiveAdmin.register Wishlist do
     column :description
     column :created_at
     column :updated_at
-    column :user_id
+    column 'User' do |wishlist|
+      link_to wishlist.user.id, admin_user_path(wishlist.user)
+    end
+    default_actions
   end
 end

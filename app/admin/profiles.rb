@@ -13,5 +13,6 @@ ActiveAdmin.register Profile do
     column :public_bio
     column :city
     column :state
+    default_actions
   end
 end

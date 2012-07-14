@@ -11,5 +11,6 @@ ActiveAdmin.register Product do
     column "Product Name", :title
     column :description
     column :price
+    default_actions
   end
 end

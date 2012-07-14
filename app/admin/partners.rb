@@ -13,5 +13,6 @@ ActiveAdmin.register Partner do
     column :description
     column :city
     column :state
+    default_actions
   end
 end
