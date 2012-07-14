@@ -56,6 +56,9 @@ puts "Creating Partners..."
     :contact_name => Faker::Name.name,
     :contact_email => Faker::Internet.email,
     :address1 => Faker::Address.street_address,
+    :city => Faker::Address.city,
+    :state => Faker::Address.state_abbr,
+    :zip_code => Faker::Address.zip_code,
     :phone => Faker::PhoneNumber.phone_number,
     :fax => Faker::PhoneNumber.phone_number,
   )
@@ -77,3 +80,5 @@ puts "Creating Products..."
     :description => Faker::Lorem.paragraph,
   )
 end
+
+puts "DONE!"
