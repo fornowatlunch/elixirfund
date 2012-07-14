@@ -37,7 +37,7 @@ namespace :deploy do
   end
 
   task :rake_tasks do
-    run "cd #{release_path} && RAILS_ENV=staging bundle exec rake db:migrate db:seed"
+    run "cd #{release_path} && RAILS_ENV=staging bundle exec rake db:migrate db:seed assets:precompile"
   end
 end
 
