@@ -26,6 +26,8 @@ gem 'therubyracer'
 gem 'devise'
 gem 'faker'
 gem 'bootstrap-sass-rails'
+gem 'capistrano'
+gem 'unicorn'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
