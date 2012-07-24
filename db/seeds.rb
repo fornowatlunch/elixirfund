@@ -26,12 +26,23 @@ puts "Creating AdminUser: admin@example.com / password"
 AdminUser.create! :email => 'admin@example.com', :password => 'password', :password_confirmation => 'password'
 
 puts "Creating Users..."
-5.times do |n|
+150.times do |n|
   User.create!(
     :email => Faker::Internet.email,
     :password => 'password',
     :password_confirmation => 'password',
   )
+end
+
+puts "Creating Connections..."
+User.all.each do |user|
+  rand(0..6).times do |n|
+    Connection.create!(
+      :user => user,
+      :to_user => User.order("RANDOM()").first.id,
+      :can_manage => rand(0..10) > 0 ? 0 : 1,
+    )
+  end
 end
 
 puts "Creating User Profiles..."
@@ -49,7 +60,7 @@ User.all.each do |user|
 end
 
 puts "Creating Partners..."
-5.times do |n|
+25.times do |n|
   Partner.create!(
     :name => Faker::Company.bs,
     :description => Faker::Lorem.paragraph,
@@ -74,11 +85,32 @@ User.all.each do |user|
 end
 
 puts "Creating Products..."
-20.times do |n|
+100.times do |n|
   Product.create!(
     :title => Faker::Company.bs,
     :description => Faker::Lorem.paragraph,
+    :partner => Partner.order("RANDOM()").first
   )
+end
+
+puts "Creating Orders..."
+User.all.each do |u|
+  2.times do |n|
+    order = Order.create!(
+      :subtotal => rand(5..100),
+      :status => 'complete',
+    )
+    rand(1..2).times do |m|
+      product = Product.order("RANDOM()").first
+      LineItem.create!(
+        :order => order,
+        :product => product,
+        :partner => product.partner,
+        :name => product.title,
+        :price => product.price,        
+      )
+    end
+  end
 end
 
 puts "DONE!"
