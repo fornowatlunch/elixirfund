@@ -7,7 +7,7 @@ ActiveAdmin.register Product do
     column "ID", :sortable => :id do |user|
       link_to user.id, admin_user_path(user)
     end
-    column "Thumnail", :image
+    column "Thumbnail", :image
     column "Product Name", :title
     column :description
     column :price
