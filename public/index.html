@@ -1,0 +1,132 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+  <meta name="description" content="">
+
+  <meta name="viewport" content="width=device-width">
+
+  <link type="text/css" href="css/custom-theme/jquery-ui-1.8.22.custom.css" rel="stylesheet" />
+  <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.8.22.custom.min.js"></script>
+
+  <script type="text/javascript">
+      $(function(){
+        $('.conditional').tabs();
+        $( ".button" ).button();
+      });
+  </script>
+
+  <style>
+    body { width:600px; margin:20px auto; font-family: Verdana,Arial,sans-serif; font-size: 1.1em; }
+    header, #main-content, footer { margin:20px; padding:20px; background:#ccc; }
+    ul { list-style:none; margin:0 0 20px; padding:0; }
+  </style>
+</head>
+<body>
+  <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+  <header>
+    <h1>Elixir Fund</h1>
+    <nav>
+      <ul>
+        <li class="button"><a href="index.html">Home</a></li>
+        <li class="button"><a href="patients.html">Patients</a></li>
+        <li class="button"><a href="products.html">Products</a></li>
+        <li class="button"><a href="cart.html">Cart</a></li>
+      </ul>
+    </nav>
+    <div class="conditional">
+      <ul>
+        <li><a href="#welcome-1">If Signed In</a></li>
+        <li><a href="#welcome-2">If Not</a></li>
+      </ul>
+      <div id="welcome-1">
+        <p>Welcome User Name! Not You? <a href="#">Sign Out</a></p>
+      </div>
+      <div id="welcome-2">
+        <p>Please <a href="login.html">Login</a> or <a href="register.html">Register</a></p>
+      </div>
+    </div><!--conditional-->
+  </header>
+
+  <div id="main-content" role="main">
+    <div class="conditional">
+      <ul>
+        <li><a href="#hero-1">If Patient</a></li>
+        <li><a href="#hero-2">If Donor</a></li>
+        <li><a href="#hero-3">If Visitor</a></li>
+      </ul>
+      <div id="hero-1">
+        <h2>Patient Dashboard</h2>
+        <p>Profile Pic</p>
+        <h3>User Name</h3>
+        <a href="edit.html">Edit Profile</a>
+        <p>Location</p>
+        <p>Public Bio</p>
+        <p>Private Bio</p>
+        <p>Special Requests</p>
+        <p><a href="vouchers.html" class="button">Vouchers / History</a></p>
+        <p><a href="vouchers.html" class="button">Order History</a></p>
+        <p><a href="connections.html" class="button">Manage Connections</a></p>
+        <h3>My Wishlist</h3>
+        <p>Wishlist Item <a href="#">Remove</a></p>
+        <p>Wishlist Item <a href="#">Remove</a></p>
+        <p>Wishlist Item <a href="#">Remove</a></p>
+        <p>Wishlist Item <a href="#">Remove</a></p>
+        <p>Wishlist Item <a href="#">Remove</a></p>
+      </div>
+      <div id="hero-2">
+        <h2>Donor Dashboard</h2>
+        <p>Profile Pic</p>
+        <h3>User Name</h3>
+        <a href="edit.html">Edit Profile</a>
+        <p>Location</p>
+        <p>Public Bio</p>
+        <p>Private Bio</p>
+        <p><a href="vouchers.html" class="button">Order History</a></p>
+        <p><a href="connections.html" class="button">Manage Connections</a></p>
+        <h3>I'm Supporting</h3>
+        <p>User Name <a href="profile.html">Patient Profile</a></p>
+        <p>User Name <a href="profile.html">Patient Profile</a></p>
+        <p>User Name <a href="profile.html">Patient Profile</a></p>
+        <h3>Others Who Need My Support</h3>
+        <p>User Name <a href="profile.html">Patient Profile</a></p>
+        <p>User Name <a href="profile.html">Patient Profile</a></p>
+        <p>User Name <a href="profile.html">Patient Profile</a></p>
+        <p><a href="patients.html">View More</a></p>
+      </div>
+      <div id="hero-3">
+        <h2>Welcome to Elixir Fund Giving</h2>
+        <p>Elixir Fund General Pitch</p>
+        <p><a class="button" href="register">Register Now</a></p>
+        <p>Giving Pitch</p>
+        <p>Patient Pitch</p>
+        <p>General Pitch</p>
+      </div>
+    </div><!--conditional-->
+  </div><!--main-content-->
+
+  <footer>
+    <h3>About Us</h3>
+    <p>About us teaser text</p>
+    <a href="about.html">Read More</a>
+    <h3>Success Stories</h3>
+    <p>Case study picture grid<p>
+    <a href="success.html">View More</a>
+    <nav>
+      <ul>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="terms.html">Terms and Conditions</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+      </ul>
+    </nav>
+    <p>&copy;2012 Elixir Fund. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
