@@ -17,7 +17,7 @@
 
   <script type="text/javascript">
       $(function(){
-        $( ".conditional" ).tabs();
+        $('.conditional').tabs();
         $( ".button" ).button();
       });
   </script>
@@ -55,17 +55,34 @@
   </header>
 
   <div id="main-content" role="main">
-    <div class="ui-widget-content ui-corner-all" style="padding:0 20px;">
-      <h2>Product Finder</h2>
-      <p>Filter / Search Box</p>
-      <h3>Product Grid</h3>
-      <p>Title / Pic / <a href="company.html">Company</a> <a href="product.html">View Product</a></p>
-      <p>Title / Pic / <a href="company.html">Company</a> <a href="product.html">View Product</a></p>
-      <p>Title / Pic / <a href="company.html">Company</a> <a href="product.html">View Product</a></p>
-      <p>Title / Pic / <a href="company.html">Company</a> <a href="product.html">View Product</a></p>
-      <p>Title / Pic / <a href="company.html">Company</a> <a href="product.html">View Product</a></p>
-      <p><a href="#">Paginate</a></p>
-    </div>
+    <div class="conditional">
+      <ul>
+        <li><a href="#hero-1">If Has Order</a></li>
+        <li><a href="#hero-2">If No Order</a></li>
+      </ul>
+      <div id="hero-1">
+        <h2>Manage Your Orders</h2>
+        <p>Profile Pic (current user)</p>
+        <h3>User Name</h3>
+        <p>Location</p>
+        <h3>You Have X Previous Orders</h3>
+        <p>Order Number <a href="#">View Order Details</a></p>
+        <p>Order Number <a href="#">View Order Details</a></p>
+        <p>Order Number <a href="#">View Order Details</a></p>
+        <p>Order Number <a href="#">View Order Details</a></p>
+        <p>Order Number <a href="#">View Order Details</a></p>
+        <p>Browse our <a href="patients.html">patients</a> or <a href="products.html">Products</a> to continue helping those in need.</p>
+      </div>
+      <div id="hero-2">
+        <h2>Manage Your Orders</h2>
+        <p>Profile Pic (current user)</p>
+        <h3>User Name</h3>
+        <p>Location</p>
+        <h3>You Don't Have Any Orders Yet</h3>
+        <p>Browse our <a href="patients.html">Patients</a> or <a href="products.html">Products</a> to begin helping those in need.</p>
+        <p>Advertisement Section / Pitch Box</p>
+      </div>
+    </div><!--conditional-->
   </div><!--main-content-->
 
   <footer>

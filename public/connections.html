@@ -17,7 +17,7 @@
 
   <script type="text/javascript">
       $(function(){
-        $( ".conditional" ).tabs();
+        $('.conditional').tabs();
         $( ".button" ).button();
       });
   </script>
@@ -55,17 +55,34 @@
   </header>
 
   <div id="main-content" role="main">
-    <div class="ui-widget-content ui-corner-all" style="padding:0 20px;">
-      <h2>Product Finder</h2>
-      <p>Filter / Search Box</p>
-      <h3>Product Grid</h3>
-      <p>Title / Pic / <a href="company.html">Company</a> <a href="product.html">View Product</a></p>
-      <p>Title / Pic / <a href="company.html">Company</a> <a href="product.html">View Product</a></p>
-      <p>Title / Pic / <a href="company.html">Company</a> <a href="product.html">View Product</a></p>
-      <p>Title / Pic / <a href="company.html">Company</a> <a href="product.html">View Product</a></p>
-      <p>Title / Pic / <a href="company.html">Company</a> <a href="product.html">View Product</a></p>
-      <p><a href="#">Paginate</a></p>
-    </div>
+    <div class="conditional">
+      <ul>
+        <li><a href="#hero-1">If Has Connection</a></li>
+        <li><a href="#hero-2">If No Connection</a></li>
+      </ul>
+      <div id="hero-1">
+        <h2>Manage Your Connections</h2>
+        <p>Profile Pic (current user)</p>
+        <h3>User Name</h3>
+        <p>Location</p>
+        <h3>You Have X Connections</h3>
+        <p>User Name <a href="profile.html">Patient Profile</a> <a href="#">Remove Connection</a></p>
+        <p>User Name <a href="profile.html">Patient Profile</a> <a href="#">Remove Connection</a></p>
+        <p>User Name <a href="profile.html">Patient Profile</a> <a href="#">Remove Connection</a></p>
+        <p>User Name <a href="profile.html">Patient Profile</a> <a href="#">Remove Connection</a></p>
+        <p>User Name <a href="profile.html">Patient Profile</a> <a href="#">Remove Connection</a></p>
+        <p>Browse our <a href="patients.html">patients</a> to find new connections.</p>
+      </div>
+      <div id="hero-2">
+        <h2>Manage Your Connections</h2>
+        <p>Profile Pic (current user)</p>
+        <h3>User Name</h3>
+        <p>Location</p>
+        <h3>You don't have any connections yet.</h3>
+        <p>Browse our <a href="patients.html">Patients</a> or <a href="products.html">Products</a> to begin helping those in need.</p>
+        <p>Advertisement Section / Pitch Box</p>
+      </div>
+    </div><!--conditional-->
   </div><!--main-content-->
 
   <footer>

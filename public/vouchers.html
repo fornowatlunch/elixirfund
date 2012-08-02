@@ -17,7 +17,7 @@
 
   <script type="text/javascript">
       $(function(){
-        $( ".conditional" ).tabs();
+        $('.conditional').tabs();
         $( ".button" ).button();
       });
   </script>
@@ -55,17 +55,34 @@
   </header>
 
   <div id="main-content" role="main">
-    <div class="ui-widget-content ui-corner-all" style="padding:0 20px;">
-      <h2>Product Finder</h2>
-      <p>Filter / Search Box</p>
-      <h3>Product Grid</h3>
-      <p>Title / Pic / <a href="company.html">Company</a> <a href="product.html">View Product</a></p>
-      <p>Title / Pic / <a href="company.html">Company</a> <a href="product.html">View Product</a></p>
-      <p>Title / Pic / <a href="company.html">Company</a> <a href="product.html">View Product</a></p>
-      <p>Title / Pic / <a href="company.html">Company</a> <a href="product.html">View Product</a></p>
-      <p>Title / Pic / <a href="company.html">Company</a> <a href="product.html">View Product</a></p>
-      <p><a href="#">Paginate</a></p>
-    </div>
+    <div class="conditional">
+      <ul>
+        <li><a href="#hero-1">If Has Voucher</a></li>
+        <li><a href="#hero-2">If No Voucher</a></li>
+      </ul>
+      <div id="hero-1">
+        <h2>Manage Your Vouchers</h2>
+        <p>Profile Pic (current user)</p>
+        <h3>User Name</h3>
+        <p>Location</p>
+        <h3>You Have X Pending Vouchers</h3>
+        <p>Title / Pic / <a href="company.html">Company</a> <a href="#">Print Voucher</a></p>
+        <p>Title / Pic / <a href="company.html">Company</a> <a href="#">Print Voucher</a></p>
+        <p>Title / Pic / <a href="company.html">Company</a> <a href="#">Print Voucher</a></p>
+        <p>Title / Pic / <a href="company.html">Company</a> <a href="#">Print Voucher</a></p>
+        <p>Title / Pic / <a href="company.html">Company</a> <a href="#">Print Voucher</a></p>
+        <p>Thanks for using Elixir Fund to help meet your needs.</p>
+      </div>
+      <div id="hero-2">
+        <h2>Manage Your Vouchers</h2>
+        <p>Profile Pic (current user)</p>
+        <h3>User Name</h3>
+        <p>Location</p>
+        <h3>You Have No Pending Vouchers</h3>
+        <p><a href="invite.html">Invite your friends</a> or add new <a href="products.html">Products</a> to take full advantage of Elixir Fund's voucher program.</p>
+        <p>Advertisement Section / Pitch Box</p>
+      </div>
+    </div><!--conditional-->
   </div><!--main-content-->
 
   <footer>
