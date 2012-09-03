@@ -24,6 +24,7 @@ class Ability
     #   can :update, Article, :published => true
     #
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
+=begin    
     can :read, Wishlist do |wishlist|
       user.connected_to wishlist.user
     end
@@ -31,5 +32,6 @@ class Ability
     can :manage, Wishlist do |wishlist|
       user.connected_to(wishlist.user) && can? :manage, wishlist.user 
     end
+=end
   end
 end
