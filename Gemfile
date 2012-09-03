@@ -20,8 +20,8 @@ gem 'bootstrap-sass-rails'
 gem 'unicorn'
 gem 'cancan'
 
-group :development, :test, :staging do
-  gem 'faker'
+group :test, :development do
+  gem 'aktion_test_rails'
 end
 
 group :development do
