@@ -27,9 +27,11 @@ When /^I register(?: with(?: an?)? (.*))?$/ do |error_type|
   creds = @visitor.dup
   case error_type
   when 'no email' then creds[:email] = ''
-  when 'invalid email' then creds[:email] = 'invalid@example.com'
-  when 'no password' then creds[:password] = ''
-  when 'invalid password' then creds[:password] = 'invalidpass'
+  when 'invalid email' then creds[:email] = 'invalid.example.com'
+  when 'no password' then creds[:password_confirmation] = creds[:password] = ''
+  when 'short password' then creds[:password] = creds[:password_confirmation] = 'a'*7
+  when 'long password' then creds[:password] = creds[:password_confirmation] = 'a'*33
+  when 'blank password confirmation' then creds[:password_confirmation] = ''
   when 'no confirmation' then creds[:password_confirmation] = ''
   end
 
@@ -51,6 +53,19 @@ When /^I see an? (.*) message$/ do |message|
   when 'signed in' then I18n.t('devise.sessions.signed_in')
   when 'invalid login' then I18n.t('devise.failure.invalid')
   when /(.*) not saved/ then I18n.t('errors.messages.not_saved.one', resource: $1)
+  when /(.*) cant be blank/ then "#{$1.titleize} #{I18n.t('errors.messages.blank')}"
+  when /(.*) is invalid/ then "#{$1.titleize} #{I18n.t('errors.messages.invalid')}"
+  when /(.*) confirmation/ then "#{$1.titleize} #{I18n.t('errors.messages.confirmation')}"
+  when /(.*) too short/ 
+    count = case $1
+    when 'password' then 8
+    end
+    "#{$1.titleize} #{I18n.t('errors.messages.too_short', count: count)}"
+  when /(.*) too long/
+    count = case $1
+    when 'password' then 32
+    end
+    "#{$1.titleize} #{I18n.t('errors.messages.too_long', count: count)}"
   end
 
   page.should have_content msg
