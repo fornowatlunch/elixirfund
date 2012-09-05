@@ -1,7 +1,5 @@
 class PagesController < ApplicationController
-
-  def index
-    render 'home'
+  def show
+    render params[:id].gsub('-','_')
   end
-
 end
