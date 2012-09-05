@@ -3,3 +3,7 @@
 
 en:
   hello: "Hello world"
+  button:
+    user:
+      sign_in: "Sign in"
+      sign_up: "Sign up"
