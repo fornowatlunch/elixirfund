@@ -23,11 +23,19 @@ Given /^I do not exist as a user$/ do
   destroy_user
 end
 
-When /^I register as a user$/ do
-  visit new_user_registration_path
-  fill_in 'Email', with: @visitor[:email]
-  fill_in 'Password', with: @visitor[:password]
-  fill_in 'Password confirmation', with: @visitor[:password]
+When /^I register(?: with(?: an?)? (.*))?$/ do |error_type|
+  creds = @visitor.dup
+  case error_type
+  when 'no email' then creds[:email] = ''
+  when 'invalid email' then creds[:email] = 'invalid@example.com'
+  when 'no password' then creds[:password] = ''
+  when 'invalid password' then creds[:password] = 'invalidpass'
+  when 'no confirmation' then creds[:password_confirmation] = ''
+  end
+
+  fill_in 'Email', with: creds[:email]
+  fill_in 'Password', with: creds[:password]
+  fill_in 'Password confirmation', with: creds[:password_confirmation]
   click_button I18n.t('button.user.sign_up')
 end
 
@@ -38,11 +46,12 @@ When /^I login as a user(?: with an invalid (email|password))?$/ do |field|
 end
 
 When /^I see an? (.*) message$/ do |message|
-  key = case message
-  when 'successful registration' then 'devise.registrations.signed_up'
-  when 'signed in' then 'devise.sessions.signed_in'
-  when 'invalid login' then 'devise.failure.invalid'
+  msg = case message
+  when 'successful registration' then I18n.t('devise.registrations.signed_up')
+  when 'signed in' then I18n.t('devise.sessions.signed_in')
+  when 'invalid login' then I18n.t('devise.failure.invalid')
+  when /(.*) not saved/ then I18n.t('errors.messages.not_saved.one', resource: $1)
   end
 
-  page.should have_content I18n.t(key)
+  page.should have_content msg
 end
