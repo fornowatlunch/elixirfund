@@ -6,27 +6,40 @@ Feature: User Login
   Scenario: Nonexistent user attempts to login
     Given I am a visitor
       And I do not exist as a user
-    When I login as a user
+    When I visit the login page
+      And I login as a user
     Then I am on the login page
       And I see an invalid login message
 
   Scenario: Existent user attempts to login with an invalid email
     Given I am a visitor
       And I exist as a user
-    When I login as a user with an invalid email
+    When I visit the login page
+      And I login as a user with an invalid email
     Then I am on the login page
       And I see an invalid login message
 
   Scenario: Existent user attempts to login with an invalid password
     Given I am a visitor
       And I exist as a user
-    When I login as a user with an invalid password
+    When I visit the login page
+      And I login as a user with an invalid password
     Then I am on the login page
       And I see an invalid login message
 
-  Scenario: Existent user attempt to login with valid credentials
+  Scenario: Existent user attempts to login with valid credentials
     Given I am a visitor
       And I exist as a user
-    When I login as a user
+    When I visit the login page
+      And I login as a user
     Then I am on the home page
       And I see a signed in message
+
+  Scenario: Existent user attempts to login with valid credentials from the home page
+    Given I am a visitor
+      And I exist as a user
+    When I visit the home page
+      And I login as a user
+    Then I am on the home page
+      And I see a signed in message
+

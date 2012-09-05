@@ -32,7 +32,6 @@ When /^I register as a user$/ do
 end
 
 When /^I login as a user(?: with an invalid (email|password))?$/ do |field|
-  visit new_user_session_path
   fill_in 'Email', with: field == 'email' ? 'invalid@example.com' : @visitor[:email]
   fill_in 'Password', with: field == 'password' ? 'invalidpass' : @visitor[:password]
   click_button I18n.t('button.user.sign_in')
