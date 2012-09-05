@@ -52,6 +52,7 @@ When /^I see an? (.*) message$/ do |message|
   when 'successful registration' then I18n.t('devise.registrations.signed_up')
   when 'signed in' then I18n.t('devise.sessions.signed_in')
   when 'invalid login' then I18n.t('devise.failure.invalid')
+  when 'already authenticated' then I18n.t('devise.failure.already_authenticated')
   when /(.*) not saved/ then I18n.t('errors.messages.not_saved.one', resource: $1)
   when /(.*) cant be blank/ then "#{$1.titleize} #{I18n.t('errors.messages.blank')}"
   when /(.*) is invalid/ then "#{$1.titleize} #{I18n.t('errors.messages.invalid')}"

@@ -43,3 +43,12 @@ Feature: User Login
     Then I am on the home page
       And I see a signed in message
 
+  Scenario: Logged in user visits the login page
+    Given I am a visitor
+      And I exist as a user
+    When I visit the home page
+      And I login as a user
+      And I visit the login page
+    Then I am on the home page
+      And I see an already authenticated message
+

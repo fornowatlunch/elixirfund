@@ -52,3 +52,12 @@ Feature: User Registration
     Then I see a user not saved message
       And I see a password confirmation message
 
+  Scenario: Logged in user visits the registration page
+    Given I am a visitor
+      And I exist as a user
+    When I visit the home page
+      And I login as a user
+      And I visit the user registration page
+    Then I am on the home page
+      And I see an alraedy authenticated message
+
