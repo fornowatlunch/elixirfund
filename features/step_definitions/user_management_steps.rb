@@ -16,6 +16,7 @@ Given /^I am a visitor$/ do
 end
 
 Given /^I exist as a user$/ do
+  create_visitor
   create_user
 end
 
@@ -51,6 +52,7 @@ When /^I see an? (.*) message$/ do |message|
   msg = case message
   when 'successful registration' then I18n.t('devise.registrations.signed_up')
   when 'signed in' then I18n.t('devise.sessions.signed_in')
+  when 'signed out' then I18n.t('devise.sessions.signed_out')
   when 'invalid login' then I18n.t('devise.failure.invalid')
   when 'already authenticated' then I18n.t('devise.failure.already_authenticated')
   when /(.*) not saved/ then I18n.t('errors.messages.not_saved.one', resource: $1)
@@ -70,4 +72,12 @@ When /^I see an? (.*) message$/ do |message|
   end
 
   page.should have_content msg
+end
+
+Then /^I see the login form$/ do
+  page.should have_selector('form#new_user')
+end
+
+Then /^I dont see the login form$/ do
+  page.should_not have_selector('form#new_user')
 end
