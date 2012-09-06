@@ -1,0 +1,7 @@
+<% present(@patient, PatientPresenter) do |patient_presenter| %>
+  <% if user_signed_in? && current_user.connected_to(@patient) %>
+    <%= render :partial => 'private', :locals => {:patient_presenter => patient_presenter} %>
+  <% else %>
+    <%= render :partial => 'public', :locals => {:patient_presenter => patient_presenter} %>
+  <% end %>
+<% end %>

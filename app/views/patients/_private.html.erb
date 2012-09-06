@@ -1,0 +1,15 @@
+<section class="patient_profile private">
+  <h2><%= @patient.name %>'s Private Profile</h2>
+  <p><%= @patient.avatar %></p>
+
+  <h3><%= @patient.name %></h3>
+  <p><%= @patient.location %></p>
+  <p><%= @patient.private_bio %></p>
+  <p><%= @patient.special_requests %></p>
+  <p>You're connected to <%= @patient.name %></p>
+  <p><%= link_to t('manage_connections'), user_connections_path(current_user) %></p>
+
+  <h3><%= @patient.name %>'s Wishlist</h3>
+  <%= render :partial => 'wishlist_item', :collection => @wishlist.items %>
+  <p>*Advertising Section / Pitch Box on Donor Profiles</p>
+</section>
