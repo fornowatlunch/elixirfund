@@ -8,3 +8,13 @@ en:
       sign_in: "Sign in"
       sign_up: "Sign up"
       sign_out: "Sign out"
+      update: "Update"
+      cancel: "Cancel my account"
+      confirm: "Are you sure?"
+      change_password: "Change my password"
+      send_password_reset: "Send me reset password instructions"
+      resend_confirm: "Resend confirmation instructions"
+      resend_unlock: "Resend unlock instructions"
+  label:
+    password_confirmation: "Confirm new password"
+    new_password: "New password"
