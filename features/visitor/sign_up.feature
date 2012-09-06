@@ -61,3 +61,10 @@ Feature: User Registration
     Then I am on the home page
       And I see an alraedy authenticated message
 
+  Scenario: User is logged in after registration
+    Given I am a visitor
+    When I visit the user registration page
+      And I register
+    Then I am on the home page
+      And I dont see the login form
+
