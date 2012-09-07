@@ -18,3 +18,5 @@ en:
   label:
     password_confirmation: "Confirm new password"
     new_password: "New password"
+  messages:
+    no_products_available: "No products available"
