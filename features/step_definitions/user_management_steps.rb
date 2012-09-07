@@ -69,6 +69,8 @@ When /^I see an? (.*) message$/ do |message|
     when 'password' then 32
     end
     "#{$1.titleize} #{I18n.t('errors.messages.too_long', count: count)}"
+  else
+    raise 'unknown message'
   end
 
   page.should have_content msg
