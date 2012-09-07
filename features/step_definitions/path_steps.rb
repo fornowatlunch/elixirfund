@@ -4,7 +4,7 @@ def route_path(path)
   when 'login', 'sign in' then new_user_session_path
   when 'user registration' then new_user_registration_path
   else
-    send "#{page.gsub(' ','_')}_path"
+    send "#{path.gsub(' ','_')}_path"
   end
 end
 
