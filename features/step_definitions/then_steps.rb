@@ -26,5 +26,5 @@ Then /^I see all the products$/ do
 end
 
 Then /^I see no products$/ do
-  page.should have_content I18n.t('products.none_available')
+  page.should have_content I18n.t('messages.no_products_available')
 end
