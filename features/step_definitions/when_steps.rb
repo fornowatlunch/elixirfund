@@ -1,29 +1,3 @@
-def create_visitor
-  @visitor ||= {email: 'visitor@example.com', password: 'password', password_confirmation: 'password'}
-end
-
-def create_user
-  @user ||= User.find_by_email(@visitor[:email])
-  @user ||= User.create(@visitor)
-end
-
-def destroy_user
-  User.find_by_email(@visitor[:email]).try(:destroy)
-end
-
-Given /^I am a visitor$/ do
-  create_visitor
-end
-
-Given /^I exist as a user$/ do
-  create_visitor
-  create_user
-end
-
-Given /^I do not exist as a user$/ do
-  destroy_user
-end
-
 When /^I register(?: with(?: an?)? (.*))?$/ do |error_type|
   creds = @visitor.dup
   case error_type
@@ -76,10 +50,13 @@ When /^I see an? (.*) message$/ do |message|
   page.should have_content msg
 end
 
-Then /^I see the login form$/ do
-  page.should have_selector('form#new_user')
+When /^I visit the (.*) page$/ do |page|
+  visit route_path(page)
 end
 
-Then /^I dont see the login form$/ do
-  page.should_not have_selector('form#new_user')
+When /^I click the (.*) link$/ do |text|
+  link = case text
+  when 'sign out' then I18n.t('button.user.sign_out')
+  end
+  find_link(link).click
 end
