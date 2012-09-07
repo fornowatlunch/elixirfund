@@ -1,0 +1,11 @@
+<h2><%= @product.title %> by <%= @product.company_name %></h2>
+
+<%= render 'gallery' %>
+
+<h3><%= @product.title %></h3>
+<p><%= @company.link_to %></p>
+
+<p><%= @product.description %></p>
+
+<h3>People Who Need <%= @product.title %></h3>
+<%= render :partial => 'products/patient', :collection => @patients %>

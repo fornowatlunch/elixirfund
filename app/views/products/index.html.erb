@@ -1,0 +1,9 @@
+<h2>Product Finder</h2>
+<%= render 'search' %>
+<h3>Product Grid</h3>
+<% if @products.any? %>
+  <%= render :partial => 'products/product', :collection => @products %>
+<% else %>
+  <%= I18n.t('messages.no_products_available') %>
+<% end %>
+<!-- Insert Kaminari Pagination -->

@@ -1,0 +1,8 @@
+<% present product do |p| %>
+  <ul id="product">
+    <li class="title"><%= p.title %></li>
+    <li class="list_image"><%= p.list_image %></li>
+    <li class="company"><%= p.company %></li>
+    <li class="product"><%= p.link_to %></li>
+  </ul>
+<% end %>
