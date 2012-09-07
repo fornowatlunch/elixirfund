@@ -59,7 +59,7 @@ Feature: User Registration
       And I login as a user
       And I visit the user registration page
     Then I am on the home page
-      And I see an alraedy authenticated message
+      And I see an already authenticated message
 
   Scenario: User is logged in after registration
     Given I am a visitor
