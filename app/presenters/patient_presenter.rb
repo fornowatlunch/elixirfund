@@ -1,12 +1,4 @@
-class PatientPresenter
-  def initialize(patient, template)
-    @patient, @template = patient, template
-  end
-
-  def h
-    @template
-  end
-
+class PatientPresenter < BasePresenter
   def name
     @patient.profile.name
   end
@@ -25,9 +17,5 @@ class PatientPresenter
 
   def public_wishlist_items
     @patient.wishlist.products
-  end
-
-  def link_to
-    h.link_to @patient.email, h.patient_path(@patient)
   end
 end
