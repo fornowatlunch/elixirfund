@@ -1,4 +1,4 @@
-ActiveAdmin.register Profile do
+ActiveAdmin.register Patient do
   filter :name
   filter :public_bio
   filter :city

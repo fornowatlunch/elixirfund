@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
-  has_one :profile
+  has_one :patient
   has_many :connections
-  has_one :wishlist
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120714004515) do
+ActiveRecord::Schema.define(:version => 20120911153827) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -98,19 +98,7 @@ ActiveRecord::Schema.define(:version => 20120714004515) do
     t.string   "zip_code"
   end
 
-  create_table "products", :force => true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.string   "image"
-    t.float    "price"
-    t.integer  "partner_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  add_index "products", ["partner_id"], :name => "index_products_on_partner_id"
-
-  create_table "profiles", :force => true do |t|
+  create_table "patients", :force => true do |t|
     t.string   "name"
     t.string   "city"
     t.string   "state"
@@ -124,7 +112,19 @@ ActiveRecord::Schema.define(:version => 20120714004515) do
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
+  add_index "patients", ["user_id"], :name => "index_profiles_on_user_id"
+
+  create_table "products", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "image"
+    t.float    "price"
+    t.integer  "partner_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "products", ["partner_id"], :name => "index_products_on_partner_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -166,11 +166,11 @@ ActiveRecord::Schema.define(:version => 20120714004515) do
   create_table "wishlists", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "user_id"
+    t.integer  "patient_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "wishlists", ["user_id"], :name => "index_wishlists_on_user_id"
+  add_index "wishlists", ["patient_id"], :name => "index_wishlists_on_user_id"
 
 end
