@@ -1,0 +1,4 @@
+<%= current_user.email %>
+<% unless current_user.patient? %>
+  <%= link_to t('label.create_patient'), new_patient_path %>
+<% end %>
