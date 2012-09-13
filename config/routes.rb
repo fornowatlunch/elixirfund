@@ -2,7 +2,11 @@ ElixirFund::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
-  devise_for :users, :path => :account, :skip => [:sessions]
+  devise_for :user, :controllers => {:registrations => 'registrations'}, :path => :account, :skip => [:sessions]
+
+  devise_scope :user do
+    get 'account', :to => 'registrations#show', :as => :account
+  end
 
   as :user do
     get   'login'  => 'devise/sessions#new',     :as => :new_user_session
@@ -12,7 +16,7 @@ ElixirFund::Application.routes.draw do
 
   root :to => "pages#show", :id => 'home'
 
-  resources :patients, :only => [:index, :show]
+  resources :patients, :only => [:index, :show, :new, :edit, :create, :update]
   resources :products, :only => [:index, :show]
   resource :cart, :only => [:show, :update]
 
