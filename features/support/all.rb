@@ -21,3 +21,9 @@ def route_path(path)
   end
 end
 
+def user_sign_in
+  visit new_user_session_path
+  fill_in 'Email', with: @visitor[:email]
+  fill_in 'Password', with: @visitor[:password]
+  click_button I18n.t('button.user.sign_in')
+end

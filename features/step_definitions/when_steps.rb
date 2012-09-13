@@ -22,36 +22,16 @@ When /^I login as a user(?: with an invalid (email|password))?$/ do |field|
   click_button I18n.t('button.user.sign_in')
 end
 
-When /^I see an? (.*) message$/ do |message|
-  msg = case message
-  when 'successful registration' then I18n.t('devise.registrations.signed_up')
-  when 'signed in' then I18n.t('devise.sessions.signed_in')
-  when 'signed out' then I18n.t('devise.sessions.signed_out')
-  when 'invalid login' then I18n.t('devise.failure.invalid')
-  when 'already authenticated' then I18n.t('devise.failure.already_authenticated')
-  when /(.*) not saved/ then I18n.t('errors.messages.not_saved.one', resource: $1)
-  when /(.*) cant be blank/ then "#{$1.titleize} #{I18n.t('errors.messages.blank')}"
-  when /(.*) is invalid/ then "#{$1.titleize} #{I18n.t('errors.messages.invalid')}"
-  when /(.*) confirmation/ then "#{$1.titleize} #{I18n.t('errors.messages.confirmation')}"
-  when /(.*) too short/ 
-    count = case $1
-    when 'password' then 8
-    end
-    "#{$1.titleize} #{I18n.t('errors.messages.too_short', count: count)}"
-  when /(.*) too long/
-    count = case $1
-    when 'password' then 32
-    end
-    "#{$1.titleize} #{I18n.t('errors.messages.too_long', count: count)}"
-  else
-    raise 'unknown message'
-  end
-
-  page.should have_content msg
-end
-
 When /^I visit the (.*) page$/ do |page|
   visit route_path(page)
+end
+
+When /^I visit my account$/ do
+  visit account_path
+end
+
+When /^I visit my patient page$/ do
+  visit patient_path(@user.patient)
 end
 
 When /^I click the (.*) link$/ do |text|
@@ -59,4 +39,18 @@ When /^I click the (.*) link$/ do |text|
   when 'sign out' then I18n.t('button.user.sign_out')
   end
   find_link(link).click
+end
+
+When /^I click the create patient profile button$/ do
+  find_link(I18n.t('label.create_patient')).click
+end
+
+When /^I fill in the patient form$/ do
+  patient = FactoryGirl.attributes_for(:patient)
+  fill_in "Name", with: patient[:name]
+  fill_in "City", with: patient[:city]
+  fill_in "State", with: patient[:state]
+  fill_in "Zip Code", with: patient[:zip_code]
+  fill_in "Phone", with: patient[:phone]
+  click_button "Create Patient"
 end

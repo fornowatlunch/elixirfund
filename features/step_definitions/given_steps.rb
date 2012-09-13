@@ -2,6 +2,12 @@ Given /^I am a visitor$/ do
   create_visitor
 end
 
+Given /^I am logged in as a user$/ do
+  create_visitor
+  create_user
+  user_sign_in
+end
+
 Given /^I exist as a user$/ do
   create_visitor
   create_user
