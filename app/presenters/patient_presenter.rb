@@ -1,21 +1,15 @@
 class PatientPresenter < BasePresenter
-  def name
-    @patient.profile.name
-  end
+  presents :patient
 
   def avatar
     "Unknown"
   end
 
   def location
-    "#{@patient.profile.city}, #{@patient.profile.state}"
-  end
-
-  def public_bio
-    @patient.profile.public_bio
+    "#{patient.city}, #{patient.state}"
   end
 
   def public_wishlist_items
-    @patient.wishlist.products
+    patient.wishlist.products
   end
 end
