@@ -1,9 +1,13 @@
 class BasePresenter
+  class << self
+    def presents(name)
+      define_method(name) { @object }
+    end
+  end
+
   def initialize(object, template)
     @name = object.class.name.underscore
     @object, @template = object, template
-
-    self.class.send(:define_method, @name) { @object }
   end
 
   def method_missing(method, *args)
