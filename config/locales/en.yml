@@ -16,7 +16,17 @@ en:
       resend_confirm: "Resend confirmation instructions"
       resend_unlock: "Resend unlock instructions"
   label:
+    cart: "Cart"
+    home: "Home"
     password_confirmation: "Confirm new password"
     new_password: "New password"
+    patient: "Patient"
+    patients: "Patients"
+    patient_created: "Patient profile created"
+    patient_updated: "Patient profile updated"
+    product: "Product"
+    products: "Products"
+    create_patient: "Create Patient Profile"
+    product: "Product"
   messages:
     no_products_available: "No products available"
