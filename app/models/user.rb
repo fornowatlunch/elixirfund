@@ -14,4 +14,8 @@ class User < ActiveRecord::Base
   def connected_to(user)
     connections.where(:to_user => user.id).any?
   end
+
+  def patient?
+    !patient.nil?
+  end
 end
