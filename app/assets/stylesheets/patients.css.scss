@@ -1,0 +1,27 @@
+ul.profile {
+  width: 100%;
+  min-height: 200px;
+  list-style: none;
+  border: 2px solid #ddd;
+  background-color: #efefef;
+  margin: 0 0 20px;
+  
+  li {
+    padding: 3px 6px;
+    font-size: 12px;
+    line-height: 14px;
+    &.name {
+      font-size: 14px;
+      font-weight: bold;
+    }
+    &.avatar {
+      height: 120px;
+      margin: 5px;
+      background-color: #bbb;
+      text-align: center;
+      line-height: 120px;
+      font-size: 10px;
+      color: #555;
+    }
+  }
+}
