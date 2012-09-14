@@ -1,0 +1,21 @@
+// Place all the styles related to global styles and utility classes here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+
+    padding-bottom: 40px;
+    background: #f3ecec url('http://www.elixirfund.org/wp-content/themes/ecobiz/images/pattern/flower-swirl9.png') repeat;
+}
+#main-content { padding-top: 80px; }
+.hero-unit { 
+  background:#fff;
+  height:400px;
+  padding:0 0 0 100px;
+  h1 { padding-top:60px; } 
+  img { 
+    height:100%;
+    float:right;
+    border-radius:6px;
+  }
+}

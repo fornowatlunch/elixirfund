@@ -16,7 +16,7 @@ end
 gem 'jquery-rails'
 gem 'activeadmin'
 gem 'devise'
-gem 'bootstrap-sass-rails'
+gem 'bootstrap-sass'
 gem 'unicorn'
 gem 'cancan'
 

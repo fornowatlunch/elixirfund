@@ -1,0 +1,29 @@
+// Include the Bootstraps
+@import "bootstrap";
+@import "bootstrap-responsive";
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+
+#main-content.container {padding-top:0;} 
+
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+ 
+#main-content.container {padding-top:0;} 
+
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+
+#main-content.container {padding-top:0;} 
+
+}
+
+/* Large desktop */
+@media (min-width: 1200px) { 
+
+}
