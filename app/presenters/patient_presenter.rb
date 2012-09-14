@@ -12,4 +12,7 @@ class PatientPresenter < BasePresenter
   def public_wishlist_items
     patient.wishlist.products
   end
+
+  def link_to
+  end
 end
