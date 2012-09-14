@@ -2,10 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@mixin border5 {
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border-radius:5px;
+}
 body {
-
-    padding-bottom: 40px;
-    background: #f3ecec url('http://www.elixirfund.org/wp-content/themes/ecobiz/images/pattern/flower-swirl9.png') repeat;
+  padding-bottom: 40px;
+  background: #f3ecec url('http://www.elixirfund.org/wp-content/themes/ecobiz/images/pattern/flower-swirl9.png') repeat;
 }
 #main-content { padding-top: 80px; }
 .hero-unit { 
@@ -16,7 +20,7 @@ body {
   img { 
     height:100%;
     float:right;
-    border-radius:6px;
+    @include border5;
   }
 }
 #nav-divider {
