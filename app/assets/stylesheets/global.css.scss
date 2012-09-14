@@ -24,17 +24,6 @@ body {
 }
 
 #main-content { padding-top: 80px; }
-.hero-unit { 
-  background:#fff;
-  height:400px;
-  padding:0 0 0 100px;
-  h1 { padding-top:60px; } 
-  img { 
-    height:100%;
-    float:right;
-    @include border5;
-  }
-}
 
 #nav-divider {
   padding:10px 0;

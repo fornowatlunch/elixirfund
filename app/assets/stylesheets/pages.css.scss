@@ -1,3 +1,37 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@mixin border5 {
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border-radius:5px;
+}
+
+.hero-unit { 
+  background:#fff;
+  height:300px;
+  padding:0 0 0 40px;
+  h1 { 
+    padding:30px 0 20px;
+    font-size:40px;
+   } 
+  img { 
+    width:450px;
+    height:300px;
+    float:right;
+    @include border5;
+  }
+  p { margin-bottom:20px; font-size:16px; }
+  a { 
+    text-transform:uppercase;
+    font-weight:bold;
+  }
+}
+
+#pitch-boxes .span4 {
+  @include border5;
+  background:#fff;
+  h2, p { padding:0 20px; }
+  a { text-decoration:none; }
+}
