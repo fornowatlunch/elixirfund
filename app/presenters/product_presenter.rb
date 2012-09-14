@@ -1,4 +1,6 @@
 class ProductPresenter < BasePresenter
+  presents :product
+
   def list_image
   end
 
