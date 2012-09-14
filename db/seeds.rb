@@ -4,7 +4,7 @@ puts "Removing existing data..."
 
 AdminUser.delete_all
 User.delete_all
-Profile.delete_all
+Patient.delete_all
 Connection.delete_all
 Partner.delete_all
 Product.delete_all
@@ -41,7 +41,7 @@ end
 
 puts "Creating User Profiles..."
 User.all.each do |user|
-  Profile.create!(
+  Patient.create!(
     :name => Faker::Name.name,
     :city => Faker::Address.city,
     :state => Faker::Address.state_abbr,
@@ -66,15 +66,6 @@ puts "Creating Partners..."
     :zip_code => Faker::Address.zip_code,
     :phone => Faker::PhoneNumber.phone_number,
     :fax => Faker::PhoneNumber.phone_number,
-  )
-end
-
-puts "Creating Wishlists..."
-User.all.each do |user|
-  Wishlist.create!(
-    :title => 'My Wishlist',
-    :description => Faker::Lorem.sentence(10),
-    :user => user,
   )
 end
 
