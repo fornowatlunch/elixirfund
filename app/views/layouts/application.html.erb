@@ -36,8 +36,7 @@
         <ul class="nav pull-right">  
           <li><%= link_to t('label.cart'), cart_path %></li> 
           <% if user_signed_in? %>
-            <li>Welcome, <%= current_user.email %>!</li>
-            <li><%= button_to t('label.logout'), destroy_user_session_path %></li>
+            <li><span>Welcome, <%= current_user.email %>!</span> <%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
           <% elsif not [new_user_session_path,new_user_registration_path].include?(request.fullpath) %>
             <li><%= link_to t('label.login'), new_user_session_path %></li>
             <li id="nav-divider">|</li>
