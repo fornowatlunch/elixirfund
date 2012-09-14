@@ -9,8 +9,20 @@
 }
 body {
   padding-bottom: 40px;
-  background: #f3ecec url('http://www.elixirfund.org/wp-content/themes/ecobiz/images/pattern/flower-swirl9.png') repeat;
+  background: #f3ecec url('bg-body.png') repeat;
 }
+
+.navbar {
+  a.brand {
+    padding: 2px 0 0 20px;
+    span {
+      display: block;
+      height: 0px;
+      text-indent: -9999px;
+    }
+  }
+}
+
 #main-content { padding-top: 80px; }
 .hero-unit { 
   background:#fff;
@@ -23,6 +35,7 @@ body {
     @include border5;
   }
 }
+
 #nav-divider {
   padding:10px 0;
 }
