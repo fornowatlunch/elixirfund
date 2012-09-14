@@ -1,29 +1,76 @@
 // Include the Bootstraps
+
 @import "bootstrap";
 @import "bootstrap-responsive";
 
-/* Landscape phones and down */
+
+// Customize Media Queries Here
+
+
+// Landscape phones and down
 @media (max-width: 480px) {
 
 #main-content.container {padding-top:0;} 
 
-}
+} /* Landscape phones and down */
 
-/* Landscape phone to portrait tablet */
+
+// Landscape phone to portrait tablet
 @media (max-width: 767px) {
  
 #main-content.container {padding-top:0;} 
-
+div.hero-unit { 
+  height:auto;
+  padding:20px;
+  text-align:center;
+  h1 { 
+    padding:10px 0;
+    font-size:30px;
+    } 
 }
 
-/* Portrait tablet to landscape and desktop */
+} /* Landscape phone to portrait tablet */
+
+
+// Portrait tablet to landscape and desktop
 @media (min-width: 768px) and (max-width: 979px) {
 
 #main-content.container {padding-top:0;} 
-
+div.hero-unit { 
+  height:200px;
+  padding:0 0 0 20px;
+  h1 { 
+    padding:20px 0 10px;
+    font-size:24px;
+    } 
+  p { font-size:14px; line-height:18px; margin-bottom:10px; }
+  img { 
+    width:300px;
+    height:200px;
+  }
 }
 
-/* Large desktop */
+} /* Portrait tablet to landscape and desktop */
+
+
+// Netbook Styling is Default
+
+
+// Large Desktop
 @media (min-width: 1200px) { 
 
+div.hero-unit { 
+  height:400px;
+  padding:0 0 0 80px;
+  h1 { 
+    padding:60px 0 30px;
+    font-size:44px;
+    } 
+  p { font-size:18px; }
+  img { 
+    width:601px;
+    height:400px;
+  }
 }
+
+} /* Large desktop */
