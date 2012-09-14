@@ -38,9 +38,9 @@
           <li>
             <a>          
               <% if user_signed_in? %>
-                <Welcome, Username!
+                Welcome, <%= current_user.email %>!
               <% elsif not [new_user_session_path,new_user_registration_path].include?(request.fullpath) %>
-                Login / Sign Up
+                <%= link_to t('label.login'), new_user_session_path %> / <%= link_to t('label.signup'), new_user_registration_path %>
               <% end %>
             </a>
           </li>

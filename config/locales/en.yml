@@ -28,5 +28,7 @@ en:
     products: "Products"
     create_patient: "Create Patient Profile"
     product: "Product"
+    login: "Login"
+    signup: "Sign Up"
   messages:
     no_products_available: "No products available"
