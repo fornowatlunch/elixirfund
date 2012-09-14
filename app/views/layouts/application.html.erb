@@ -37,6 +37,7 @@
           <li><%= link_to t('label.cart'), cart_path %></li> 
           <% if user_signed_in? %>
             <li>Welcome, <%= current_user.email %>!</li>
+            <li><%= button_to t('label.logout'), destroy_user_session_path %></li>
           <% elsif not [new_user_session_path,new_user_registration_path].include?(request.fullpath) %>
             <li><%= link_to t('label.login'), new_user_session_path %></li>
             <li id="nav-divider">|</li>
