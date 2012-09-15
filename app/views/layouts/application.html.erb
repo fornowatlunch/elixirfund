@@ -25,7 +25,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a class="brand" href="#"><span>Elixir Fund</span><%= image_tag "logo1.png", :width => '90', :height => '36'  %></a>
+      <a class="brand" href="/"><span>Elixir Fund</span><%= image_tag "logo1.png", :width => '90', :height => '36'  %></a>
       <div class="nav-collapse collapse">
         <ul class="nav">
           <li><%= link_to t('label.home'), root_path %></li>
@@ -57,21 +57,23 @@
 </div><!--container-->
 
 <footer>
-  <h3>About Us</h3>
-  <p>About us teaser text</p>
-  <%= link_to t('read_more'), pages_path('about') %>
+  <div class="container">
+    <h3>About Us</h3>
+    <p>About us teaser text</p>
+    <%= link_to t('read_more'), pages_path('about') %>
 
-  <h3>Success Stories</h3>
-  <p>Case study picture grid</p>
-  <%= link_to t('view_more'), pages_path('success') %>
+    <h3>Success Stories</h3>
+    <p>Case study picture grid</p>
+    <%= link_to t('view_more'), pages_path('success') %>
 
-  <nav>
-    <ul>
-      <li><%= link_to t('contact_us'), pages_path('contact') %></li>
-      <li><%= link_to t('terms'), pages_path('terms') %></li>
-      <li><%= link_to t('privacy_policy'), pages_path('privacy') %></li>
-    </ul>
-  </nav>
+    <nav>
+      <ul>
+        <li><%= link_to t('contact_us'), pages_path('contact') %></li>
+        <li><%= link_to t('terms'), pages_path('terms') %></li>
+        <li><%= link_to t('privacy_policy'), pages_path('privacy') %></li>
+      </ul>
+    </nav>
+  </div><!--container-->
 </footer>
 
 <script>

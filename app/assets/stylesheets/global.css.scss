@@ -8,7 +8,6 @@
   border-radius:5px;
 }
 body {
-  padding-bottom: 40px;
   background: #f3ecec url('bg-body.png') repeat;
 }
 
@@ -27,4 +26,12 @@ body {
 
 #nav-divider {
   padding:10px 0;
+}
+
+footer { 
+  height:300px;
+  padding:40px 0;
+  margin-top:40px;
+  background: #eee;
+  border-top:1px solid #fff;
 }
