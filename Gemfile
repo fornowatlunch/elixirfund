@@ -16,7 +16,7 @@ end
 gem 'jquery-rails'
 gem 'activeadmin'
 gem 'devise'
-gem 'bootstrap-sass-rails'
+gem 'bootstrap-sass'
 gem 'unicorn'
 gem 'cancan'
 
@@ -29,4 +29,9 @@ group :development do
   gem 'capistrano-ext'
   gem 'rvm-capistrano'
 end
+
+group :development, :staging do
+  gem 'faker'
+end
+
 

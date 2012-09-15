@@ -1,54 +1,63 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
 <head>
   <title>ElixirFund</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
-  <%= stylesheet_link_tag "/css/custom-theme/jquery-ui-1.8.22.custom.css" %>
   <%= javascript_include_tag "/js/jquery-1.7.2.min.js" %>
-  <%= javascript_include_tag "/js/jquery-ui-1.8.22.custom.min.js" %>
-  <script type="text/javascript">
-      $(function(){
-        $('.conditional').tabs();
-        $( ".button" ).button();
-      });
-  </script>
-  <style>
-    body { width:600px; margin:20px auto; font-family: Verdana,Arial,sans-serif; font-size: 1.1em; }
-    header, #main-content, footer { margin:20px; padding:20px; background:#ccc; }
-    ul { list-style:none; margin:0 0 20px; padding:0; }
-  </style>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
-  <header>
-    <h1>Elixir Fund</h1>
-    <nav>
-      <ul>
-        <li class="button"><%= link_to t('label.home'), root_path %></li>
-        <li class="button"><%= link_to t('label.patients'), patients_path %></li>
-        <li class="button"><%= link_to t('label.products'), products_path %></li>
-        <li class="button"><%= link_to t('label.cart'), cart_path %></li>
-      </ul>
-    </nav>
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+<![endif]-->
 
-    <section>
-      <% if user_signed_in? %>
-        <%= render 'shared/signed_in' %>
-      <% elsif not [new_user_session_path,new_user_registration_path].include?(request.fullpath) %>
-        <%= render 'shared/not_signed_in' %>
-      <% end %>
-    </section>
-  </header>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="/">Elixir Fund</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li><%= link_to t('label.home'), root_path %></li>
+          <li><%= link_to t('label.patients'), patients_path %></li>
+          <li><%= link_to t('label.products'), products_path %></li>
+          <li><a href="">About</a></li>
+        </ul>
+        <ul class="nav pull-right">  
+          <li><%= link_to t('label.cart'), cart_path %></li> 
+          <% if user_signed_in? %>
+            <li><span>Welcome, <%= current_user.email %>!</span> <%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+          <% elsif not [new_user_session_path,new_user_registration_path].include?(request.fullpath) %>
+            <li><%= link_to t('label.login'), new_user_session_path %></li>
+            <li id="nav-divider">|</li>
+            <li><%= link_to t('label.signup'), new_user_registration_path %></li>
+          <% end %>
+          </li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--container-->
+  </div><!--navbar-inner-->
+</div><!--navbar-fixed-top-->
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
-  <div id="main-content" role="main">
+<div id="main-content" class="container" role="main">
+  <p class="notice" style="display:none;"><%= notice %></p>
+  <p class="alert" style="display:none;"><%= alert %></p>
     <%= yield %>
-  </div>
+  </div><!--main-->
+</div><!--container-->
 
-  <footer>
+<footer>
+  <div class="container">
     <h3>About Us</h3>
     <p>About us teaser text</p>
     <%= link_to t('read_more'), pages_path('about') %>
@@ -64,6 +73,15 @@
         <li><%= link_to t('privacy_policy'), pages_path('privacy') %></li>
       </ul>
     </nav>
-  </footer>
+  </div><!--container-->
+</footer>
+
+<script>
+  var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
 </body>
 </html>

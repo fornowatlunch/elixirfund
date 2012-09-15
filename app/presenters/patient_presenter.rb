@@ -2,7 +2,12 @@ class PatientPresenter < BasePresenter
   presents :patient
 
   def avatar
-    "Unknown"
+    h.content_tag :div, "User Avatar", :class => "img"
+  end
+
+  def name
+    w = patient.name.split
+    w[0] + " " + w[w.length-1][0] + "."
   end
 
   def location
