@@ -1,4 +1,6 @@
 <%= current_user.email %>
-<% unless current_user.patient? %>
+<% if current_user.patient? %>
+  <%= link_to t('label.view_patient'), patient_path(current_user.patient) %>
+<% else %>
   <%= link_to t('label.create_patient'), new_patient_path %>
 <% end %>

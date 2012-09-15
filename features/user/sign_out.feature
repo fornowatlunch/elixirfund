@@ -12,4 +12,4 @@ Feature: User logout
     When I click the sign out link
     Then I am on the home page
       And I see a signed out message
-      And I see the login form
+      And I see a sign in link

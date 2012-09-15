@@ -21,6 +21,7 @@ end
 Then /^I see an? (.*) link$/ do |text|
   link = case text
   when 'sign out' then I18n.t('button.user.sign_out')
+  when 'sign in' then I18n.t('button.user.sign_in')
   end
   page.should have_content(link)
 end
@@ -50,7 +51,8 @@ Then /^I see the new patient form$/ do
 end
 
 Then /^I see my patient information$/ do
-  page.should have_content @user.patient.name
+  presenter = PatientPresenter.new(@user.patient, nil)
+  page.should have_content presenter.name
 end
 
 Then /^I see(?: an?)? (.*) message$/ do |message|
@@ -82,3 +84,6 @@ Then /^I see(?: an?)? (.*) message$/ do |message|
   page.should have_content msg
 end
 
+Then /^I see a link to my patient page$/ do
+  page.should have_link(I18n.t('label.view_patient'))
+end

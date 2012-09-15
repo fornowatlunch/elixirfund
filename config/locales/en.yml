@@ -5,9 +5,9 @@ en:
   hello: "Hello world"
   button:
     user:
-      sign_in: "Sign in"
+      sign_in: "Login"
       sign_up: "Sign up"
-      sign_out: "Sign out"
+      sign_out: "Logout"
       update: "Update"
       cancel: "Cancel my account"
       confirm: "Are you sure?"
@@ -27,9 +27,7 @@ en:
     product: "Product"
     products: "Products"
     create_patient: "Create Patient Profile"
+    view_patient: "View Patient Profile"
     product: "Product"
-    login: "Login"
-    logout: "Logout"
-    signup: "Sign Up"
   messages:
     no_products_available: "No products available"
