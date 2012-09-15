@@ -4,7 +4,7 @@ ssh_options[:username] = 'deployer'
 ssh_options[:forward_agent] = true
 
 set :application, "elixir-fund"
-set :repository,  "git@github.com:BZLabs/elixir-fund.git"
+set :repository,  "git@github.com:AktionLab/elixir-fund.git"
 set :scm, :git
 set :deploy_to, "/var/www/#{application}"
 set :rvm_ruby_string, '1.9.3-p0@elixir_fund'
