@@ -30,3 +30,8 @@ group :development do
   gem 'rvm-capistrano'
 end
 
+group :development, :staging do
+  gem 'faker'
+end
+
+
