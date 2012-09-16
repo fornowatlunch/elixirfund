@@ -29,5 +29,10 @@ en:
     create_patient: "Create Patient Profile"
     view_patient: "View Patient Profile"
     product: "Product"
+    view_product: "View Product"
+    view_wishlist: "Manage my Wishlist"
+    add_products: "Add Products"
+    no_products_in_wishlist: "You have no products in your wishlist."
+    add_to_wishlist: "Add to Wishlist"
   messages:
     no_products_available: "No products available"

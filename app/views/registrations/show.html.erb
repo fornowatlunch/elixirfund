@@ -1,6 +1,7 @@
 <%= current_user.email %>
 <% if current_user.patient? %>
   <%= link_to t('label.view_patient'), patient_path(current_user.patient) %>
+  <%= link_to t('label.view_wishlist'), account_wishlist_path %>
 <% else %>
   <%= link_to t('label.create_patient'), new_patient_path %>
 <% end %>

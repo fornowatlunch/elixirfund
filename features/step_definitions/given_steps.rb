@@ -30,6 +30,7 @@ Given /^I have a partner with (\d+) products$/ do |count|
   count.to_i.times { FactoryGirl.create(:product, :partner => partner) }
 end
 
-Given /^There are products$/ do
+Given /^there are products$/ do
   FactoryGirl.create_list(:product, 5)
 end
+

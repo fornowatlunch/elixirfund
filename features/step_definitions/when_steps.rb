@@ -58,3 +58,19 @@ end
 When /^I follow the link to my patient page$/ do
   find_link(I18n.t('label.view_patient')).click
 end
+
+When /^I follow the link to my wishlist$/ do
+  find_link(I18n.t('label.view_wishlist')).click
+end
+
+When /^I click the button to add a product$/ do
+  find_link(I18n.t('label.add_products')).click
+end
+
+When /^I add a product to my wishlist$/ do
+  @product = Product.first
+
+  within("ul#product_#{@product.id}") do
+    find_link(I18n.t('label.add_to_wishlist')).click
+  end
+end

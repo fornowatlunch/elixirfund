@@ -6,6 +6,14 @@ ElixirFund::Application.routes.draw do
 
   devise_scope :user do
     get 'account', :to => 'registrations#show', :as => :account
+
+    namespace :account do
+      resource :wishlist, :only => [:show] do
+        member do
+          post :add_product
+        end
+      end
+    end
   end
 
   as :user do
