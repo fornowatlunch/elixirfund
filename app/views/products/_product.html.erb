@@ -1,11 +1,12 @@
 <% present product do |p| %>
-  <ul id="<%= dom_id product %>" class="span4 product">
-    <li class="title"><%= p.title %></li>
-    <li class="list_image"><%= p.list_image %></li>
-    <li class="company"><%= p.company %></li>
-    <li class="product"><%= p.link_to %></li>
+  <ul id="<%= dom_id product %>" class="span8 product">
+    <li class="product-list-image"><%= p.list_image %></li>
+    <li class="product-title"><h2><%= p.title %></h2></li>
+    <li class="product-company"><%= p.company %></li>
+    <li class="product-add"><%= p.description %></li>
+    <li class="product-link"><%= p.link_to %></li>
     <% if user_signed_in? and current_user.patient? %>
-      <li class="add_to_wishlist"><%= p.add_to_wishlist %></li>
+      <li class="add-to-wishlist"><%= p.add_to_wishlist%></li>
     <% end %>
   </ul>
 <% end %>
