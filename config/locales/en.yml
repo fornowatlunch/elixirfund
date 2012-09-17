@@ -13,6 +13,7 @@ en:
       confirm: "Are you sure?"
       change_password: "Change my password"
       send_password_reset: "Send me reset password instructions"
+      start_giving: "Start Giving &hearts;"
       resend_confirm: "Resend confirmation instructions"
       resend_unlock: "Resend unlock instructions"
   label:
