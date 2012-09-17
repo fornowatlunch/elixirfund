@@ -74,3 +74,11 @@ When /^I add a product to my wishlist$/ do
     find_link(I18n.t('label.add_to_wishlist')).click
   end
 end
+
+When /^I click the button to remove the product from my wishlist$/ do
+  product = @user.patient.wishlist.products.first
+  
+  within("tr#product_#{product.id}") do
+    find_link(I18n.t('label.remove_product_from_wishlist')).click
+  end
+end

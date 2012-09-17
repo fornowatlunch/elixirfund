@@ -107,3 +107,7 @@ end
 Then /^there are no products in my wishlist$/ do
   page.should have_content(I18n.t('label.no_products_in_wishlist'))
 end
+
+Then /^there is a button to remove the product from my wishlist$/ do
+  page.should have_link I18n.t('label.remove_product_from_wishlist')
+end

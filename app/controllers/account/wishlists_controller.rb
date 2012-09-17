@@ -11,5 +11,12 @@ module Account
 
       redirect_to account_wishlist_path
     end
+
+    def remove_product
+      @wishlist = current_user.patient.wishlist
+      @wishlist.products -= Product.where(id: params[:product_id])
+
+      redirect_to account_wishlist_path
+    end
   end
 end

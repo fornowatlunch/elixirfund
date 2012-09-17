@@ -11,6 +11,7 @@ ElixirFund::Application.routes.draw do
       resource :wishlist, :only => [:show] do
         member do
           post :add_product
+          delete :remove_product
         end
       end
     end

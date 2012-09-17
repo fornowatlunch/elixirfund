@@ -3,7 +3,11 @@
 <%= link_to t('label.add_products'), products_path %>
 
 <% if @wishlist.products.any? %>
-  <ul id="wishlist"><%= render :partial => 'account/wishlists/product', :collection => @wishlist.products %></ul>
+  <table id="wishlist">
+    <tbody>
+      <%= render :partial => 'account/wishlists/product', :collection => @wishlist.products %>
+    </tbody>
+  </table>
 <% else %>
   <span class="empty"><%= t('label.no_products_in_wishlist') %></span>
 <% end %>

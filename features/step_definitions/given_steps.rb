@@ -34,3 +34,6 @@ Given /^there are products$/ do
   FactoryGirl.create_list(:product, 5)
 end
 
+Given /^I have a product in my wishlist$/ do
+  @user.patient.wishlist.products << Product.first
+end
