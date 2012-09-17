@@ -19,5 +19,6 @@ class PatientPresenter < BasePresenter
   end
 
   def link_to
+    h.link_to name, h.patient_path(patient) 
   end
 end
