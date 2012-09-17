@@ -10,7 +10,16 @@
 // Landscape phones and down
 @media (max-width: 480px) {
 
-#main-content.container {padding-top:0;} 
+#main-content {
+  &.container { padding-top:0; } 
+  ul.product {
+    margin-bottom:10px;
+    min-height:240px;
+    li.product-list-image {
+      width:120px;
+    }
+  }
+}
 
 } /* Landscape phones and down */
 
@@ -20,6 +29,13 @@
  
 #main-content {
   &.container {padding-top:0;} 
+  ul.product {
+    margin-bottom:10px;
+    min-height:240px;
+    li.product-list-image {
+      width:120px;
+    }
+  }
   .hero-unit { 
     height:auto;
     padding:20px;
@@ -38,7 +54,13 @@
 // Portrait tablet to landscape and desktop
 @media (min-width: 768px) and (max-width: 979px) {
 
-#main-content.container {padding-top:0;} 
+#main-content {
+  &.container { padding-top:0; } 
+  ul.product li.product-list-image {
+    width:120px;
+  }
+}
+
 div.hero-unit { 
   height:200px;
   padding:0 0 0 20px;
