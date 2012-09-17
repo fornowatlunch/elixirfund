@@ -23,6 +23,21 @@ body {
   }
 }
 
+.box {
+  @include border5;
+  background-color: #fff;
+  padding: 20px;
+}
+
+div.row {
+  form {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+    }
+  }
+}
+
 #main-content { padding-top: 80px; }
 
 #nav-divider {

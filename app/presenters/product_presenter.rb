@@ -8,6 +8,10 @@ class ProductPresenter < BasePresenter
     product.partner.name
   end
 
+  def company_link_to
+    h.link_to self.company, h.partner_path(product.partner)
+  end
+
   def link_to
     h.link_to I18n.t('label.view_product'), h.product_path(product)
   end
