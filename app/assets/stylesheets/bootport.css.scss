@@ -18,15 +18,18 @@
 // Landscape phone to portrait tablet
 @media (max-width: 767px) {
  
-#main-content.container {padding-top:0;} 
-div.hero-unit { 
-  height:auto;
-  padding:20px;
-  text-align:center;
-  h1 { 
-    padding:10px 0;
-    font-size:30px;
-    } 
+#main-content {
+  &.container {padding-top:0;} 
+  .hero-unit { 
+    height:auto;
+    padding:20px;
+    text-align:center;
+    h1 { 
+      padding:10px 0;
+      font-size:30px;
+      text-align:center;
+    }
+  } 
 }
 
 } /* Landscape phone to portrait tablet */
@@ -41,7 +44,7 @@ div.hero-unit {
   padding:0 0 0 20px;
   h1 { 
     padding:20px 0 10px;
-    font-size:24px;
+    font-size:30px;
     } 
   p { font-size:14px; line-height:18px; margin-bottom:10px; }
   img { 
@@ -78,6 +81,11 @@ ul.profile {
 }
 .row ul.product {
   margin-bottom:30px;
+}
+.container { 
+  h1 {
+    margin-bottom:30px;
+  }
 }
 
 } /* Large desktop */

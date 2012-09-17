@@ -1,11 +1,19 @@
 <h1>Elixir Fund Gifts</h1>
-<% if @products.any? %>
-  <div class="row">
-    <%= render :partial => 'products/product', :collection => @products %>
-  </div><!--row-->
-<% else %>
-  <%= I18n.t('messages.no_products_available') %>
-<% end %>
-<h2>Product Finder</h2>
-<%= render 'search' %>
+
+<div class="row">
+  <div class="span8">
+    <% if @products.any? %>
+    <div class="row">
+      <%= render :partial => 'products/product', :collection => @products %>
+    </div><!--row-->
+    <% else %>
+      <%= I18n.t('messages.no_products_available') %>
+    <% end %>
+  </div><!--span8-->
+  <div class="span4">
+    <h2>Product Finder</h2>
+    <%= render 'search' %>
+  </div><!--span4-->
+</div><!--row-->
+
 <!-- Insert Kaminari Pagination -->
