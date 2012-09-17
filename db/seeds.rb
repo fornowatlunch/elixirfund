@@ -54,7 +54,7 @@ User.all.each do |user|
 end
 
 puts "Creating Partners..."
-25.times do |n|
+50.times do |n|
   Partner.create!(
     :name => Faker::Company.bs,
     :description => Faker::Lorem.paragraph,
@@ -70,7 +70,7 @@ puts "Creating Partners..."
 end
 
 puts "Creating Products..."
-100.times do |n|
+60.times do |n|
   Product.create!(
     :title => Faker::Company.bs,
     :description => Faker::Lorem.paragraph,
