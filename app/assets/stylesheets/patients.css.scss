@@ -1,9 +1,17 @@
+a.patient {
+  text-decoration: none;
+}
+
 ul.profile {
   list-style: none;
   background-color: #fff;
   margin: 0 0 20px;
   padding: 0px;
   border-radius: 4px; 
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 0 8px #bbb;
+  }
   li {
     padding: 0 12px 10px 12px;
     font-size: 12px;
@@ -25,6 +33,9 @@ ul.profile {
         font-size: 10px;
         color: #555;
       }
+    }
+    a {
+      text-decoration: none;
     }
   }
 }

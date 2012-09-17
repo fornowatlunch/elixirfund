@@ -1,10 +1,11 @@
 <% present(patient, PatientPresenter) do |patient_presenter| %>
   <div class="span2">
-    <ul class="profile">
-      <li class="avatar"><%= patient_presenter.avatar %></li>
-      <li class="name"><%= patient_presenter.name %></li>
-      <li class="location"><%= patient_presenter.location %></li>
-      <li class="profile"><%= patient_presenter.link_to %></li>
-    </ul>
+    <%= link_to patient_path(patient), :class => 'patient' do %>
+      <ul class="profile">
+        <li class="avatar"><%= patient_presenter.avatar %></li>
+        <li class="name"><%= patient_presenter.link_to %></li>
+        <li class="location"><%= patient_presenter.location %></li>
+      </ul>
+    <% end %>
   </div>
 <% end %>

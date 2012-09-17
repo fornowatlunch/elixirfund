@@ -7,8 +7,33 @@
   -webkit-border-radius:5px;
   border-radius:5px;
 }
+
+.clear {
+  clear: both;
+}
+
 body {
+  font-family: "lemonde-courrier", serif;
   background: #f3ecec url('bg-body.png') repeat;
+}
+
+h1 { 
+  @include border5;
+  background:#fff;
+  text-align:center;
+  line-height:80px;
+  font-size:48px;
+  margin-bottom:30px;
+  font-weight: 400;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+h1,h2,h3,h4,h5 {
+  color:#002f57;
+  text-transform:capitalize;
 }
 
 .navbar {
@@ -23,7 +48,22 @@ body {
   }
 }
 
-#main-content { padding-top: 80px; }
+.box {
+  @include border5;
+  background-color: #fff;
+  padding: 20px;
+}
+
+div.row {
+  form {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+    }
+  }
+}
+
+#main-content { padding-top: 60px; }
 
 #nav-divider {
   padding:10px 0;

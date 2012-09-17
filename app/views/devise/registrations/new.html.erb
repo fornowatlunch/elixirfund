@@ -1,18 +1,33 @@
-<h2>Sign up</h2>
+<div class="row">
+  <div class="span8 hidden-phone">
+    <div class="box">
+      <h1>Start giving today!</h1>
+      <p><div style="float:right;width:300px;height:200px;background:#ccc;margin-left: 20px;"></div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at venenatis nibh. Vestibulum elementum, leo pharetra vulputate tempor, nulla tortor ullamcorper nunc, et aliquet diam felis et purus. Proin quis tempus dui. Proin consequat turpis at ipsum sagittis non posuere mi mattis.</p>
+      <div style="clear:both;"></div>
+    </div>
+  </div>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <div class="span4">
+    <div class="box">
+    <h2>Sign up</h2>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+      <div><%= f.label :email %>
+      <%= f.email_field :email %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+      <div><%= f.label :password %>
+      <%= f.password_field :password %></div>
 
-  <div><%= f.submit t('button.user.sign_up') %></div>
-<% end %>
+      <div><%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %></div>
 
-<%= render "devise/shared/links" %>
+      <div><%= f.submit t('button.user.sign_up') %></div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+    </div>
+    </div>
+
+</div>

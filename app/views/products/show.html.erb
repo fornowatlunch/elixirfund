@@ -1,11 +1,20 @@
-<h2><%= @product.title %> by <%= @product.company_name %></h2>
+<div class="row">
+  <div class="span12">
+    <div class="box">
 
-<%= render 'gallery' %>
+      <% present(@product, ProductPresenter) do |product_presenter| %>
+        <h2><%= @product.title %> by <%= product_presenter.company %></h2>
 
-<h3><%= @product.title %></h3>
-<p><%= @company.link_to %></p>
+        <%= render 'gallery' %>
 
-<p><%= @product.description %></p>
+        <h3><%= @product.title %></h3>
+        <p><%= product_presenter.company_link_to %></p>
 
-<h3>People Who Need <%= @product.title %></h3>
-<%= render :partial => 'products/patient', :collection => @patients %>
+        <p><%= @product.description %></p>
+
+        <h3>People Who Need <%= @product.title %></h3>
+        <%= render :partial => 'products/patient', :collection => @patients %>
+      <% end %>
+    </div>
+  </div>
+</div>

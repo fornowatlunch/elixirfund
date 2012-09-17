@@ -25,6 +25,7 @@ ElixirFund::Application.routes.draw do
 
   root :to => "pages#show", :id => 'home'
 
+  resources :partners, :only => [:index, :show]
   resources :patients, :only => [:index, :show, :new, :edit, :create, :update]
   resources :products, :only => [:index, :show]
   resource :cart, :only => [:show, :update]
