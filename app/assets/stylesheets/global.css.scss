@@ -13,10 +13,8 @@
 }
 
 body {
+  font-family: "lemonde-courrier", serif;
   background: #f3ecec url('bg-body.png') repeat;
-  h1 {
-    margin-bottom: 30px;
-  }
 }
 
 h1 { 
@@ -25,7 +23,12 @@ h1 {
   text-align:center;
   line-height:80px;
   font-size:48px;
-  margin-bottom:20px;
+  margin-bottom:30px;
+  font-weight: 400;
+}
+
+h2 {
+  font-weight: 400;
 }
 
 h1,h2,h3,h4,h5 {
