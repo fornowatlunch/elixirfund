@@ -35,5 +35,9 @@ en:
     add_products: "Add Products"
     no_products_in_wishlist: "You have no products in your wishlist."
     add_to_wishlist: "Add to Wishlist"
+    contact_name: "Contact"
+    contact_email: "Email"
+    phone: "Phone"
+    fax: "Fax"
   messages:
     no_products_available: "No products available"
