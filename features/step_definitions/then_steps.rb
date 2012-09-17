@@ -14,13 +14,22 @@ Then /^I am on my account page$/ do
   URI.parse(current_url).path.should == account_path
 end
 
+Then /^I am on my wishlist page$/ do
+  URI.parse(current_url).path.should == account_wishlist_path
+end
+
 Then /^I am on my patient page$/ do
   URI.parse(current_url).path.should == patient_path(@user.patient)
+end
+
+Then /^I see the product I selected$/ do
+  page.should have_content(@product.title)
 end
 
 Then /^I see an? (.*) link$/ do |text|
   link = case text
   when 'sign out' then I18n.t('button.user.sign_out')
+  when 'sign in' then I18n.t('button.user.sign_in')
   end
   page.should have_content(link)
 end
@@ -50,7 +59,8 @@ Then /^I see the new patient form$/ do
 end
 
 Then /^I see my patient information$/ do
-  page.should have_content @user.patient.name
+  presenter = PatientPresenter.new(@user.patient, nil)
+  page.should have_content presenter.name
 end
 
 Then /^I see(?: an?)? (.*) message$/ do |message|
@@ -82,3 +92,18 @@ Then /^I see(?: an?)? (.*) message$/ do |message|
   page.should have_content msg
 end
 
+Then /^I see a link to my patient page$/ do
+  page.should have_link(I18n.t('label.view_patient'))
+end
+
+Then /^there is a link to my wishlist$/ do
+  page.should have_link(I18n.t('label.view_wishlist'))
+end
+
+Then /^there is a link to add products$/ do
+  page.should have_link(I18n.t('label.add_products'))
+end
+
+Then /^there are no products in my wishlist$/ do
+  page.should have_content(I18n.t('label.no_products_in_wishlist'))
+end

@@ -17,8 +17,8 @@ When /^I register(?: with(?: an?)? (.*))?$/ do |error_type|
 end
 
 When /^I login as a user(?: with an invalid (email|password))?$/ do |field|
-  fill_in 'Email', with: field == 'email' ? 'invalid@example.com' : @visitor[:email]
-  fill_in 'Password', with: field == 'password' ? 'invalidpass' : @visitor[:password]
+  fill_in 'user_email', with: field == 'email' ? 'invalid@example.com' : @visitor[:email]
+  fill_in 'user_password', with: field == 'password' ? 'invalidpass' : @visitor[:password]
   click_button I18n.t('button.user.sign_in')
 end
 
@@ -53,4 +53,24 @@ When /^I fill in the patient form$/ do
   fill_in "Zip Code", with: patient[:zip_code]
   fill_in "Phone", with: patient[:phone]
   click_button "Create Patient"
+end
+
+When /^I follow the link to my patient page$/ do
+  find_link(I18n.t('label.view_patient')).click
+end
+
+When /^I follow the link to my wishlist$/ do
+  find_link(I18n.t('label.view_wishlist')).click
+end
+
+When /^I click the button to add a product$/ do
+  find_link(I18n.t('label.add_products')).click
+end
+
+When /^I add a product to my wishlist$/ do
+  @product = Product.first
+
+  within("ul#product_#{@product.id}") do
+    find_link(I18n.t('label.add_to_wishlist')).click
+  end
 end
