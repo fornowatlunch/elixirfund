@@ -1,1 +1,9 @@
-[Partner Page]
+<div class="row">
+  <div class="span12">
+    <div class="box">
+      <% present(@partner, PartnerPresenter) do |partner_presenter| %>
+        <%= render :partial => 'partner', :locals => {:partner_presenter => partner_presenter} %>
+      <% end %>
+    </div>
+  </div>
+</div>

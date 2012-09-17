@@ -7,8 +7,16 @@
   -webkit-border-radius:5px;
   border-radius:5px;
 }
+
+.clear {
+  clear: both;
+}
+
 body {
   background: #f3ecec url('bg-body.png') repeat;
+  h1 {
+    margin-bottom: 30px;
+  }
 }
 
 h1 { 
