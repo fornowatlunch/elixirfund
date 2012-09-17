@@ -1,9 +1,11 @@
-<h2>Product Finder</h2>
-<%= render 'search' %>
-<h3>Product Grid</h3>
+<h1>Elixir Fund Gifts</h1>
 <% if @products.any? %>
-  <%= render :partial => 'products/product', :collection => @products %>
+  <div class="row">
+    <%= render :partial => 'products/product', :collection => @products %>
+  </div><!--row-->
 <% else %>
   <%= I18n.t('messages.no_products_available') %>
 <% end %>
+<h2>Product Finder</h2>
+<%= render 'search' %>
 <!-- Insert Kaminari Pagination -->
