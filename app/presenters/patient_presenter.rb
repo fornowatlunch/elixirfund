@@ -7,7 +7,7 @@ class PatientPresenter < BasePresenter
 
   def name
     w = patient.name.split
-    w[0] + " " + w[w.length-1][0] + "."
+    w[0] + " " + w[w.length-1][0]
   end
 
   def location
