@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120911153827) do
+ActiveRecord::Schema.define(:version => 20120919201205) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -55,6 +55,20 @@ ActiveRecord::Schema.define(:version => 20120911153827) do
   end
 
   add_index "connections", ["user_id"], :name => "index_connections_on_user_id"
+
+  create_table "invitations", :force => true do |t|
+    t.string   "token"
+    t.string   "to"
+    t.string   "subject"
+    t.text     "message"
+    t.integer  "invitor_id"
+    t.integer  "invitee_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "invitations", ["invitee_id"], :name => "index_invitations_on_invitee_id"
+  add_index "invitations", ["invitor_id"], :name => "index_invitations_on_invitor_id"
 
   create_table "line_items", :force => true do |t|
     t.integer  "order_id"
