@@ -65,6 +65,7 @@ end
 
 Then /^I see(?: an?)? (.*) message$/ do |message|
   msg = case message
+  when 'invitation sent' then I18n.t('flash.create_invitation')
   when 'successful registration' then I18n.t('devise.registrations.signed_up')
   when 'signed in' then I18n.t('devise.sessions.signed_in')
   when 'signed out' then I18n.t('devise.sessions.signed_out')
@@ -110,4 +111,12 @@ end
 
 Then /^there is a button to remove the product from my wishlist$/ do
   page.should have_link I18n.t('label.remove_product_from_wishlist')
+end
+
+Then /^there is a link to send an invitation$/ do
+  page.should have_link I18n.t('label.send_invitation')
+end
+
+Then /^the invitee should receive an email$/ do
+  unread_emails_for('invitee@example.com').size.should == 1
 end

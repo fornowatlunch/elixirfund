@@ -41,5 +41,8 @@ en:
     contact_email: "Email"
     phone: "Phone"
     fax: "Fax"
+    send_invitation: "Send Invitation"
   messages:
     no_products_available: "No products available"
+  flash:
+    create_invitation: "Invitation sent sucessfully!"

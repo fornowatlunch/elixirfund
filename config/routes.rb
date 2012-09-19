@@ -29,6 +29,7 @@ ElixirFund::Application.routes.draw do
   resources :patients, :only => [:index, :show, :new, :edit, :create, :update]
   resources :products, :only => [:index, :show]
   resource :cart, :only => [:show, :update]
+  resources :invitations, :only => [:new, :create]
 
   get '/:id', :to => 'pages#show', :as => :pages
 end

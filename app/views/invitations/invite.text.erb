@@ -1,0 +1,6 @@
+You have been invited to join the Elixir Fund site by <%= @invitor.email %>.
+
+To accept this invitation click the link below.
+
+<%= new_user_registration_url(:token => @invitation.token) %>
+
