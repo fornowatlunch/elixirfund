@@ -11,6 +11,7 @@ ElixirFund::Application.routes.draw do
       resource :wishlist, :only => [:show] do
         member do
           post :add_product
+          delete :remove_product
         end
       end
     end
@@ -28,6 +29,7 @@ ElixirFund::Application.routes.draw do
   resources :patients, :only => [:index, :show, :new, :edit, :create, :update]
   resources :products, :only => [:index, :show]
   resource :cart, :only => [:show, :update]
+  resources :invitations, :only => [:new, :create]
 
   get '/:id', :to => 'pages#show', :as => :pages
 end

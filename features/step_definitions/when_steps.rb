@@ -74,3 +74,24 @@ When /^I add a product to my wishlist$/ do
     find_link(I18n.t('label.add_to_wishlist')).click
   end
 end
+
+When /^I click the button to remove the product from my wishlist$/ do
+  product = @user.patient.wishlist.products.first
+  
+  within("tr#product_#{product.id}") do
+    find_link(I18n.t('label.remove_product_from_wishlist')).click
+  end
+end
+
+When /^I follow the send invitation link$/ do
+  find_link(I18n.t('label.send_invitation')).click
+end
+
+When /^I send an email invitation$/ do
+  within('form#new_invitation') do
+    fill_in 'invitation_to', with: 'invitee@example.com'
+    fill_in 'invitation_subject', with: 'Subject'
+    fill_in 'invitation_message', with: 'Message'
+    click_button I18n.t('label.send_invitation')
+  end
+end

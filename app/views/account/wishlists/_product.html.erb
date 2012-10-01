@@ -1,1 +1,7 @@
-<li><%= product.title %></li>
+<tr id="<%= dom_id product %>">
+  <td class="title"><%= product.title %></td>
+  <td class="remove actions">
+    <%= link_to t('label.remove_product_from_wishlist'), remove_product_account_wishlist_path(:product_id => product.id), :method => :delete %>
+  </td>
+</tr>
+

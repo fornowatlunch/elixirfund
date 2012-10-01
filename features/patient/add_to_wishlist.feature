@@ -27,6 +27,7 @@ Feature: Manage my wishlist
     Then I am on my wishlist page
     And I see the product I selected
 
+  @javascript
   Scenario: Remove an item to my wishlist
     Given I am logged in as a patient
     And there are products
@@ -35,4 +36,6 @@ Feature: Manage my wishlist
     And I follow the link to my wishlist
     Then there is a button to remove the product from my wishlist
     When I click the button to remove the product from my wishlist
-    Then there are no products in my wishlist
+    Then I am on my wishlist page
+    And there are no products in my wishlist
+
