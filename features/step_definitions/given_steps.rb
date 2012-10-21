@@ -37,3 +37,10 @@ end
 Given /^I have a product in my wishlist$/ do
   @user.patient.wishlist.products << Product.first
 end
+
+Given /^I visit a patient profile$/ do
+  # find the patient based on the first product
+  patient = Patient.find(Wishlist.find(WishlistProduct.first.wishlist_id).patient_id)
+  visit patient_path
+end
+

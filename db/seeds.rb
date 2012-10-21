@@ -98,4 +98,15 @@ User.all.each do |u|
   end
 end
 
+puts "Creating Wishlist for fifth user"
+users = User.limit(5)
+u = users[4]
+w = Wishlist.new()
+w.patient_id = u.id
+w.save!
+wp = WishlistProduct.new()
+wp.wishlist_id = w.id
+wp.product_id = Product.first.id
+wp.save!
+
 puts "DONE!"
