@@ -22,7 +22,7 @@ gem 'cancan'
 
 group :test, :development do
   gem 'aktion_test_rails'
-  gem 'capybara-webkit'
+#  gem 'capybara-webkit'
 end
 
 group :development do
