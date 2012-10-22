@@ -1,13 +1,14 @@
 class CartsController < ApplicationController
 	def show
-		@item_tuples = user_session[:cart_items]
+		cart_items = user_session[:cart_items]
 		@items = []
-		product_ids = []
-		@item_tuples.each do |item_tuple|
-			product_ids << item_tuple[1]
-		end
-		if product_ids
-			@items = Product.find(product_ids)
+		@message = ""
+		if cart_items
+			cart_items.each do |item_tuple|
+				@items << [item_tuple[0], Product.find(item_tuple[1])]
+			end
+		else
+			@message = 'You have no objects in your cart'
 		end
 	end
 
@@ -20,7 +21,9 @@ class CartsController < ApplicationController
 	end
 
 	def remove
-		removeable_id = params[:item_id]
-		user_session[:items].delete("product_#{removeable_id}")
+		product_id = params[:product_id]
+		patient_id = params[:patient_id]
+		user_session[:cart_items].delete([patient_id.to_i, product_id.to_i])
+		redirect_to cart_path
 	end
 end

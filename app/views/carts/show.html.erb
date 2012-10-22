@@ -1,15 +1,9 @@
 Begin Items -----------------------------
+<% @items.each do |item| %>
 <br>
-<%= @items %>
+<%= item.inspect %>
+<%= link_to "Remove from cart", remove_from_cart_path(patient_id: item[0], product_id: item[1].id), method: :put %>
 <br>
+<% end %>
+<%= @message %>
 End Items --------------------------------
-<br>
-Begin Session Data -----------------------------
-<br>
-<%= @item_tuples.inspect %>
-<br>
-End Session Data --------------------------------
-<br><br><br><br>
-<%= user_session.inspect %>
-<br><br><br><br>
-<%= session.inspect %>
