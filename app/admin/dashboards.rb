@@ -12,7 +12,7 @@ ActiveAdmin::Dashboards.build do
 
   section "Recent Registrations" do
     table_for User.last(5).collect do |user|
-      user.column("Name") { |u| link_to(u.profile.name, admin_user_path(u)) }
+      user.column("Name") { |u| link_to(u.patient.name, admin_user_path(u)) }
       user.column("Email") { |u| u.email }
     end
   end
