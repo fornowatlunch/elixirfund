@@ -28,8 +28,12 @@ ElixirFund::Application.routes.draw do
   resources :partners, :only => [:index, :show]
   resources :patients, :only => [:index, :show, :new, :edit, :create, :update]
   resources :products, :only => [:index, :show]
-  resource :cart, :only => [:show, :update]
+  resource :cart, :only => [:show, :add]
   resources :invitations, :only => [:new, :create]
+
+  get "/cart",        to: 'carts#show',     as: :cart
+  put "/cart/add",    to: 'carts#add',      as: :add_to_cart
+  put "/cart/remove", to: 'carts#remove',   as: :remove_from_cart
 
   get '/:id', :to => 'pages#show', :as => :pages
 end

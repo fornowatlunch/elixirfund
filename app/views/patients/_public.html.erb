@@ -6,4 +6,4 @@
 <p><%= patient_presenter.public_bio %></p>
 
 <h3><%= patient_presenter.name %>'s Public Wishlist</h3>
-<%= render :partial => 'wishlist_item', :collection => patient_presenter.public_wishlist_items %>
+<%= render :partial => 'wishlist_item', collection: patient_presenter.public_wishlist_items, as: :wishlist_item, locals: {patient_id: params[:id]} %>

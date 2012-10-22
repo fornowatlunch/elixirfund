@@ -1,1 +1,5 @@
-<p>Wishlist Item <a href="cart.html">Add to Cart</a></p>
+<p>
+	Wishlist Item  
+	<%= link_to "Add to cart", add_to_cart_path(product_id: wishlist_item.id, patient_id: patient_id), method: :put %>
+</p>
+<%= wishlist_item.inspect %>
