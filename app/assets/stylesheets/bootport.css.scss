@@ -9,10 +9,17 @@
 @import "products";
 
 // Customize Media Queries Here
-
+@mixin media-one-column {
+  footer {
+    margin: 20px -20px 0;
+    padding: 20px;
+  }
+}
 
 // Landscape phones and down
 @media (max-width: 480px) {
+
+@include media-one-column; 
 
 #main-content {
   &.container { padding-top:0; } 
@@ -28,6 +35,8 @@
 
 // Landscape phone to portrait tablet
 @media (max-width: 767px) {
+
+@include media-one-column; 
  
 #main-content {
   &.container {padding-top:0;} 
