@@ -19,6 +19,7 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem 'unicorn'
 gem 'cancan'
+gem 'activemerchant'
 
 group :test, :development do
   gem 'aktion_test_rails'
