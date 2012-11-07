@@ -45,4 +45,12 @@ ElixirFund::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+    ::GATEWAY = ActiveMerchant::Billing::AuthorizeNetGateway.new(
+      :login => "42fU6mGT",
+      :password => "3K6798cNqV4DPart",
+    )
+  end
 end

@@ -1,0 +1,23 @@
+<%= form_for @billing_info, :url => checkout_process_payment_path(@billing_info) do |bi| %>
+  <h2><%= t('label.card_info') %></h2>
+  
+  <%= bi.label t('label.card_first_name') %>
+  <%= bi.text_field :first_name %>
+  
+  <%= bi.label t('label.card_last_name') %>
+  <%= bi.text_field :last_name %>
+ 
+  <%= bi.label t('label.card_number') %>
+  <%= bi.text_field :card_number %>
+
+  <%= bi.label t('label.card_exp_month') %>
+  <%= bi.text_field :exp_month %>
+ 
+  <%= bi.label t('label.card_exp_year') %>
+  <%= bi.text_field :exp_year %>
+
+  <%= bi.label t('label.card_cvv') %>
+  <%= bi.text_field :cvv %>
+
+  <%= submit_tag("Submit Payment") %>
+<% end %>

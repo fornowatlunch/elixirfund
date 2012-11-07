@@ -30,6 +30,10 @@ ElixirFund::Application.routes.draw do
   resources :products, :only => [:index, :show]
   resource :cart, :only => [:show, :add]
   resources :invitations, :only => [:new, :create]
+  
+  get '/checkout/billing_info', to: 'checkout#billing_info' 
+  post '/checkout/process_payment', to: 'checkout#process_payment'
+  get '/checkout/success', to: 'checkout#success'
 
   get "/cart",        to: 'carts#show',     as: :cart
   put "/cart/add",    to: 'carts#add',      as: :add_to_cart

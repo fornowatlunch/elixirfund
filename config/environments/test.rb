@@ -35,4 +35,12 @@ ElixirFund::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+    ::GATEWAY = ActiveMerchant::Billing::AuthorizeNetGateway.new(
+      :login => "42fU6mGT",
+      :password => "3K6798cNqV4DPart",
+    )
+  end
 end
