@@ -30,6 +30,10 @@ ElixirFund::Application.routes.draw do
   resources :products, :only => [:index, :show]
   resource :cart, :only => [:show, :update]
   resources :invitations, :only => [:new, :create]
+  
+  get '/checkout/billing_info', to: 'checkout#billing_info' 
+  post '/checkout/process_payment', to: 'checkout#process_payment'
+  get '/checkout/success', to: 'checkout#success'
 
   get '/:id', :to => 'pages#show', :as => :pages
 end

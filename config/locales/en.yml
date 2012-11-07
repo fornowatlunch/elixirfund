@@ -42,6 +42,14 @@ en:
     phone: "Phone"
     fax: "Fax"
     send_invitation: "Send Invitation"
+    billing_address: "Billing Address"
+    card_info: "Payment Information"
+    card_first_name: "First Name"
+    card_last_name: "Last Name"
+    card_number: "Card number"
+    card_exp_month: "Exp. Month"
+    card_exp_year: "Exp. Year"
+    card_cvv: "CVV"
   messages:
     no_products_available: "No products available"
   flash:
