@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
 	def show
-		cart_items = user_session[:cart_items]
+		cart_items = session[:cart_items]
 		@items = []
 		@message = ""
 		if cart_items
@@ -16,14 +16,17 @@ class CartsController < ApplicationController
 		product_id = params[:product_id]
 		patient_id = params[:patient_id]
 		tuple = [patient_id.to_i, product_id.to_i].freeze
-		user_session[:cart_items] = user_session[:cart_items].add(tuple)
+		unless session[:cart_items]
+			session[:cart_items] = Set.new
+		end
+		session[:cart_items] = session[:cart_items].add(tuple)
 		redirect_to :back
 	end
 
 	def remove
 		product_id = params[:product_id]
 		patient_id = params[:patient_id]
-		user_session[:cart_items].delete([patient_id.to_i, product_id.to_i])
+		session[:cart_items].delete([patient_id.to_i, product_id.to_i])
 		redirect_to cart_path
 	end
 end
