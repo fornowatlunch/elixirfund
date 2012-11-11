@@ -8,7 +8,7 @@ class CartsController < ApplicationController
 				@items << [item_tuple[0], Product.find(item_tuple[1])]
 			end
 		else
-			@message = 'You have no objects in your cart'
+			@message = 'You have no items in your cart'
 		end
 	end
 
@@ -27,6 +27,6 @@ class CartsController < ApplicationController
 		product_id = params[:product_id]
 		patient_id = params[:patient_id]
 		session[:cart_items].delete([patient_id.to_i, product_id.to_i])
-		redirect_to cart_path
+		redirect_to :back
 	end
 end
