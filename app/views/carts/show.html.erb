@@ -1,9 +1,13 @@
-Begin Items -----------------------------
 <% @items.each do |item| %>
 <br>
-<%= item.inspect %>
+Title: <%= item[1].title %>
+<br>
+Description: <%= item[1].description %>
 <%= link_to "Remove from cart", remove_from_cart_path(patient_id: item[0], product_id: item[1].id), method: :put %>
+<br>
+<em>Debugging( <%= item.inspect %> )</em>
+<br>
+<br>
 <br>
 <% end %>
 <%= @message %>
-End Items --------------------------------
