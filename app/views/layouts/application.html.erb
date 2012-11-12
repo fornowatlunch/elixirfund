@@ -34,7 +34,7 @@
           <li><%= link_to t('label.home'), root_path %></li>
           <li><%= link_to t('label.patients'), patients_path %></li>
           <li><%= link_to t('label.products'), products_path %></li>
-          <li><a href="">About</a></li>
+          <li><%= link_to t('label.about'), pages_path('about') %></li>
         </ul>
         <ul class="nav pull-right">  
           <li><%= link_to t('label.cart'), cart_path %></li> 
@@ -62,21 +62,79 @@
 
 <footer>
   <div class="container">
-    <h3>About Us</h3>
-    <p>About us teaser text</p>
-    <%= link_to t('read_more'), pages_path('about') %>
+    <div class="span3">
+      <h3>About Us</h3>
+      <p>The Elixir Fund is inspired by Kevin McQuarrie and his unique, life-affirming approach to cancer treatment.</p>
+      <%= link_to t('read_more'), pages_path('about') %>
 
-    <h3>Success Stories</h3>
-    <p>Case study picture grid</p>
-    <%= link_to t('view_more'), pages_path('success') %>
+      <h3>Success Stories</h3>
+      <p>Case study picture grid</p>
+      <%= link_to t('view_more'), pages_path('success') %>
 
-    <nav>
-      <ul>
-        <li><%= link_to t('contact_us'), pages_path('contact') %></li>
-        <li><%= link_to t('terms'), pages_path('terms') %></li>
-        <li><%= link_to t('privacy_policy'), pages_path('privacy') %></li>
-      </ul>
-    </nav>
+      <nav>
+        <ul>
+          <li><%= link_to t('contact_us'), pages_path('contact') %></li>
+          <li><%= link_to t('terms'), pages_path('terms') %></li>
+          <li><%= link_to t('privacy_policy'), pages_path('privacy') %></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="span3">
+      <h3>Like Us on Facebook</h3>
+      <script src="http://connect.facebook.net/en_US/all.js#appId=135039393238513&amp;xfbml=1"></script>
+      <fb:like href="http://www.elixirfund.org/" send="true" layout="button_count" width="300" show_faces="true" font="arial" fb-xfbml-state="rendered" class="fb_edge_widget_with_comment fb_iframe_widget">
+        <span style="height: 20px; width: 131px;">
+          <iframe id="f18deb7584" name="f2ce57d738" scrolling="no" style="border: none; overflow: hidden; height: 20px; width: 131px;" title="Like this content on Facebook." class="fb_ltr" src="http://www.facebook.com/plugins/like.php?api_key=&amp;locale=en_US&amp;sdk=joey&amp;channel_url=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D17%23cb%3Df3c299744%26origin%3Dhttp%253A%252F%252Fwww.elixirfund.org%252Ff267cfddd8%26domain%3Dwww.elixirfund.org%26relation%3Dparent.parent&amp;href=http%3A%2F%2Fwww.elixirfund.org%2F&amp;node_type=link&amp;width=300&amp;font=arial&amp;layout=button_count&amp;colorscheme=light&amp;show_faces=false&amp;send=true&amp;extended_social_context=false"></iframe>
+        </span>
+      </fb:like>
+
+      <div class="social-icons">
+        <h3>Stay Connected</h3>
+          <a href="http://www.facebook.com/pages/Elixir-Fund/131127170043"  class="fb" rel="nofollow" target="_blank" title="Follow Us on Facebook"></a>
+          <a href="http://twitter.com/elixirfund" class="tw" rel="nofollow" target="_blank" title="Follow Us on Twitter"></a>
+          <a href="http://www.youtube.com/user/elixirfund" class="yt" rel="nofollow" target="_blank" title="Follow Us on YouTube"></a>
+          <a href="mailto:contact@elixirfund.org" class="em" rel="nofollow" target="_blank" title="Follow Us on E-mail"></a>
+        </div>
+    </div>
+
+    <div class="span3">
+
+    </div>
+
+    <div class="span3">
+      <script src="http://widgets.twimg.com/j/2/widget.js"></script>
+      <script>
+        new TWTR.Widget({
+          version: 2,
+          type: 'profile',
+          rpp: 2,
+          interval: 6000,
+          width: 'auto',
+          height: 230,
+          theme: {
+            shell: {
+              background: '#ffffff',
+              color: '#666666'
+            },
+            tweets: {
+              background: '#ffffff',
+              color: '#666666',
+              links: '#00487f'
+            }
+          },
+          features: {
+            scrollbar: true,
+            loop: false,
+            live: true,
+            hashtags: true,
+            timestamp: true,
+            avatars: false,
+            behavior: 'all'
+          }
+        }).render().setUser('elixirfund').start();
+      </script>
+    </div>
   </div><!--container-->
 </footer>
 
