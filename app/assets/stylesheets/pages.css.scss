@@ -50,9 +50,9 @@
   @include transition-ease;
   background-image: url('/assets/social-icons.png');
   &.fb { background-position: 0px 0px; }
-  &.tw { background-position: 32px 0px; }
+  &.em { background-position: 32px 0px; }
+  &.tw { background-position: 96px 0px; }
   &.yt { background-position: 64px 0px; }
-  &.em { background-position: 96px 0px; }
   &:hover {
     opacity: 1.0;
     filter: alpha(opacity=100);

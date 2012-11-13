@@ -2,7 +2,7 @@
     <img class="hidden-phone" src="/assets/istock-2women.jpg" alt="Cancer Patients" />
     <h1>Welcome To Elixir Fund</h1>
     <p>Elixir Fund is dedicated to improving the comfort and care of cancer patients and their caregivers. Our programs are designed to help you live a full and rich life during treatment and beyond. If you or a loved one has cancer, we can help.</p>
-    <p><a class="btn btn-info btn-large">Learn more</a> <%= link_to t('button.user.start_giving').html_safe, new_user_registration_path, :class => "btn btn-primary btn-large" %></p>
+    <p><%= link_to t('label.learn_more'), pages_path('about'), :class => "btn btn-info btn-large"%> <%= link_to t('button.user.start_giving').html_safe, new_user_registration_path, :class => "btn btn-primary btn-large" %></p>
 </div><!--hero-unit-->
 
 <div id="pitch-boxes" class="row">
