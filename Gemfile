@@ -20,6 +20,7 @@ gem 'bootstrap-sass'
 gem 'unicorn'
 gem 'cancan'
 gem 'activemerchant'
+gem 'dynamic_sitemaps'
 
 group :test, :development do
   gem 'aktion_test_rails'

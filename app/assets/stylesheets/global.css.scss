@@ -69,6 +69,12 @@ div.row {
       @include box-sizing;
       height: 30px;
     }
+    input[type="submit"] {
+      margin-top: 20px;
+    }
+    label {
+      display: inline;
+    }
   }
 }
 
