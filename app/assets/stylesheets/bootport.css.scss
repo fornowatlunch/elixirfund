@@ -30,6 +30,11 @@
   }
 }
 
+#pitch-boxes .span4, #pitch-boxes .span3 {
+  height: auto;
+  margin-bottom: 30px;
+}
+
 } /* Landscape phones and down */
 
 
@@ -57,6 +62,11 @@
   } 
 }
 
+#pitch-boxes .span4, #pitch-boxes .span3 {
+  height: auto;
+  margin-bottom: 30px;
+}
+
 } /* Landscape phone to portrait tablet */
 
 
@@ -71,7 +81,7 @@
 }
 
 div.hero-unit { 
-  height:200px;
+  height:210px;
   padding:0 0 0 20px;
   h1 { 
     padding:20px 0 10px;
@@ -79,9 +89,15 @@ div.hero-unit {
     } 
   p { font-size:14px; line-height:18px; margin-bottom:10px; }
   img { 
-    width:300px;
-    height:200px;
+    width:auto;
+    height:210px;
+    margin-left: 2em;
   }
+}
+
+#pitch-boxes .span4, #pitch-boxes .span3 {
+  height: auto;
+  margin-bottom:15px;
 }
 
 } /* Portrait tablet to landscape and desktop */
@@ -102,7 +118,7 @@ div.hero-unit {
     } 
   p { font-size:18px; }
   img { 
-    width:601px;
+    width:auto;
     height:400px;
   }
 }

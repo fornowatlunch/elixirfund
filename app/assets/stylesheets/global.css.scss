@@ -85,9 +85,18 @@ div.row {
 }
 
 footer { 
-  height:300px;
-  padding:40px 0;
+  height:auto;
+  padding:20px 0;
   margin-top:40px;
   background: #eee;
   border-top:1px solid #fff;
+  .logo {
+    width: 88px;
+    height: 88px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -60px;
+    background-image: url("logo1.png");
+    background-position: 0px 0px;
+  }
 }
