@@ -11,14 +11,14 @@
   <div class="row details">
     <div class="span6">
       <div class="box">
-        <h2>By: <%= product_presenter.company_link_to %></h2>
+        <h2 class="company"><%= product_presenter.company_link_to %></h2>
 
         <p><%= @product.description %></p>
 
         <p>
           <%= link_to t('label.back_to_products'), products_path, :class => "btn btn-info" %>
           <% if user_signed_in? and current_user.patient? %>
-            <%= link_to t('label.add_to_wishlist'), add_product_account_wishlist_path, :class => "btn btn-primary" %>
+            <%= link_to product_presenter.add_to_wishlist, :class => "btn btn-primary" %>
           <% end %>
         </p>
 

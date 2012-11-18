@@ -1,4 +1,24 @@
 <% present product do |p| %>
+  <div class="media">
+    <div class="box">
+      <div class="media-object pull-left">
+        <% p.image %>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><%= p.title %></h4>
+        <p>By: <%= p.company_link_to %></p>
+        <p>
+          <%= p.link_to %>
+          <% if user_signed_in? and current_user.patient? %>
+            <% p.add_to_wishlist %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<!--<% present product do |p| %>
   <ul id="<%= dom_id product %>" class="span9 product">
     <li class="product-list-image"><%= p.list_image %></li>
     <li class="product-title"><h2><%= p.title %></h2></li>
@@ -9,4 +29,4 @@
       <li class="add-to-wishlist"><%= p.add_to_wishlist %></li>
     <% end %>
   </ul>
-<% end %>
+<% end %>-->
