@@ -1,9 +1,35 @@
-<h2><%= patient_presenter.name %>'s Public Profile</h2>
-<p><%= patient_presenter.avatar %></p>
+<div class="row patient">
+  <div class="span12">
+    <div class="box gutter">
+      <div class="patient-avatar">
+        <% if patient_presenter.avatar == nil %>
+          <img src="/assets/ghost.png" alt="No image provided"/>
+        <% else %>
+          <%= patient_presenter.avatar %>
+        <% end %>
+      </div>
+      
+      <h2><%= patient_presenter.name %>'s Public Profile</h2>
+      <p class="lead">
+        <%= patient_presenter.location %>
+      </p>
+      <p><%= patient_presenter.public_bio %></p>
+    </div>
+  </div>
+</div>
 
-<h3><%= patient_presenter.name %></h3>
-<p><%= patient_presenter.location %></p>
-<p><%= patient_presenter.public_bio %></p>
+<div class="row patient">
+  <div class="span2">
+    <div class="links">
+      <%= link_to t('label.back_to_patients'), patients_path, :class => "btn btn-primary" %>
+    </div>
+  </div>
 
-<h3><%= patient_presenter.name %>'s Public Wishlist</h3>
-<%= render :partial => 'wishlist_item', collection: patient_presenter.public_wishlist_items, as: :wishlist_item, locals: {patient_id: params[:id]} %>
+  <div class="span10">
+    <div class="box">
+      <h3><%= patient_presenter.name %>'s Public Wishlist</h3>
+        <%= render :partial => 'wishlist_item', collection: patient_presenter.public_wishlist_items, as: :wishlist_item, locals: {patient_id: params[:id]} %>
+    </div>
+  </div>
+</div>
+

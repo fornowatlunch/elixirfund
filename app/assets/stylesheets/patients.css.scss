@@ -39,3 +39,19 @@ ul.profile {
     }
   }
 }
+
+.patient {
+  .box { min-height: 200px; }
+  .links { text-align: center; }
+  .patient-avatar {
+    width: 200px;
+    height: 200px;
+    float: right;
+    background-image: url('/assets/home-caregiver-support.jpg');
+    background-position: 84px 84px;
+    background-repeat: no-repeat;
+    img {
+      width: 100%;
+    }
+  }
+}
