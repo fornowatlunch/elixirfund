@@ -1,13 +1,15 @@
-<h2>Your Wishlist</h2>
+<div class="box">
+  <h2>My Wishlist</h2>
 
-<%= link_to t('label.add_products'), products_path %>
+  <div class="row">
+    <div class="span2"><%= link_to t('label.add_products'), products_path, :class => "btn btn-primary" %></div>
 
-<% if @wishlist.products.any? %>
-  <table id="wishlist">
-    <tbody>
-      <%= render :partial => 'account/wishlists/product', :collection => @wishlist.products %>
-    </tbody>
-  </table>
-<% else %>
-  <span class="empty"><%= t('label.no_products_in_wishlist') %></span>
-<% end %>
+    <div class="span9" id="wishlist">
+      <% if @wishlist.products.any? %>
+        <%= render :partial => 'account/wishlists/product', :collection => @wishlist.products %>
+      <% else %>
+        <span class="empty"><%= t('label.no_products_in_wishlist') %></span>
+      <% end %>
+    </div>
+  </div>
+</div>

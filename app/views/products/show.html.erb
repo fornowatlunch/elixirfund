@@ -16,8 +16,10 @@
         <p><%= @product.description %></p>
 
         <p>
-          <%= link_to t('Back To Products'), products_path, :class => "btn btn-info" %>
-          <a href="#" class="btn btn-primary">Add to Wish List</a>
+          <%= link_to t('label.back_to_products'), products_path, :class => "btn btn-info" %>
+          <% if user_signed_in? and current_user.patient? %>
+            <%= link_to t('label.add_to_wishlist'), add_product_account_wishlist_path, :class => "btn btn-primary" %>
+          <% end %>
         </p>
 
       </div>

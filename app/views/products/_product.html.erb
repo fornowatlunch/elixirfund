@@ -6,7 +6,7 @@
     <li class="product-add"><%= p.description %></li>
     <li class="product-link"><%= p.link_to %></li>
     <% if user_signed_in? and current_user.patient? %>
-      <li class="add-to-wishlist"><%= p.add_to_wishlist%></li>
+      <li class="add-to-wishlist"><%= p.add_to_wishlist %></li>
     <% end %>
   </ul>
 <% end %>
