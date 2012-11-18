@@ -1,6 +1,15 @@
-You have been invited to join the Elixir Fund site by <%= @invitor.email %>.
-
-To accept this invitation click the link below.
-
-<%= new_user_registration_url(:token => @invitation.token) %>
-
+<table width="100%">
+  <tr>
+    <td width="100%" align="center">
+      <img src="http://www.elixirfund.org/wp-content/uploads/2011/06/logo1.png" alt="elixir Fund Logo" width="100%"/>
+      <table width="75%">
+        <tr>
+          <td>
+            <p>You have been invited to join the Elixir Fund site by <%= @invitor.email %>.<br/>To accept this invitation click the link below.</p>
+            <p><%= new_user_registration_url(:token => @invitation.token) %></p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

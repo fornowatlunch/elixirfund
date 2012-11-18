@@ -65,10 +65,12 @@ div.row {
     input[type="text"],
     input[type="email"],
     input[type="password"],
-    input[type="submit"] {
+    input[type="submit"], 
+    textarea {
       @include box-sizing;
       height: 30px;
     }
+    textarea { height: 120px; }
     input[type="submit"] {
       margin-top: 20px;
     }
