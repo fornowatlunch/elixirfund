@@ -1,13 +1,20 @@
+<div class="box gutter">
+  <h2>My Cart</h2>
+</div>
+
 <% @items.each do |item| %>
-<br>
-Title: <%= item[1].title %>
-<br>
-Description: <%= item[1].description %>
-<%= link_to "Remove from cart", remove_from_cart_path(patient_id: item[0], product_id: item[1].id), method: :put %>
-<br>
-<em>Debugging( <%= item.inspect %> )</em>
-<br>
-<br>
-<br>
+  <div class="media">
+    <div class="box">
+      <div class="media-object pull-left">
+        <% item[1].image %>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><%= item[1].title %></h4>
+        <p>
+          <%= link_to t('label.view_product'), item[1], :class => "btn btn-info" %>
+          <%= link_to "Remove from cart", remove_from_cart_path(patient_id: item[0], product_id: item[1].id), method: :put, :class => "btn btn-danger" %>
+        </p>
+      </div>
+    </div>
+  </div>    
 <% end %>
-<%= @message %>
