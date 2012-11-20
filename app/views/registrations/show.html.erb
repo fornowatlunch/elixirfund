@@ -1,8 +1,12 @@
-<%= current_user.email %>
-<% if current_user.patient? %>
-  <%= link_to t('label.view_patient'), patient_path(current_user.patient) %>
-  <%= link_to t('label.view_wishlist'), account_wishlist_path %>
-  <%= link_to t('label.send_invitation'), new_invitation_path %>
-<% else %>
-  <%= link_to t('label.create_patient'), new_patient_path %>
-<% end %>
+<div class="box">
+  <h2>Welcome <%= current_user.email %></h2>
+  <p>
+    <% if current_user.patient? %>
+      <%= link_to t('label.view_patient'), patient_path(current_user.patient), :class => "btn btn-info" %>
+      <%= link_to t('label.view_wishlist'), account_wishlist_path, :class => "btn btn-success" %>
+      <%= link_to t('label.send_invitation'), new_invitation_path, :class => "btn btn-primary" %>
+    <% else %>
+      <%= link_to t('label.create_patient'), new_patient_path, :class => "btn btn-primary" %>
+    <% end %>
+  </p>
+</div>

@@ -40,6 +40,11 @@
           <li><%= link_to t('label.cart'), cart_path %></li> 
           <% if user_signed_in? %>
             <li><%= link_to t('user.my_account'), account_path %></li>
+            <% if current_user.patient? %>
+              <li>
+                <%= link_to t('label.my_wishlist'), account_wishlist_path %>
+              </li>
+            <% end %>
             <li><%= link_to t('button.user.sign_out'), destroy_user_session_path, :method => :delete %></li>
           <% elsif not [new_user_session_path,new_user_registration_path].include?(request.fullpath) %>
             <li><%= link_to t('button.user.sign_in'), new_user_session_path %></li>
