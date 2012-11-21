@@ -66,6 +66,8 @@ div.row {
     input[type="email"],
     input[type="password"],
     input[type="submit"], 
+    input[type="number"],
+    input[type="tel"],
     textarea {
       @include box-sizing;
       height: 30px;
