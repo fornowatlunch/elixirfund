@@ -14,27 +14,29 @@
 }
 
 body {
-  font-family: "lemonde-courrier", serif;
+  /*font-family: "lemonde-courrier", serif;*/
+  font-family: 'Titillium Web', sans-serif;
   background: #f3ecec url('bg-body.png') repeat;
+}
+
+h1,h2,h3,h4,h5 {
+  color:#002f57;
+  text-transform:capitalize;
+  font-family: 'Stoke', serif;
 }
 
 h1 { 
   @include border-radius(5px);
   background:#fff;
   text-align:center;
-  line-height:80px;
-  font-size:48px;
+  line-height:70px;
+  font-size:38px;
   margin-bottom:30px;
   font-weight: 400;
 }
 
 h2 {
   font-weight: 400;
-}
-
-h1,h2,h3,h4,h5 {
-  color:#002f57;
-  text-transform:capitalize;
 }
 
 .navbar {

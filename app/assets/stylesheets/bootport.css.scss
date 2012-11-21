@@ -7,6 +7,8 @@
 @import "partners";
 @import "patients";
 @import "products";
+@import url("http://fonts.googleapis.com/css?family=Titillium+Web:400,700,700italic,400italic"); // Main Font
+@import url("http://fonts.googleapis.com/css?family=Stoke:400,300"); // Complement Font
 
 // Customize Media Queries Here
 @mixin media-one-column {
@@ -114,7 +116,7 @@ div.hero-unit {
   padding:0 0 0 80px;
   h1 { 
     padding:60px 0 30px;
-    font-size:44px;
+    font-size:38px;
     } 
   p { font-size:18px; }
   img { 
