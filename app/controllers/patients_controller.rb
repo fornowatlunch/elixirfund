@@ -23,7 +23,7 @@ class PatientsController < ApplicationController
   end
 
   def update
-    if @patient.update_attribuptes params[:patient]
+    if @patient.update_attributes params[:patient]
       redirect_to patient_path(@patient), :notice => t('label.patient_updated')
     else
       render :edit

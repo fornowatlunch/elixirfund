@@ -7,7 +7,7 @@
         <%= devise_error_messages! %>
 
         <div><%= f.label :email %><br />
-        <%= f.email_field :email %></div>
+        <%= f.email_field :email, :autofocus => "autofocus" %></div>
 
         <div><%= f.submit t('button.user.send_password_reset'), :class => "btn btn-primary" %></div>
       <% end %>
