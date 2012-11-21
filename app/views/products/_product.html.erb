@@ -9,8 +9,8 @@
         <p>By: <%= p.company_link_to %></p>
         <p>
           <%= p.link_to %>
-          <% if user_signed_in? and not current_user.patient? %>
-            <% p.add_to_wishlist %>
+          <% if user_signed_in? and current_user.patient? %>
+            <%= p.add_to_wishlist %>
           <% end %>
         </p>
       </div>

@@ -4,7 +4,7 @@
     var $sidebar   = $("#find"), 
         $window    = $(window),
         offset     = $sidebar.offset(),
-        topPadding = 70;
+        topPadding = 30;
 
     $window.scroll(function() {
         if ($window.scrollTop() > offset.top) {
@@ -24,6 +24,13 @@
 <h1>Elixir Fund Gifts</h1>
 
 <div class="row">
+  <div class="span3 visible-phone gutter">
+    <div class="box">
+      <h4><%= t('label.find_a_product') %></h4>
+      <%= render 'search' %>
+    </div><!--box-->
+  </div><!--span3-->
+
   <div class="span9">
     <% if @products.any? %>
       <%= render :partial => 'products/product', :collection => @products %>
@@ -31,12 +38,13 @@
       <%= I18n.t('messages.no_products_available') %>
     <% end %>
   </div><!--span9-->
-  <div class="span3" id="find">
+  <div class="span3 hidden-phone" id="find">
     <div class="box">
-      <h2><%= t('label.find_a_product') %></h2>
+      <h4><%= t('label.find_a_product') %></h4>
       <%= render 'search' %>
     </div><!--box-->
   </div><!--span3-->
+
 </div><!--row-->
 
 <!-- Insert Kaminari Pagination -->

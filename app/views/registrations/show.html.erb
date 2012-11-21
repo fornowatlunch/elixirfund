@@ -1,12 +1,17 @@
 <div class="box">
   <h2>Welcome <%= current_user.email %></h2>
-  <p>
-    <% if current_user.patient? %>
+  <% if current_user.patient? %>
+    <p>
       <%= link_to t('label.view_patient'), patient_path(current_user.patient), :class => "btn btn-info" %>
+      <%= link_to t('label.edit_patient'), edit_patient_path(current_user.patient), :class => "btn btn-warning" %>
       <%= link_to t('label.view_wishlist'), account_wishlist_path, :class => "btn btn-success" %>
       <%= link_to t('label.send_invitation'), new_invitation_path, :class => "btn btn-primary" %>
-    <% else %>
+    </p>
+  <% else %>
+    <p>If you're a patient, or a cargiver, you can create a patient profile and start creating a wishlist.</p>
+    <p>
       <%= link_to t('label.create_patient'), new_patient_path, :class => "btn btn-primary" %>
-    <% end %>
-  </p>
+    </p>
+  
+  <% end %>
 </div>
