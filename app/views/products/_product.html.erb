@@ -6,7 +6,11 @@
       </div>
       <div class="media-body">
         <h4 class="media-heading"><%= p.title %></h4>
-        <p>By: <%= p.company_link_to %></p>
+        <p>
+          <% if !p.price.nil? %>
+            <span class="label label-success">$<%= p.price %></span>
+          <% end %> 
+          By: <%= p.company_link_to %></p>
         <p>
           <%= p.link_to %>
           <% if user_signed_in? and current_user.patient? %>

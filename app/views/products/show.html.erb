@@ -4,6 +4,8 @@
       <div class="box">
         <h1><%= @product.title %></h1>
         <%= render 'gallery' %>
+
+        <pre><%= @product.inspect %></pre>
       </div>
     </div>
   </div>
@@ -13,7 +15,7 @@
       <div class="box">
         <h2 class="company"><%= product_presenter.company_link_to %></h2>
         <% if !@product.price.nil? %>
-          <p class="text-success">$<%= @product.price %></p>
+          <p><span class="label label-success">$<%= @product.price %></span></p>
         <% end %>
         <p><%= @product.description %></p>
 
@@ -31,6 +33,7 @@
       <div class="box">
         <h2 class="people">People Who Need This</h2>
         <%= render :partial => 'products/patient', :collection => @patients %>
+        <%= @patients.inspect %>
       </div>
     </div><!--span6-->
   </div>
