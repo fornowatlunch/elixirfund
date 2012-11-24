@@ -62,22 +62,3 @@ ul.product {
   .company { background-image: url("/assets/home-caregiver-support.jpg"); }
   .btn { margin-bottom: -10px; }
 }
-
-.media {
-  margin-bottom: 30px;
-  .media-object {
-    width: 100px;
-    height: 100px;
-    margin: 5px;
-    background-image: url("logo1.png");
-    background-position: 0px 0px;
-    background-size: auto 102px;
-    img {
-      width: inherit;
-      height: inherit;
-    }
-  }
-  .media-body {
-    height: 100px;
-  }
-}
