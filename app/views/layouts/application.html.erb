@@ -59,9 +59,20 @@
 </div><!--navbar-fixed-top-->
 
 <div id="main-content" class="container" role="main">
-  <p class="notice" style="display:none;"><%= notice %></p>
-  <p class="alert" style="display:none;"><%= alert %></p>
-    <%= yield %>
+  <% if !notice.nil? %>
+    <div class="alert alert-success fade in">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <strong>Success:</strong> <%= notice %>
+    </div>
+  <% end %>
+  <% if !alert.nil? %>
+    <div class="alert alert-error fade in">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <strong>Error:</strong> <%= alert %>
+    </div>
+  <% end %>
+
+  <%= yield %>
   </div><!--main-->
 </div><!--container-->
 

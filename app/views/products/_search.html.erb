@@ -1,6 +1,6 @@
-<%= form_for(@products, :as => :products, :url => products_path, :method => "get") do |f| %>
-    <%= f.text_field :search %>
-    <%= f.submit "Search", :class => "btn" %>
+<%= form_for(@products, :url => products_path, :method => "get") do |f| %>
+  <%= f.text_field :search %>
+  <%= f.submit "Search", :class => "btn" %>
 <% end %>
 
 <form>
