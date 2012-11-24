@@ -1,5 +1,10 @@
 <div class="box gutter">
   <h2>My Cart</h2>
+
+  <% if @items.size <= 0 %>
+    <p class="lead">You don't have any items in your cart!</p>
+    <p><%= link_to "Find Patients in Need", patients_path, :class => "btn btn-primary" %></p>
+  <% end %>
 </div>
 
 <% @items.each do |item| %>
