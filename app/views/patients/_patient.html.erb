@@ -11,6 +11,7 @@
 
   <div class="media hidden-desktop">
     <div class="box">
+      <%= link_to patient_path(patient), :class => 'patient' do %>
       <div class="media-object pull-left">
         <%= patient_presenter.avatar %>
       </div>
@@ -18,7 +19,7 @@
         <h4 class="media-heading"><%= patient_presenter.link_to %> <%= patient_presenter.location %></h4>
         <p><%= patient_presenter.public_bio %></p>
       </div>
+      <% end %>
     </div>
-  </div>
   </div>
 <% end %>
