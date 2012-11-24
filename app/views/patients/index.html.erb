@@ -1,8 +1,12 @@
 <h1>Patient Community</h1>
+
+<%= paginate @patients %>
+
 <%= render 'search' %>
 <% @patients.in_groups_of(6, false).each do |patients| %>
   <div class="row">
     <%= render :partial => 'patients/patient', :collection => patients %>
   </div>
 <% end %>
-<!-- Insert Kaminari Pagination -->
+
+<%= paginate @patients %>

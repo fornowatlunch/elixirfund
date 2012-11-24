@@ -108,7 +108,20 @@ div.row {
   }
 }
 
-.text-error { color: #B94A48; }
+.pagination {
+  @include border-radius(5px);
+  margin: 0px auto 30px;
+  padding: 5px;
+  display: block;
+  text-align: center;
+  background-color: white;
+  span { 
+    @include border-radius(5px);
+    border: none; 
+    display: block;
+  }
+  a { border:none; }
+}
 
 footer { 
   height:auto;

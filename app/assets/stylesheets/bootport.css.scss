@@ -32,6 +32,13 @@
   }
 }
 
+.pagination { 
+  a {
+    padding: 1px 6px;
+    font-size: 10px;
+  }
+}
+
 #pitch-boxes .span4, #pitch-boxes .span3 {
   height: auto;
   margin-bottom: 30px;
@@ -64,6 +71,13 @@
   } 
 }
 
+.pagination { 
+  a {
+    padding: 1px 6px;
+    font-size: 10px;
+  }
+}
+
 #pitch-boxes .span4, #pitch-boxes .span3 {
   height: auto;
   margin-bottom: 30px;
@@ -94,6 +108,13 @@ div.hero-unit {
     width:auto;
     height:210px;
     margin-left: 2em;
+  }
+}
+
+.pagination { 
+  a {
+    padding: 2px 10px;
+    font-size: 12px;
   }
 }
 
