@@ -275,6 +275,7 @@ DEPENDENCIES
   dynamic_sitemaps
   faker
   jquery-rails
+  kaminari
   rails (= 3.2.8)
   rvm-capistrano
   sass-rails (~> 3.2.3)

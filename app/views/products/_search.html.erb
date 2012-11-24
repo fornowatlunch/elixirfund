@@ -1,11 +1,8 @@
-<%= form_for(@products, :url => products_path, :method => "get") do |f| %>
-  <%= f.text_field :search %>
-  <%= f.submit "Search", :class => "btn" %>
+<%= form_for(@products, :as => :products, :url => products_path, :method => "get") do |f| %>
+  <div class="input-append">
+    <%= f.text_field :search, :size => '20', :value => params[:products][:search].empty? ? '' : params[:products][:search] %>
+    <%= button_tag "Search", :type => 'submit', :class => "btn" do %>
+      <i class="icon-search"></i>
+    <% end %>
+  </div>
 <% end %>
-
-<form>
-<div class="input-append">
-  <input type="text">
-  <button class="btn" type="button"><i class="icon-search"></i></button>
-</div>
-</form>
