@@ -1,6 +1,6 @@
 <h1>Patient Community</h1>
 
-<%= paginate @patients %>
+<%= paginate @patients, :theme => "twitter-bootstrap" %>
 
 <%= render 'search' %>
 <% @patients.in_groups_of(6, false).each do |patients| %>
@@ -9,4 +9,4 @@
   </div>
 <% end %>
 
-<%= paginate @patients %>
+<%= paginate @patients, :theme => "twitter-bootstrap" %>

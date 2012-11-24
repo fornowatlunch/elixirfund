@@ -21,6 +21,7 @@ gem 'unicorn'
 gem 'cancan'
 gem 'activemerchant'
 gem 'dynamic_sitemaps'
+gem "bootstrap-kaminari-views"
 
 group :test, :development do
   gem 'aktion_test_rails'
