@@ -12,5 +12,9 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @patients = []
+    WishlistProduct.where(product_id: params[:id]).each do |wp|
+      @patients << wp.wishlist.patient
+    end
   end
 end
