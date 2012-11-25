@@ -3,14 +3,12 @@ class ProductsController < ApplicationController
   
   def index
     if params.has_key?(:products) && params[:products].has_key?(:search)
-      @products = Product.where("title LIKE ?", '%' + params[:products][:search] + '%')
+      @products = Product.where("title LIKE ?", '%' + params[:products][:search] + '%').page(params[:page])
     else
+      @products = Product.order(:created_at).page params[:page]
       params[:products] = { :search => '' }
     end
 
-    if params.has_key? :page
-      @products.page params[:page]
-    end
   end
 
   def show

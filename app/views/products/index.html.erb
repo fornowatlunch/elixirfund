@@ -23,7 +23,7 @@
 
 <h1>Elixir Fund Gifts</h1>
 
-<%= paginate @products if params.has_key? :page %>
+<%= paginate @products %>
 
 <div class="row">
   <div class="span3 visible-phone gutter">
@@ -46,7 +46,6 @@
       <%= render 'search' %>
     </div><!--box-->
   </div><!--span3-->
-
 </div><!--row-->
 
-<!-- Insert Kaminari Pagination -->
+<%= paginate @products %>
