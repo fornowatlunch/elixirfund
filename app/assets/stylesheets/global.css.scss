@@ -108,6 +108,8 @@ div.row {
   }
 }
 
+.text-success { color: #468847; }
+
 .pagination {
   @include border-radius(5px);
   margin: 0px auto 30px;

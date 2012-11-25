@@ -23,7 +23,7 @@
 
 <h1>Elixir Fund Gifts</h1>
 
-<%= paginate @products %>
+<%= paginate @products, :theme => "twitter-bootstrap" %>
 
 <div class="row">
   <div class="span3 visible-phone gutter">
@@ -37,7 +37,9 @@
     <% if @products.any? %>
       <%= render :partial => 'products/product', :collection => @products %>
     <% else %>
-      <%= I18n.t('messages.no_products_available') %>
+      <div class="box">
+        <p class="lead"><%= I18n.t('messages.no_products_available') %></p>
+      </div>
     <% end %>
   </div><!--span9-->
   <div class="span3 hidden-phone" id="find">
@@ -48,4 +50,4 @@
   </div><!--span3-->
 </div><!--row-->
 
-<%= paginate @products %>
+<%= paginate @products, :theme => "twitter-bootstrap" %>

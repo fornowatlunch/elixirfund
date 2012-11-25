@@ -15,6 +15,9 @@
       </div>
       <div class="media-body">
         <h4 class="media-heading"><%= item[1].title %></h4>
+        <% if !item[1].price.nil? %>
+          <p class="text-success">$<%= item[1].price %></p>
+        <% end %>
         <p>
           <%= link_to t('label.view_product'), item[1], :class => "btn btn-info" %>
           <%= link_to "Remove from cart", remove_from_cart_path(patient_id: item[0], product_id: item[1].id), method: :put, :class => "btn btn-danger" %>
