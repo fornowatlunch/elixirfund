@@ -22,6 +22,7 @@ gem 'cancan'
 gem 'activemerchant'
 gem 'dynamic_sitemaps'
 gem "bootstrap-kaminari-views"
+gem 'paperclip'
 
 group :test, :development do
   gem 'aktion_test_rails'

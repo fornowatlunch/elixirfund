@@ -4,8 +4,9 @@ def create_products
 	  Product.create!(
 	    :title => Faker::Company.bs,
 	    :description => Faker::Lorem.paragraph,
-	    :partner => Partner.order("RANDOM()").first
-	  )
+	    :partner => Partner.order("RANDOM()").first,
+	    :price => 74.99,
+    )
 	end
 end
 

@@ -16,17 +16,15 @@ Voucher.delete_all
 
 system("rm -rf #{Rails.root.to_s}/public/uploads")
 
-
 path = "#{Rails.root.to_s}/db/seeds"
 
 require "#{path}/admin_user.rb"
 require "#{path}/users.rb"
 require "#{path}/connections.rb"
-require "#{path}/profiles.rb"
 require "#{path}/partners.rb"
 require "#{path}/products.rb"
+require "#{path}/profiles.rb"
 require "#{path}/orders.rb"
 require "#{path}/vouchers.rb"
-
 
 puts "DONE!"
