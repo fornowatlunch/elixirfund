@@ -9,7 +9,7 @@
   <div class="media-body">
     <h4 class="media-heading"><%= wishlist_item.title %></h4>
     <% if !wishlist_item.price.nil?%>
-      <p class="text-success">$<%= wishlist_item.price %></p>
+      <p><span class="label label-success">$<%= wishlist_item.price %></span></p>
     <% end %>
     <p>
       <%= link_to t('label.view_product'), wishlist_item, :class => "btn btn-info" %>

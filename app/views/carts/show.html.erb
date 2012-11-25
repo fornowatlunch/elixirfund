@@ -16,7 +16,7 @@
       <div class="media-body">
         <h4 class="media-heading"><%= item[1].title %></h4>
         <% if !item[1].price.nil? %>
-          <p class="text-success">$<%= item[1].price %></p>
+          <p><span class="label label-success">$<%= item[1].price %></span></p>
         <% end %>
         <p>
           <%= link_to t('label.view_product'), item[1], :class => "btn btn-info" %>
