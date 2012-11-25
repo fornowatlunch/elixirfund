@@ -1,12 +1,15 @@
-require 'kaminari'
 class ProductsController < ApplicationController
   load_and_authorize_resource
-
+  
   def index
-    if !params[:products][:search].empty?
-      @products = Product.where("title LIKE ?", '%' + params[:products][:search] + '%').page params[:page]
+    if params.has_key?(:products) && params[:products].has_key?(:search)
+      @products = Product.where("title LIKE ?", '%' + params[:products][:search] + '%')
     else
-      @products = @products.page params[:page]
+      params[:products] = { :search => '' }
+    end
+
+    if params.has_key? :page
+      @products.page params[:page]
     end
   end
 
