@@ -133,6 +133,8 @@ end %>
           <%= f.text_field :phone, :type => "tel" %>
           <%= f.label :public_bio, "Public Biography" %>
           <%= f.text_area :public_bio %>
+          <%= f.label :private_bio, "Private Biography" %>
+          <%= f.text_area :private_bio %>
           <%= f.submit "Create Patient", :class => "btn btn-primary" %>
         <% end %>
       </div>

@@ -1,1 +1,9 @@
-<%= @patients.inspect %>
+<% present(patient, PatientPresenter) do |patient_presenter| %>
+  <div class="product-patient">
+    <%= link_to patient_path(patient), :class => 'patient' do %>
+      <div class="avatar"><%= patient_presenter.avatar %></div>
+      <p><%= patient_presenter.link_to %><br/>
+      <%= patient_presenter.location %></p>
+    <% end %>
+  </div>
+<% end %>

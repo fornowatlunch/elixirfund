@@ -32,8 +32,9 @@
     <div class="span6">
       <div class="box">
         <h2 class="people">People Who Need This</h2>
-        <%= render :partial => 'products/patient', :collection => @patients %>
-        <%= @patients.inspect %>
+        <div class="row">
+          <%= render :partial => 'products/patient', :collection => @patients %>
+        </div>
       </div>
     </div><!--span6-->
   </div>
