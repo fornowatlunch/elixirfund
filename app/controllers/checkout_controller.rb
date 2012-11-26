@@ -6,37 +6,66 @@ class CheckoutController < ApplicationController
   end
   
   def process_payment
-    @payment_info = BillingInfo.new(params[:billing_info])
+    @billing_info = BillingInfo.new(params[:billing_info])
     
-    if !@payment_info.valid?
-      abort @payment_info.errors.inspect 
+    if !@billing_info.valid?
+      flash[:alert] = []
+      @billing_info.errors.each do |field, msg|
+        flash[:alert] << (t('label.card_' + field.to_s) + ": " + msg)
+      end
+        render 'billing_info'
+      return
     end
 
     # ActiveMerchant accepts all amounts as Integer values in cents
-    amount = 1000  # $10.00
-
+    amount = 0
+    session[:cart_items].each do |item_tuple|
+      amount += Product.find(item_tuple[1]).price
+    end
+        
+    
     # The card verification value is also known as CVV2, CVC2, or CID 
-    credit_card = ActiveMerchant::Billing::CreditCard.new(
-                :first_name         => params[:first_name],
-                :last_name          => params[:last_name],
-                :number             => params[:card_number],
-                :month              => params[:exp_month],
-                :year               => params[:exp_year],
-                :verification_value => params[:cvv])
+    @credit_card ||= ActiveMerchant::Billing::CreditCard.new(
+                :first_name         => params[:billing_info][:first_name],
+                :last_name          => params[:billing_info][:last_name],
+                :number             => params[:billing_info][:card_number],
+                :month              => params[:billing_info][:exp_month],
+                :year               => params[:billing_info][:exp_year],
+                :verification_value => params[:billing_info][:cvv])
 
     # Validating the card automatically detects the card type
-    if credit_card.valid?
+    if @credit_card.valid? 
       # Capture $10 from the credit card
-      response = GATEWAY.purchase(amount, credit_card)
+      response = GATEWAY.purchase((amount * 100).round, @credit_card)
 
       if response.success?
-        puts "Successfully charged $#{sprintf("%.2f", amount / 100)} to the credit card #{credit_card.display_number}"
+        o = Order.create user_id: current_user.id, name: current_user.email, subtotal: amount
+        session[:cart_items].each do |item_tuple|
+          @product = Product.find(item_tuple[1])
+          @line_item = LineItem.new
+          @line_item.product = @product
+          @line_item.partner = @product.partner
+          @line_item.patient_id = item_tuple[0]
+          @line_item.order_id = o.id
+          @line_item.name = @product.title
+          @line_item.price = @product.price
+          o.line_items << @line_item
+          o.status = "complete"
+          o.save
+        end
+    
+        o.line_items.each do |line_item|
+          v = Voucher.create(status: "purchased", line_item_id: line_item.id)
+        end
+
+        render 'success'
       else
         raise StandardError, response.message 
       end
+    else
+      abort 'card invalid'
+      redirect_to checkout_billing_info_path 
     end
-    render 'success', locals: {billing_info: @billing_info}
-    #redirect_to checkout_success_path
   end
 
   def success

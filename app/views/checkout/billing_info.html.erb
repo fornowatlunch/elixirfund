@@ -1,23 +1,77 @@
-<%= form_for @billing_info, :url => checkout_process_payment_path(@billing_info) do |bi| %>
-  <h2><%= t('label.card_info') %></h2>
+<div class="row">
+  <div class="span6">
+    <div class="box">
+      <h2><%= t('label.card_info') %></h2> 
+      <%= form_for @billing_info, :url => checkout_process_payment_path(@billing_info) do |bi| %>
   
-  <%= bi.label t('label.card_first_name') %>
-  <%= bi.text_field :first_name %>
+        <%= bi.label t('label.card_first_name') %>
+        <%= bi.text_field :first_name %>
   
-  <%= bi.label t('label.card_last_name') %>
-  <%= bi.text_field :last_name %>
+        <%= bi.label t('label.card_last_name') %>
+        <%= bi.text_field :last_name %>
  
-  <%= bi.label t('label.card_number') %>
-  <%= bi.text_field :card_number %>
+        <%= bi.label t('label.card_card_number') %>
+        <%= bi.text_field :card_number %>
 
-  <%= bi.label t('label.card_exp_month') %>
-  <%= bi.text_field :exp_month %>
+        <%= bi.label t('label.card_exp_month') %>
+        <%= bi.text_field :exp_month %>
  
-  <%= bi.label t('label.card_exp_year') %>
-  <%= bi.text_field :exp_year %>
+        <%= bi.label t('label.card_exp_year') %>
+        <%= bi.text_field :exp_year %>
 
-  <%= bi.label t('label.card_cvv') %>
-  <%= bi.text_field :cvv %>
+        <%= bi.label t('label.card_cvv') %>
+        <%= bi.text_field :cvv %>
 
-  <%= submit_tag("Submit Payment") %>
-<% end %>
+        <%= submit_tag("Submit Payment") %>
+    
+      <% end %>
+    </div>
+  </div>
+
+  <div class="span6">
+    <div class="box">
+      <h2><%= t('label.order_summary') %></h2>
+  
+      <% 
+      cart_items = session[:cart_items]
+	    @items = []
+      @total = 0.00
+	    cart_items.each do |item_tuple|
+	      @items << [item_tuple[0], Product.find(item_tuple[1])]
+        @total += Product.find(item_tuple[1]).price
+	    end
+      %>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Patient</th>
+            <th>Item</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @items.each do |item| %>
+          <tr>
+            <td><%= Patient.find(item[0]).name %></td>
+            <td><%= item[1].title %></td>
+            <td><%= number_to_currency item[1].price %></td>
+          </tr>
+        <% end %>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td></td>
+            <th><b>Total</b></th>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><%= number_to_currency @total %></td>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>
+

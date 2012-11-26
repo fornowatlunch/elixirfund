@@ -1,8 +1,8 @@
 class Order < ActiveRecord::Base
   belongs_to :user
   has_many :line_items
-  attr_accessible :name, :status, :subtotal 
- 
+  attr_accessible :user_id, :name, :status, :subtotal 
+  
   def purchase
     response = GATEWAY.purchase(price_in_cents, credit_card, purchase_options)
     transactions.create!(:action => "purchase", :amount => price_in_cents, :response => response)

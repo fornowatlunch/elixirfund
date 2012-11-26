@@ -46,7 +46,7 @@ en:
     card_info: "Payment Information"
     card_first_name: "First Name"
     card_last_name: "Last Name"
-    card_number: "Card number"
+    card_card_number: "Card number"
     card_exp_month: "Exp. Month"
     card_exp_year: "Exp. Year"
     card_cvv: "CVV"

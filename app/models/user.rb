@@ -18,4 +18,5 @@ class User < ActiveRecord::Base
   def patient?
     !patient.nil?
   end
+
 end

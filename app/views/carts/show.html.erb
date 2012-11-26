@@ -23,6 +23,7 @@
           <%= link_to "Remove from cart", remove_from_cart_path(patient_id: item[0], product_id: item[1].id), method: :put, :class => "btn btn-danger" %>
         </p>
       </div>
+      <%= link_to "Checkout", checkout_billing_info_path %>
     </div>
   </div>    
 <% end %>
