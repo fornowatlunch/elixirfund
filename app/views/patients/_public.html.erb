@@ -5,7 +5,7 @@
         <% if patient_presenter.avatar == nil %>
           <img src="/assets/ghost.png" alt="No image provided"/>
         <% else %>
-          <%= patient_presenter.avatar %>
+          <pre><%= patient_presenter.avatar.inspect %></pre>
         <% end %>
       </div>
       

@@ -13,6 +13,7 @@ class PatientsController < ApplicationController
 
   def create
     @patient.user = current_user
+    @patient.avatar = params[:file]
     if @patient.save!
       redirect_to account_path, :notice => t('label.patient_created')
     else

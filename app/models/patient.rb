@@ -3,6 +3,7 @@ class Patient < ActiveRecord::Base
   has_one :wishlist
   attr_accessible :avatar, :city, :name, :phone, :private_bio, :public_bio,
                   :state, :zip_code, :user
+  mount_uploader :avatar, AvatarUploader
 
   after_create { self.create_wishlist }
 end

@@ -131,6 +131,8 @@ end %>
           </div>
           <%= f.label :phone %><br/>
           <%= f.text_field :phone, :type => "tel" %>
+          <%= f.label :avatar %>
+          <%= f.text_field :avatar, :type => "file" %>
           <%= f.label :public_bio, "Public Biography" %>
           <%= f.text_area :public_bio %>
           <%= f.label :private_bio, "Private Biography" %>
