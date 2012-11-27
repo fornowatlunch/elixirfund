@@ -32,9 +32,11 @@
     <div class="span6">
       <div class="box">
         <h2 class="people">People Who Need This</h2>
-        <div class="row">
-          <%= render :partial => 'products/patient', :collection => @patients %>
-        </div>
+        <% @patients.in_groups_of(4, false).each do |patients| %>
+          <div class="row">
+            <%= render :partial => 'products/patient', :collection => patients %>
+          </div>
+        <% end %>
       </div>
     </div><!--span6-->
   </div>
