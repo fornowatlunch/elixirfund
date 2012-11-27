@@ -1,3 +1,26 @@
+<script type="text/javascript">
+  $(function() {
+
+    var $sidebar   = $("#checkout"), 
+        $window    = $(window),
+        offset     = $sidebar.offset(),
+        topPadding = 60;
+
+    $window.scroll(function() {
+        if ($window.scrollTop() > offset.top) {
+            $sidebar.stop().animate({
+                marginTop: $window.scrollTop() - offset.top + topPadding
+            });
+        } else {
+            $sidebar.stop().animate({
+                marginTop: 0
+            });
+        }
+    });
+    
+});
+</script>
+
 <div class="box gutter">
   <h2>My Cart</h2>
 
@@ -7,23 +30,33 @@
   <% end %>
 </div>
 
-<% @items.each do |item| %>
-  <div class="media">
-    <div class="box">
-      <div class="media-object pull-left">
-        <% item[1].image %>
+<% if @items.size > 0 %>
+  <div class="row">
+    <div class="span2 gutter">
+      <div class="links" id="checkout">
+        <%= link_to "Checkout", checkout_billing_info_path, :class => "btn btn-success btn-large" %>
       </div>
-      <div class="media-body">
-        <h4 class="media-heading"><%= item[1].title %></h4>
-        <% if !item[1].price.nil? %>
-          <p><span class="label label-success">$<%= item[1].price %></span></p>
-        <% end %>
-        <p>
-          <%= link_to t('label.view_product'), item[1], :class => "btn btn-info" %>
-          <%= link_to "Remove from cart", remove_from_cart_path(patient_id: item[0], product_id: item[1].id), method: :put, :class => "btn btn-danger" %>
-        </p>
-      </div>
-      <%= link_to "Checkout", checkout_billing_info_path %>
     </div>
+
+  <div class="span10">
+    <% @items.each do |item| %>
+      <div class="media">
+        <div class="box">
+          <div class="media-object pull-left">
+            <% item[1].image %>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading"><%= item[1].title %></h4>
+            <% if !item[1].price.nil? %>
+              <p><span class="label label-success">$<%= item[1].price %></span></p>
+            <% end %>
+            <p>
+              <%= link_to t('label.view_product'), item[1], :class => "btn btn-info" %>
+              <%= link_to "Remove from cart", remove_from_cart_path(patient_id: item[0], product_id: item[1].id), method: :put, :class => "btn btn-danger" %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>    
 <% end %>
