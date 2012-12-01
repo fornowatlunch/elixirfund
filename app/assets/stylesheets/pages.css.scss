@@ -81,6 +81,7 @@
   .price { text-align: right; }
 }
 
-.month { width: 32px!important; }
-.year { width: 48px!important; }
-.cvv { width: 40px!important; }
+.month, .year, .cvv { display: inline-block!important; }
+.month {   width: 33%!important; }
+.year { width: 33%!important; }
+.cvv { width: 32%!important; }

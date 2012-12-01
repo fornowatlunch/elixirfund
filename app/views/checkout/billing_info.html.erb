@@ -13,13 +13,12 @@
         <%= bi.label t('label.card_card_number') %>
         <%= bi.text_field :card_number %>
 
-        <%= bi.label t('label.card_exp_month') %>
-        <%= bi.text_field :exp_month, :class => "month" %>
+        <%= bi.label t('label.card_exp_month'), :class => "month"  %>
+        <%= bi.label t('label.card_exp_year'), :class => "year" %>
+        <%= bi.label t('label.card_cvv'), :class => "cvv" %>
  
-        <%= bi.label t('label.card_exp_year') %>
+        <%= bi.text_field :exp_month, :class => "month" %>
         <%= bi.text_field :exp_year, :class => "year" %>
-
-        <%= bi.label t('label.card_cvv') %>
         <%= bi.text_field :cvv, :class => "cvv" %>
 
         <%= bi.submit "Submit Payment", :class => "btn btn-primary" %>
