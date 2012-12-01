@@ -2,7 +2,11 @@ class PatientPresenter < BasePresenter
   presents :patient
 
   def avatar
-    h.content_tag :div, "User Avatar", :class => "img"
+    if patient.avatar.nil?
+      h.image_tag.avatar.nil?
+    else
+      h.image_tag patient.avatar.url
+    end
   end
 
   def name

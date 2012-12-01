@@ -2,11 +2,7 @@
   <div class="span12">
     <div class="box gutter">
       <div class="patient-avatar">
-        <% if patient_presenter.avatar == nil %>
-          <img src="/assets/ghost.png" alt="No image provided"/>
-        <% else %>
-          <pre><%= patient_presenter.avatar.inspect %></pre>
-        <% end %>
+        <%= patient_presenter.avatar %>
       </div>
       
       <h2><%= patient_presenter.name %>'s Public Profile</h2>
