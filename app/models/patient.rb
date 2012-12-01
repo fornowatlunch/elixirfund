@@ -6,7 +6,8 @@ class Patient < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
   after_create { self.create_wishlist }
+
   def default_image
-    image_tag "/assets/images/ghost.png"
+    image_tag 'ghost.png'
   end
 end

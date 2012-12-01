@@ -3,7 +3,7 @@ class PatientPresenter < BasePresenter
 
   def avatar
     if patient.avatar.url.nil?
-      h.image_tag patient.default_image
+      h.image_tag 'ghost.png'
     else
       h.image_tag patient.avatar.url
     end
