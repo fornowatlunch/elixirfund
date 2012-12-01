@@ -5,9 +5,7 @@ class Patient < ActiveRecord::Base
                   :state, :zip_code, :user
   mount_uploader :avatar, AvatarUploader
 
-  after_create { self.create_wishlist }
+  paginates_per 30
 
-  def default_image
-    image_tag 'ghost.png'
-  end
+  after_create { self.create_wishlist }
 end

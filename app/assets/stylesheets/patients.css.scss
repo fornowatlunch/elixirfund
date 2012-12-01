@@ -24,10 +24,11 @@ ul.profile {
       font-weight: bold;
     }
     &.avatar {
-      div.img {
-        height: 120px;
-        width: 100%;
-        background-color: #bbb;
+      img {
+        height: 116px; width: 116px; 
+        background-image: url('/assets/home-caregiver-support.jpg');
+        background-position: 42px 42px;
+        background-repeat: no-repeat;
         text-align: center;
         line-height: 120px;
         font-size: 10px;

@@ -72,6 +72,15 @@
   } 
 }
 
+ul.profile {
+  li.avatar {
+    img { 
+      height: 116px; width: 116px;
+      background-position: 42px 42px;
+    }
+  }
+}
+
 .pagination { 
   a {
     padding: 1px 6px;
@@ -112,6 +121,15 @@ div.hero-unit {
   }
 }
 
+ul.profile {
+  li.avatar {
+    img { 
+      height: 146px; width: 146px;
+      background-position: 57px 57px;
+    }
+  }
+}
+
 .pagination { 
   a {
     padding: 2px 10px;
@@ -148,6 +166,12 @@ div.hero-unit {
 
 ul.profile {
   margin: 0 0 30px;
+  li.avatar {
+    img { 
+      height: 146px; width: 146px;
+      background-position: 57px 57px;
+    }
+  }
 }
 .row ul.product {
   margin-bottom:30px;
