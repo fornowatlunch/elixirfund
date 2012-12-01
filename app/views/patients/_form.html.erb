@@ -114,7 +114,7 @@ end %>
     <div class="span4 offset4">
       <div class="box">
         <h2>Add a New Patient</h2>
-        <%= form_for(@patient, :as => :patient, :url => patients_path) do |f| %>
+        <%= form_for(@patient, :as => :patient, :html => {:multipart => true}, :url => patients_path) do |f| %>
           <%= f.label :name %>
           <%= f.text_field :name, :autofocus => "autofocus"  %>
           <%= f.label :city %>
@@ -132,7 +132,7 @@ end %>
           <%= f.label :phone %><br/>
           <%= f.text_field :phone, :type => "tel" %>
           <%= f.label :avatar %>
-          <%= f.text_field :avatar, :type => "file" %>
+          <%= f.file_field :avatar, :type => "file" %>
           <%= f.label :public_bio, "Public Biography" %>
           <%= f.text_area :public_bio %>
           <%= f.label :private_bio, "Private Biography" %>

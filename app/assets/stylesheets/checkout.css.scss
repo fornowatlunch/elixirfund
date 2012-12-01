@@ -1,0 +1,17 @@
+.bill {
+  width: 100%;
+  td, th { padding: 5px; }
+  thead { border-bottom: 1px solid #bbb; }
+  tbody {
+    tr:nth-child(even) { background-color: #FCF8E3; }
+  }
+  tfoot { 
+    border-top: 1px solid #bbb;
+  }
+  .price { text-align: right; }
+}
+
+.month, .year, .cvv { display: inline-block!important; }
+.month {   width: 33%!important; }
+.year { width: 33%!important; }
+.cvv { width: 32%!important; }
