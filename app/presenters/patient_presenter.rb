@@ -2,8 +2,8 @@ class PatientPresenter < BasePresenter
   presents :patient
 
   def avatar
-    if patient.avatar.nil?
-      h.image_tag.avatar.nil?
+    if patient.avatar.url.nil?
+      h.image_tag patient.default_image
     else
       h.image_tag patient.avatar.url
     end
