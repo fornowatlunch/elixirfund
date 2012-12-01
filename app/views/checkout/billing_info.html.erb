@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="span6">
+  <div class="span4">
     <div class="box">
       <h2><%= t('label.card_info') %></h2> 
       <%= form_for @billing_info, :url => checkout_process_payment_path(@billing_info) do |bi| %>
@@ -14,21 +14,21 @@
         <%= bi.text_field :card_number %>
 
         <%= bi.label t('label.card_exp_month') %>
-        <%= bi.text_field :exp_month %>
+        <%= bi.text_field :exp_month, :class => "month" %>
  
         <%= bi.label t('label.card_exp_year') %>
-        <%= bi.text_field :exp_year %>
+        <%= bi.text_field :exp_year, :class => "year" %>
 
         <%= bi.label t('label.card_cvv') %>
-        <%= bi.text_field :cvv %>
+        <%= bi.text_field :cvv, :class => "cvv" %>
 
-        <%= submit_tag("Submit Payment") %>
+        <%= bi.submit "Submit Payment", :class => "btn btn-primary" %>
     
       <% end %>
     </div>
   </div>
 
-  <div class="span6">
+  <div class="span8">
     <div class="box">
       <h2><%= t('label.order_summary') %></h2>
   
@@ -42,7 +42,7 @@
 	    end
       %>
 
-      <table>
+      <table class="bill">
         <thead>
           <tr>
             <th>Patient</th>
@@ -55,20 +55,14 @@
           <tr>
             <td><%= Patient.find(item[0]).name %></td>
             <td><%= item[1].title %></td>
-            <td><%= number_to_currency item[1].price %></td>
+            <td class="price"><span class="label label-success"><%= number_to_currency item[1].price %></span></td>
           </tr>
         <% end %>
         </tbody>
         <tfoot>
           <tr>
-            <td></td>
-            <td></td>
-            <th><b>Total</b></th>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td><%= number_to_currency @total %></td>
+            <th colspan="2" class="total price">Total</th>
+            <td class="price"><span class="label label-success"><%= number_to_currency @total %></span></td>
         </tfoot>
       </table>
     </div>
