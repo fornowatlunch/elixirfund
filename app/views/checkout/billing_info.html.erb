@@ -1,7 +1,7 @@
 <div class="row">
   <div class="span4">
     <div class="box">
-      <h2><%= t('label.card_info') %></h2> 
+      <h3><%= t('label.card_info') %></h3> 
       <%= form_for @billing_info, :url => checkout_process_payment_path(@billing_info) do |bi| %>
   
         <%= bi.label t('label.card_first_name') %>
@@ -29,7 +29,7 @@
 
   <div class="span8">
     <div class="box">
-      <h2><%= t('label.order_summary') %></h2>
+      <h3><%= t('label.order_summary') %></h3>
   
       <% 
       cart_items = session[:cart_items]
@@ -60,7 +60,7 @@
         </tbody>
         <tfoot>
           <tr>
-            <th colspan="2" class="total price">Total</th>
+            <th colspan="2" class="price">Total</th>
             <td class="price"><span class="label label-success"><%= number_to_currency @total %></span></td>
         </tfoot>
       </table>

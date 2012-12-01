@@ -74,9 +74,11 @@
   width: 100%;
   td, th { padding: 5px; }
   thead { border-bottom: 1px solid #bbb; }
+  tbody {
+    tr:nth-child(even) { background-color: #FCF8E3; }
+  }
   tfoot { 
     border-top: 1px solid #bbb;
-    .total { text-align: left; }
   }
   .price { text-align: right; }
 }
