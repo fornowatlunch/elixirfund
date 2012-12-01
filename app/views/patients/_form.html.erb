@@ -111,33 +111,31 @@ def us_states_abbr
 end %>
 
   <div class="row">
-    <div class="span4 offset4">
-      <div class="box">
-        <h2>Add a New Patient</h2>
+    <div class="span8 offset2">
+      <div class="box half">
         <%= form_for(@patient, :as => :patient, :html => {:multipart => true}, :url => patients_path) do |f| %>
-          <%= f.label :name %>
-          <%= f.text_field :name, :autofocus => "autofocus"  %>
-          <%= f.label :city %>
-          <%= f.text_field :city %>
-          <div class="row">
-            <div class="span1 state">
-              <%= f.label :state %><br/>
-              <%= select_tag :state, options_for_select(us_states) %>
-            </div>
-            <div class="span2 zip">
-              <%= f.label :zip_code, "Zip Code" %><br/>
-              <%= f.text_field :zip_code %>
-            </div>
+          <h2>Add a New Patient</h2>
+          <div class="half">
+            <%= f.label :name %>
+            <%= f.text_field :name, :autofocus => "autofocus"  %>
+            <%= f.label :city %>
+            <%= f.text_field :city %>
+            <%= f.label :state, :class => "state" %>
+            <%= f.label :zip_code, "Zip Code", :class => "zip" %>
+            <%= select_tag :state, options_for_select(us_states), :class => "state" %>
+            <%= f.text_field :zip_code, :class => "zip" %>
+            <%= f.label :phone %><br/>
+            <%= f.text_field :phone, :type => "tel" %>
+            <%= f.label :avatar %>
+            <%= f.file_field :avatar, :type => "file" %>
           </div>
-          <%= f.label :phone %><br/>
-          <%= f.text_field :phone, :type => "tel" %>
-          <%= f.label :avatar %>
-          <%= f.file_field :avatar, :type => "file" %>
-          <%= f.label :public_bio, "Public Biography" %>
-          <%= f.text_area :public_bio %>
-          <%= f.label :private_bio, "Private Biography" %>
-          <%= f.text_area :private_bio %>
-          <%= f.submit "Create Patient", :class => "btn btn-primary" %>
+          <div class="half right">
+            <%= f.label :public_bio, "Public Biography" %>
+            <%= f.text_area :public_bio %>
+            <%= f.label :private_bio, "Private Biography" %>
+            <%= f.text_area :private_bio %>
+            <%= f.submit "Create Patient", :class => "btn btn-primary" %>
+          </div>
         <% end %>
       </div>
     </div>

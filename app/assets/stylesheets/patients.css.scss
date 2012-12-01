@@ -57,5 +57,20 @@ ul.profile {
   }
 }
 
-#state, .state { width: 120px; }
-#patient_zip_code, .zip { width: 180px; }
+.half { 
+  overflow: auto;
+  .half { 
+    width: 46%; 
+    display: inline-block; 
+    overflow: hidden;
+    float: left;
+    margin-left: 2%;
+    &.right { 
+      float: right;
+      margin-right: 2%;
+    }
+  }
+}
+.state, .zip { display: inline-block!important; }
+.state { width: 40%!important; }
+.zip { width: 59%!important; }
