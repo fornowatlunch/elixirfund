@@ -12,134 +12,150 @@
 @import url("http://fonts.googleapis.com/css?family=Stoke:400,300"); // Complement Font
 
 // Customize Media Queries Here
-@mixin media-one-column {
+
+@mixin one-column {
   footer {
     margin: 20px -20px 0;
     padding: 20px;
   }
 }
 
+@mixin nav-collapsed {
+  .navbar {
+    a.brand {
+      padding:0;
+      background-position: 0 0;
+    }
+  }
+} 
+
 // Landscape phones and down
 @media (max-width: 480px) {
 
-@include media-one-column; 
+  @include one-column;
+  @include nav-collapsed;
 
-#main-content {
-  &.container { padding-top:0; } 
-  ul.product {
-    li.product-list-image {
-      width:120px;
+  #main-content {
+    &.container { padding-top:0; } 
+    ul.product {
+      li.product-list-image {
+        width:120px;
+      }
     }
   }
-}
 
-.pagination { 
-  a {
-    padding: 1px 6px;
-    font-size: 10px;
+  .pagination { 
+    a {
+      padding: 1px 6px;
+      font-size: 10px;
+    }
   }
-}
 
-#pitch-boxes .span4, #pitch-boxes .span3 {
-  height: auto;
-  margin-bottom: 30px;
-}
+  #pitch-boxes .span4, #pitch-boxes .span3 {
+    height: auto;
+    margin-bottom: 30px;
+  }
 
 } /* Landscape phones and down */
+
 
 
 // Landscape phone to portrait tablet
 @media (max-width: 767px) {
 
-@include media-one-column; 
- 
-#main-content {
-  &.container {padding-top:0;} 
-  ul.product {
-    li.product-list-image {
-      width:120px;
+  @include one-column; 
+  @include nav-collapsed;
+
+  #main-content {
+    &.container {padding-top:0;} 
+    ul.product {
+      li.product-list-image {
+        width:120px;
+      }
     }
-  }
-  .hero-unit { 
-    height:auto;
-    padding:20px;
-    text-align:center;
-    h1 { 
-      padding:10px 0;
-      font-size:30px;
+    .hero-unit { 
+      height:auto;
+      padding:20px;
       text-align:center;
-    }
-  } 
-}
+      h1 { 
+        padding:10px 0;
+        font-size:30px;
+        text-align:center;
+      }
+    } 
+  }
 
-ul.profile {
-  li.avatar {
-    img { 
-      height: 116px; width: 116px;
-      background-position: 42px 42px;
+  ul.profile {
+    li.avatar {
+      img { 
+        height: 116px; width: 116px;
+        background-position: 42px 42px;
+      }
     }
   }
-}
 
-.pagination { 
-  a {
-    padding: 1px 6px;
-    font-size: 12px;
+  .pagination { 
+    a {
+      padding: 1px 6px;
+      font-size: 12px;
+    }
   }
-}
 
-#pitch-boxes .span4, #pitch-boxes .span3 {
-  height: auto;
-  margin-bottom: 30px;
-}
+  #pitch-boxes .span4, #pitch-boxes .span3 {
+    height: auto;
+    margin-bottom: 30px;
+  }
 
 } /* Landscape phone to portrait tablet */
+
 
 
 // Portrait tablet to landscape and desktop
 @media (min-width: 768px) and (max-width: 979px) {
 
-#main-content {
-  &.container { padding-top:0; } 
-  ul.product li.product-list-image {
-    width:120px;
-  }
-}
+  @include nav-collapsed;
 
-div.hero-unit { 
-  height:210px;
-  padding:0 0 0 20px;
-  h1 { 
-    padding:20px 0 10px;
-    font-size:30px;
-    } 
-  p { font-size:14px; line-height:18px; margin-bottom:10px; }
-  img { 
-    width:auto;
-    height:210px;
-    margin-left: 2em;
-  }
-}
-
-ul.profile {
-  li.avatar {
-    img { 
-      height: 146px; width: 146px;
-      background-position: 57px 57px;
+  #main-content {
+    &.container { padding-top:0; } 
+    ul.product li.product-list-image {
+      width:120px;
     }
   }
-}
 
-.pagination { 
-  a {
-    padding: 2px 10px;
+  div.hero-unit { 
+    height:210px;
+    padding:0 0 0 20px;
+    h1 { 
+      padding:20px 0 10px;
+      font-size:30px;
+      } 
+    p { font-size:14px; line-height:18px; margin-bottom:10px; }
+    img { 
+      width:auto;
+      height:210px;
+      margin-left: 2em;
+    }
   }
-}
 
-#pitch-boxes .span4, #pitch-boxes .span3 {
-  height: auto;
-  margin-bottom:15px;
-}
+  ul.profile {
+    li.avatar {
+      img { 
+        height: 146px; width: 146px;
+        background-position: 57px 57px;
+      }
+    }
+  }
+
+  .pagination { 
+    a {
+      padding: 2px 10px;
+    }
+  }
+
+  #pitch-boxes .span4, #pitch-boxes .span3 {
+    height: auto;
+    margin-bottom:15px;
+  }
 
 } /* Portrait tablet to landscape and desktop */
 

@@ -16,7 +16,7 @@
 body {
   /*font-family: "lemonde-courrier", serif;*/
   font-family: 'Titillium Web', sans-serif;
-  background: #f3ecec url('bg-body.png') repeat;
+  background: #f6f3f1 url('bg-body.jpg') repeat;
 }
 
 h1,h2,h3,h4,h5 {
@@ -39,15 +39,33 @@ h2 {
   font-weight: 400;
 }
 
+a {
+  color:#8ec73f;
+  &:hover {
+    color:#66a016;
+    text-decoration:none;
+  }
+}
+
 .navbar {
+  .navbar-inner {
+    background:#f9f9f8;
+  }
   a.brand {
-    width:240px;
+    width:250px;
     height:40px;
-    padding:0;
+    padding:10px 50px 10px 0;
     margin:0;
     display:block;
     text-indent:-9999px;
-    background:url('logo1.png') 0 -25px no-repeat;
+    background:url('elixir-logo.png') 0 10px no-repeat;
+  }
+  .nav > li > a {
+    color:#8ec73f;
+    font-weight:bold;
+    &:hover {
+      color:#66a016;
+    }
   }
 }
 

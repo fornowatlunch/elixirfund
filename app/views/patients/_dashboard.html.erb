@@ -1,0 +1,19 @@
+<h1>Manage Your Profile and Wishlist</h1>
+<div class="row">
+  <section class="span4">
+    <h2><%= patient_presenter.name %>'s Public Profile</h2>
+    <p><%= patient_presenter.avatar %></p>
+    <h3><%= patient_presenter.name %></h3>
+    <p><%= patient_presenter.location %></p>
+    <p><%= patient_presenter.public_bio %></p>
+  </section>
+  <section class="span8">
+    <h2>Your Wishlist</h2>
+    <% if @wishlist.products.any? %>
+      <%= render :partial => 'wishlist_item', collection: patient_presenter.public_wishlist_items, as: :wishlist_item, locals: {patient_id: params[:id]} %>
+    <% else %>
+      <span class="empty"><%= t('label.no_products_in_wishlist') %></span>
+    <% end %>
+    <%= link_to t('label.add_products'), products_path %>
+  </section>
+</div><!--row-->
