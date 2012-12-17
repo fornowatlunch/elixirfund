@@ -19,14 +19,21 @@
 }
 
 @mixin nav-collapsed {
+
   .navbar {
     a.brand {
       padding:0;
       background-position: 0 0;
     }
   }
+
   #main-content {
-    &.container { padding-top:10px; } 
+    &.container { padding-top:10px; }
+    ul.product li.product-list-image {
+      width:120px;
+    }
+  } 
+
 } 
 
 // Landscape phones and down
@@ -34,14 +41,6 @@
 
   @include one-column;
   @include nav-collapsed;
-
-  #main-content {
-    ul.product {
-      li.product-list-image {
-        width:120px;
-      }
-    }
-  }
 
   .pagination { 
     a {
@@ -65,23 +64,16 @@
   @include one-column; 
   @include nav-collapsed;
 
-  #main-content {
-    ul.product {
-      li.product-list-image {
-        width:120px;
-      }
-    }
-    .hero-unit { 
-      height:auto;
-      padding:20px;
+  div.hero-unit { 
+    height:auto;
+    padding:20px;
+    text-align:center;
+    background-image:none;
+    h1 { 
+      padding:10px 0;
+      font-size:30px;
       text-align:center;
-      background-image:none;
-      h1 { 
-        padding:10px 0;
-        font-size:30px;
-        text-align:center;
-      }
-    } 
+    }
   }
 
   ul.profile {
@@ -113,12 +105,6 @@
 @media (min-width: 768px) and (max-width: 979px) {
 
   @include nav-collapsed;
-
-  #main-content {
-    ul.product li.product-list-image {
-      width:120px;
-    }
-  }
 
   div.hero-unit { 
     padding:0 0 0 20px;
@@ -164,37 +150,39 @@
 // Large Desktop
 @media (min-width: 1200px) { 
 
-div.hero-unit { 
-  height:270px;
-  padding:40px;
-  background-image: url('/assets/hero-500.jpg');
-  h1 {
-    font-size:46px;
-    width: 650px;
+  div.hero-unit { 
+    height:270px;
+    padding:40px;
+    background-image: url('/assets/hero-500.jpg');
+    h1 {
+      font-size:46px;
+      width: 650px;
     } 
-  p { width: 580px; font-size:18px; }
-  img { 
-    width:auto;
-    height:400px;
-  }
-}
-
-ul.profile {
-  margin: 0 0 30px;
-  li.avatar {
+    p { width: 580px; font-size:18px; }
     img { 
-      height: 146px; width: 146px;
-      background-position: 57px 57px;
+      width:auto;
+      height:400px;
     }
   }
-}
-.row ul.product {
-  margin-bottom:30px;
-}
-.container { 
-  h1 {
+
+  ul.profile {
+    margin: 0 0 30px;
+    li.avatar {
+      img { 
+        height: 146px; width: 146px;
+        background-position: 57px 57px;
+      }
+    }
+  }
+
+  .row ul.product {
     margin-bottom:30px;
   }
-}
+
+  .container { 
+    h1 {
+      margin-bottom:30px;
+    }
+  }
 
 } /* Large desktop */
