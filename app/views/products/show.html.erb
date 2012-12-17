@@ -20,9 +20,7 @@
 
         <p>
           <%= link_to t('label.back_to_products'), products_path, :class => "btn btn-info" %>
-          <% if user_signed_in? and current_user.patient? %>
-            <%= link_to product_presenter.add_to_wishlist, :class => "btn btn-primary" %>
-          <% end %>
+          <%= product_presenter.wishlist_button %>
         </p>
 
       </div>
