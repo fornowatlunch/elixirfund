@@ -65,4 +65,27 @@ ElixirFund::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  # ActionMailer
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => 'aktionlab.com',
+    :user_name            => 'mailer@aktionlab.com',
+    :password             => 'aktionmailer',
+    :authentication       => 'plain',
+    :enable_starttls_auto => true
+  }
+
+  # ActiveMerchant
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+    ::GATEWAY = ActiveMerchant::Billing::AuthorizeNetGateway.new(
+      :login => "62LNaK6eh",
+      :password => "46v6aC72vKHp25hF",
+    )
+  end
 end
