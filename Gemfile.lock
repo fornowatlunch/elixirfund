@@ -216,6 +216,7 @@ GEM
       json (~> 1.4)
     responders (0.9.1)
       railties (~> 3.1)
+    rmagick (2.13.1)
     rspec (2.11.0)
       rspec-core (~> 2.11.0)
       rspec-expectations (~> 2.11.0)
@@ -292,6 +293,7 @@ DEPENDENCIES
   jquery-rails
   paperclip
   rails (= 3.2.8)
+  rmagick
   rvm-capistrano
   sass-rails (~> 3.2.3)
   sqlite3
