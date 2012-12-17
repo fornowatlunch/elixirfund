@@ -1,0 +1,33 @@
+<table width="100%">
+  <tr>
+    <td width="100%" align="center">
+      <img src="http://www.elixirfund.org/wp-content/uploads/2011/06/logo1.png" alt="elixir Fund Logo" />
+      <p>Thank you for giving to a cancer patient through the Elixir Fund.<br/>
+      Here is a receipt for your recent purchase.</p>
+      <p>
+        <b>Order date:</b> <%= @order.created_at.to_formatted_s(:long) %><br />
+        <b>Total charged:</b> $<%= @order.subtotal %>
+      </p>
+      <table width="90%">
+        <tr>
+          <td><b>Recipient</b></td>
+          <td><b>Item</b></td>
+          <td><b>Provider</b></td>
+          <td><b>Amount</b></td>
+        </tr>
+        <% @order.line_items.each do |line_item| %>
+        <tr>
+          <td><%= line_item.patient.name %></td>
+          <td><%= line_item.name %></td>
+          <td><%= line_item.partner.name %></td>
+          <td><%= line_item.price %></td>
+        </tr>
+        <% end %>
+        <tr>
+          <td colspan="3"><b>Order Total</b></td>
+          <td><%= @order.subtotal %></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

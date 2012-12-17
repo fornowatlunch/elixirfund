@@ -58,6 +58,8 @@ class CheckoutController < ApplicationController
           v = Voucher.create(status: "purchased", line_item_id: line_item.id)
         end
 
+        email_receipt(o)
+        session.delete(:cart_items)
         render 'success'
       else
         raise StandardError, response.message 
@@ -68,7 +70,11 @@ class CheckoutController < ApplicationController
     end
   end
 
-  def success
+  def email_receipt(order)
+    OrderMailer.receipt(order).deliver
+  end
+
+  def email_vouchers(order)
 
   end
 
