@@ -1,6 +1,10 @@
 class ProductPresenter < BasePresenter
   presents :product
 
+  def item
+    product
+  end
+
   def list_image
     h.image_tag product.image.url unless product.image.file.nil?
   end
@@ -19,5 +23,9 @@ class ProductPresenter < BasePresenter
 
   def add_to_wishlist
     h.link_to I18n.t('label.add_to_wishlist'), h.add_product_account_wishlist_path(:product_id => product.id), :method => :post, :class => 'btn btn-primary'
+  end
+
+  def remove_from_wishlist
+    h.link_to I18n.t('label.remove_product_from_wishlist'), h.remove_product_account_wishlist_path(:product_id => product.id), :method => :delete, :class => "btn btn-danger"
   end
 end

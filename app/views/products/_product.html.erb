@@ -14,7 +14,11 @@
         <p>
           <%= p.link_to %>
           <% if user_signed_in? and current_user.patient? %>
-            <%= p.add_to_wishlist %>
+            <% if current_user.patient.wishlist.products.include? p.item %>
+              <%= p.remove_from_wishlist %>
+            <% else %>
+              <%= p.add_to_wishlist %>
+            <% end %>
           <% end %>
         </p>
       </div>
