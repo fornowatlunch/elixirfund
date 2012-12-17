@@ -2,9 +2,8 @@
   <div class="row">
     <div class="span12">
       <div class="box">
-        <h1><%= @product.title %></h1>
-        <%= render 'gallery' %>
-
+        <h1><%= image_tag @product.image_url unless @product.image.file.nil? %> <%= @product.title %></h1>
+        <% #render 'gallery' %>
         <pre><%= @product.inspect if Rails.env.development? %></pre>
       </div>
     </div>
@@ -21,9 +20,7 @@
 
         <p>
           <%= link_to t('label.back_to_products'), products_path, :class => "btn btn-info" %>
-          <% if user_signed_in? and current_user.patient? %>
-            <%= link_to product_presenter.add_to_wishlist, :class => "btn btn-primary" %>
-          <% end %>
+          <%= product_presenter.wishlist_button %>
         </p>
 
       </div>

@@ -36,7 +36,7 @@
           <li><%= link_to t('label.about'), pages_path('about') %></li>
         </ul>
         <ul class="nav pull-right">  
-          <li><%= link_to t('label.cart'), cart_path %></li> 
+          <%= cart_link %>
           <% if user_signed_in? %>
             <li><%= link_to t('user.my_account'), account_path %></li>
             <% if current_user.patient? %>

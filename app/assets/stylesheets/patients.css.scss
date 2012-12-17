@@ -71,6 +71,6 @@ ul.profile {
     }
   }
 }
-.state, .zip { display: inline-block!important; }
-.state { width: 40%!important; }
+.state, #patient_state, .zip { display: inline-block!important; }
+#patient_state, .state { width: 40%!important; }
 .zip { width: 59%!important; }

@@ -1,11 +1,14 @@
-<div class="media" id="<%= dom_id product %>">
-  <div class="media-object pull-left">
-    <% product.image %>
+<% present product do |p| %>
+  <div class="media" id="<%= dom_id product %>">
+    <div class="media-object pull-left">
+      <% p.image %>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading"><%= p.title %></h4>
+      <p>
+        <%= link_to t('label.view_product'), product, :class => "btn btn-info" %>
+        <%= p.wishlist_button %>
+      </p>
+    </div>
   </div>
-  <div class="media-body">
-    <h4 class="media-heading"><%= product.title %></h4>
-    <p>
-      <%= link_to t('label.view_product'), product, :class => "btn btn-info" %> <%= link_to t('label.remove_product_from_wishlist'), remove_product_account_wishlist_path(:product_id => product.id), :method => :delete, :class => "btn btn-danger" %>
-    </p>
-  </div>
-</div>
+<% end %>

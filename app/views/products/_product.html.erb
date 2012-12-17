@@ -2,7 +2,7 @@
   <div class="media">
     <div class="box">
       <div class="media-object pull-left">
-        <% p.image %>
+        <%= p.list_image %>
       </div>
       <div class="media-body">
         <h4 class="media-heading"><%= p.title %></h4>
@@ -13,9 +13,7 @@
           By: <%= p.company_link_to %></p>
         <p>
           <%= p.link_to %>
-          <% if user_signed_in? and current_user.patient? %>
-            <%= p.add_to_wishlist %>
-          <% end %>
+          <%= p.wishlist_button %>
         </p>
       </div>
     </div>

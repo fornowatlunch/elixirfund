@@ -20,18 +20,18 @@ ActiveAdmin.register Patient do
 
   show do |patient|
     panel "Patient Details" do
-    attributes_table_for patient do
-      row :name
-      row :avatar do
-        image_tag patient.avatar_url(:thumb)
+      attributes_table_for patient do
+        row :name
+        row :avatar do
+          image_tag patient.avatar_url(:thumb)
+        end
+        row :city
+        row :state
+        row :zip_code
+        row :phone
+        row :public_bio
+        row :private_bio
       end
-      row :city
-      row :state
-      row :zip_code
-      row :phone
-      row :public_bio
-      row :private_bio
-    end
     end
   end
 

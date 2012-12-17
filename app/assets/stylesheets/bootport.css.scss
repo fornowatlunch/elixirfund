@@ -8,8 +8,6 @@
 @import "products";
 @import "patients";
 @import "checkout";
-@import url("http://fonts.googleapis.com/css?family=Titillium+Web:400,700,700italic,400italic"); // Main Font
-@import url("http://fonts.googleapis.com/css?family=Stoke:400,300"); // Complement Font
 
 // Customize Media Queries Here
 
@@ -27,6 +25,8 @@
       background-position: 0 0;
     }
   }
+  #main-content {
+    &.container { padding-top:10px; } 
 } 
 
 // Landscape phones and down
@@ -36,7 +36,6 @@
   @include nav-collapsed;
 
   #main-content {
-    &.container { padding-top:0; } 
     ul.product {
       li.product-list-image {
         width:120px;
@@ -67,7 +66,6 @@
   @include nav-collapsed;
 
   #main-content {
-    &.container {padding-top:0;} 
     ul.product {
       li.product-list-image {
         width:120px;
@@ -117,7 +115,6 @@
   @include nav-collapsed;
 
   #main-content {
-    &.container { padding-top:10px; } 
     ul.product li.product-list-image {
       width:120px;
     }
@@ -129,7 +126,7 @@
     h1 { 
       padding:20px 0 10px;
       font-size:30px;
-      } 
+    } 
     p { font-size:14px; line-height:18px; margin-bottom:10px; }
     img { 
       width:auto;
