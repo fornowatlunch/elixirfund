@@ -1,0 +1,26 @@
+<table width="100%">
+  <tr>
+    <td width="100%" align="center">
+      <img src="http://www.elixirfund.org/wp-content/uploads/2011/06/logo1.png" alt="elixir Fund Logo" />
+      <p>Someone has purchased a gift for you through Elixir Fund Giving!<br/>
+         Here is your voucher code to redeem your gift.
+      </p>
+      <table>
+        <tr>
+          <td><%= image_tag @line_item.product.image_url(:thumb) unless @line_item.product.image.file.nil? %></td>
+          <td><h3><%= @line_item.name %></h3></td>
+        <tr>
+      </table>
+        
+      <h3>Voucher Code: <%= @voucher.code %></h3>
+      <p>
+        <b>Where to redeem:</b><br />
+        <%= @line_item.product.partner.name %><br />
+        <%= @line_item.product.partner.address1 %>
+        <%= "<br />#{@line_item.product.partner.address2}".html_safe unless @line_item.product.partner.address2.nil? %><br />
+        <%= "#{@line_item.product.partner.city}, #{@line_item.product.partner.state} #{@line_item.product.partner.zip_code}" %><br />
+        <%= @line_item.product.partner.phone %>
+      </p>
+    </td>
+  </tr>
+</table>

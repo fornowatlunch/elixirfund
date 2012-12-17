@@ -3,6 +3,9 @@
 
 en:
   hello: "Hello world"
+  email:
+    order_receipt_subject: "Elixir Fund Giving: Tax-deductible Order Receipt"
+    voucher_subject: "Elixir Fund Giving: Someone bought you a gift!"
   button:
     user:
       sign_in: "Login"
@@ -26,7 +29,7 @@ en:
     patient_created: "Patient profile created"
     patient_updated: "Patient profile updated"
     product: "Product"
-    products: "Products"
+    products: "Gifts"
     create_patient: "Create Patient Profile"
     view_patient: "View Patient Profile"
     product: "Product"

@@ -59,7 +59,9 @@ class CheckoutController < ApplicationController
         end
 
         email_receipt(o)
-        session.delete(:cart_items)
+        email_vouchers(o)
+
+        session[:cart_items] = Set.new
         render 'success'
       else
         raise StandardError, response.message 
@@ -75,7 +77,9 @@ class CheckoutController < ApplicationController
   end
 
   def email_vouchers(order)
-
+    order.line_items.each do |line_item|
+      OrderMailer.voucher(line_item).deliver
+    end
   end
 
   private
