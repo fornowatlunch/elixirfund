@@ -6,7 +6,6 @@
       Here is a receipt for your recent purchase.</p>
       <p>
         <b>Order date:</b> <%= @order.created_at.to_formatted_s(:long) %><br />
-        <b>Total charged:</b> $<%= @order.subtotal %>
       </p>
       <table width="90%">
         <tr>
@@ -20,12 +19,12 @@
           <td><%= line_item.patient.name %></td>
           <td><%= line_item.name %></td>
           <td><%= line_item.partner.name %></td>
-          <td><%= line_item.price %></td>
+          <td><%= number_to_currency(line_item.price) %></td>
         </tr>
         <% end %>
         <tr>
           <td colspan="3"><b>Order Total</b></td>
-          <td><%= @order.subtotal %></td>
+          <td><%= number_to_currency(@order.subtotal) %></td>
         </tr>
       </table>
     </td>
