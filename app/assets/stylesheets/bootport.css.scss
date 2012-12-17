@@ -1,4 +1,4 @@
-// Include the Bootstraps
+// Includes ze Bootstraps
 
 @import "bootstrap";
 @import "bootstrap-responsive";
@@ -8,8 +8,6 @@
 @import "products";
 @import "patients";
 @import "checkout";
-@import url("http://fonts.googleapis.com/css?family=Titillium+Web:400,700,700italic,400italic"); // Main Font
-@import url("http://fonts.googleapis.com/css?family=Stoke:400,300"); // Complement Font
 
 // Customize Media Queries Here
 
@@ -21,12 +19,21 @@
 }
 
 @mixin nav-collapsed {
+
   .navbar {
     a.brand {
       padding:0;
       background-position: 0 0;
     }
   }
+
+  #main-content {
+    &.container { padding-top:10px; }
+    ul.product li.product-list-image {
+      width:120px;
+    }
+  } 
+
 } 
 
 // Landscape phones and down
@@ -34,15 +41,6 @@
 
   @include one-column;
   @include nav-collapsed;
-
-  #main-content {
-    &.container { padding-top:0; } 
-    ul.product {
-      li.product-list-image {
-        width:120px;
-      }
-    }
-  }
 
   .pagination { 
     a {
@@ -66,23 +64,16 @@
   @include one-column; 
   @include nav-collapsed;
 
-  #main-content {
-    &.container {padding-top:0;} 
-    ul.product {
-      li.product-list-image {
-        width:120px;
-      }
-    }
-    .hero-unit { 
-      height:auto;
-      padding:20px;
+  div.hero-unit { 
+    height:auto;
+    padding:20px;
+    text-align:center;
+    background-image:none;
+    h1 { 
+      padding:10px 0;
+      font-size:30px;
       text-align:center;
-      h1 { 
-        padding:10px 0;
-        font-size:30px;
-        text-align:center;
-      }
-    } 
+    }
   }
 
   ul.profile {
@@ -115,16 +106,9 @@
 
   @include nav-collapsed;
 
-  #main-content {
-    &.container { padding-top: 90px; } 
-    ul.product li.product-list-image {
-      width:120px;
-    }
-  }
-
   div.hero-unit { 
-    height:210px;
     padding:0 0 0 20px;
+    background-image: url('/assets/hero-320.jpg');
     h1 { 
       padding:20px 0 10px;
       font-size:30px;
@@ -166,40 +150,39 @@
 // Large Desktop
 @media (min-width: 1200px) { 
 
-#main-content {
-  &.container { padding-top: 90px; } 
-}
-
-div.hero-unit { 
-  height:400px;
-  padding:0 0 0 80px;
-  h1 { 
-    padding:60px 0 30px;
-    font-size:38px;
+  div.hero-unit { 
+    height:270px;
+    padding:40px;
+    background-image: url('/assets/hero-500.jpg');
+    h1 {
+      font-size:46px;
+      width: 650px;
     } 
-  p { font-size:18px; }
-  img { 
-    width:auto;
-    height:400px;
-  }
-}
-
-ul.profile {
-  margin: 0 0 30px;
-  li.avatar {
+    p { width: 580px; font-size:18px; }
     img { 
-      height: 146px; width: 146px;
-      background-position: 57px 57px;
+      width:auto;
+      height:400px;
     }
   }
-}
-.row ul.product {
-  margin-bottom:30px;
-}
-.container { 
-  h1 {
+
+  ul.profile {
+    margin: 0 0 30px;
+    li.avatar {
+      img { 
+        height: 146px; width: 146px;
+        background-position: 57px 57px;
+      }
+    }
+  }
+
+  .row ul.product {
     margin-bottom:30px;
   }
-}
+
+  .container { 
+    h1 {
+      margin-bottom:30px;
+    }
+  }
 
 } /* Large desktop */

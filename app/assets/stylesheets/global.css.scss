@@ -14,15 +14,16 @@
 }
 
 body {
-  /*font-family: "lemonde-courrier", serif;*/
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Domine', serif; font-weight:400;
   background: #f6f3f1 url('bg-body.jpg') repeat;
 }
 
-h1,h2,h3,h4,h5 {
+#main-content.container { padding-top: 90px; }
+
+h1, h2 { font-family: 'Satisfy', cursive; }
+h3,h4,h5 {
+  font-weight:700;
   color:#002f57;
-  text-transform:capitalize;
-  font-family: 'Stoke', serif;
 }
 
 h1 { 
@@ -61,10 +62,10 @@ a {
     background:url('elixir-logo.png') 0 10px no-repeat;
   }
   .nav > li > a {
-    color:#8ec73f;
+    color:#53b9d7;
     font-weight:bold;
     &:hover {
-      color:#66a016;
+      color:#002f57;
     }
   }
 }
@@ -102,7 +103,7 @@ div.row {
   }
 }
 .input-append { width: 100%; }
-#main-content { padding-top: 60px; }
+
 #nav-divider { padding:10px 0; }
 .gutter { margin-bottom: 30px; }
 
