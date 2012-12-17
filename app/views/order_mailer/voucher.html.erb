@@ -7,7 +7,7 @@
       </p>
       <table>
         <tr>
-          <td><%= image_tag @line_item.product.image_url unless @line_item.product.image.nil? %></td>
+          <td><%= image_tag @line_item.product.image_url unless @line_item.product.image.file.nil? %></td>
           <td><h3><%= @line_item.name %></h3></td>
         <tr>
       </table>

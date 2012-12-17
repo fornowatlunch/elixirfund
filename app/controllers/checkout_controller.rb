@@ -61,7 +61,7 @@ class CheckoutController < ApplicationController
         email_receipt(o)
         email_vouchers(o)
 
-        session[:cart_items] = []
+        session[:cart_items] = Set.new
         render 'success'
       else
         raise StandardError, response.message 
