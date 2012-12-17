@@ -150,6 +150,12 @@
 // Large Desktop
 @media (min-width: 1200px) { 
 
+.navbar {
+  a.brand {
+    padding-right:30px;
+  }
+}
+
   div.hero-unit { 
     height:270px;
     padding:40px;
