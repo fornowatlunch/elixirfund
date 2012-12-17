@@ -2,9 +2,8 @@
   <div class="row">
     <div class="span12">
       <div class="box">
-        <h1><%= @product.title %></h1>
-        <%= render 'gallery' %>
-
+        <h1><%= image_tag @product.image_url unless @product.image.file.nil? %> <%= @product.title %></h1>
+        <% #render 'gallery' %>
         <pre><%= @product.inspect if Rails.env.development? %></pre>
       </div>
     </div>

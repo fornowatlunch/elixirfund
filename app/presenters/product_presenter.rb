@@ -2,6 +2,7 @@ class ProductPresenter < BasePresenter
   presents :product
 
   def list_image
+    h.image_tag product.image.url unless product.image.file.nil?
   end
 
   def company
