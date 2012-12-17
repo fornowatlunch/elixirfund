@@ -1,16 +1,20 @@
 a.patient {
+  display:block;
   text-decoration: none;
 }
 
 ul.profile {
   list-style: none;
-  background-color: #fff;
+  @include box-style;
   margin: 0 0 20px;
   padding: 0px;
-  border-radius: 4px; 
   cursor: pointer;
   &:hover {
-    box-shadow: 0 0 8px #bbb;
+    position:relative;
+    top:-1px;
+    -moz-box-shadow: 0 1px 6px #aaa;
+    -webkit-box-shadow: 0 1px 6px #aaa;
+    box-shadow: 0 1px 6px #aaa;
   }
   li {
     padding: 0 12px 10px 12px;

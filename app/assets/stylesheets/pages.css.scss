@@ -11,6 +11,7 @@
 }
 
 .hero-unit { 
+  @include box-style;
   height:270px;
   padding:40px;
   background: #fff url('/assets/hero-400.jpg') right top no-repeat;
@@ -18,8 +19,11 @@
     font-size:38px;
     text-transform:none;
     text-align:left;
-    color:#53b9d7;
+    color:#8ec73f;
     text-shadow:1px 1px 1px #002f57;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+    box-shadow:none;
     margin: 0 0 10px -10px;
     width:520px;
   } 
@@ -62,8 +66,7 @@
 }
 
 #pitch-boxes .span4, #pitch-boxes .span3 {
-  @include border-radius(5px);
-  background:#fff;
+  @include box-style;
   height: 170px;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
