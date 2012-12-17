@@ -10,7 +10,7 @@
           <% if !p.price.nil? %>
             <span class="label label-success">$<%= p.price %></span>
           <% end %>&nbsp;
-          By: <%= p.company_link_to %></p>
+          By: <%= p.company_link_to %> <%= p.company_location %></p>
         <p>
           <%= p.link_to %>
           <%= p.wishlist_button %>
