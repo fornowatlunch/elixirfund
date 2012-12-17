@@ -116,7 +116,7 @@
   @include nav-collapsed;
 
   #main-content {
-    &.container { padding-top:0; } 
+    &.container { padding-top: 90px; } 
     ul.product li.product-list-image {
       width:120px;
     }
@@ -128,7 +128,7 @@
     h1 { 
       padding:20px 0 10px;
       font-size:30px;
-      } 
+    } 
     p { font-size:14px; line-height:18px; margin-bottom:10px; }
     img { 
       width:auto;
@@ -165,6 +165,10 @@
 
 // Large Desktop
 @media (min-width: 1200px) { 
+
+#main-content {
+  &.container { padding-top: 90px; } 
+}
 
 div.hero-unit { 
   height:400px;
