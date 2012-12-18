@@ -25,6 +25,7 @@ gem 'bootstrap-kaminari-views'
 gem 'paperclip'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'mysql2'
 
 group :test, :development do
   gem 'aktion_test_rails'
