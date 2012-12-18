@@ -32,9 +32,7 @@ group :test, :development do
 end
 
 group :development do
-  gem 'capistrano'
-  gem 'capistrano-ext'
-  gem 'rvm-capistrano'
+  gem 'aktion_cap' 
 end
 
 group :development, :staging do
