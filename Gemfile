@@ -26,6 +26,7 @@ gem 'paperclip'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'mysql2'
+gem 'airbrake'
 
 group :test, :development do
   gem 'aktion_test_rails'
