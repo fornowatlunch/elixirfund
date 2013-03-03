@@ -124,11 +124,12 @@ end %>
             <%= f.label :zip_code, "Zip Code", :class => "zip" %>
             <%= select_tag :state, options_for_select(us_states), :class => "state" %>
             <%= f.text_field :zip_code, :class => "zip" %>
-            <%= f.label :phone %><br/>
+            <%= f.label :phone %><br>
             <%= f.text_field :phone, :type => "tel" %>
             <%= f.label :avatar %>
             <%= f.file_field :avatar, :type => "file" %>
           </div>
+
           <div class="half right">
             <%= f.label :public_bio, "Public Biography" %>
             <%= f.text_area :public_bio %>

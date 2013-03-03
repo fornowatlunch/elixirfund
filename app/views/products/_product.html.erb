@@ -8,7 +8,7 @@
         <h4 class="media-heading"><%= p.title %></h4>
         <p>
           <% if !p.price.nil? %>
-            <span class="label label-success">$<%= p.price %></span>
+            <span class="label label-success"><%= number_to_currency p.price %></span>
           <% end %>&nbsp;
           By: <%= p.company_link_to %> <%= p.company_location %></p>
         <p>
