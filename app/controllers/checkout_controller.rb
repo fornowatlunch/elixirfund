@@ -4,7 +4,7 @@ class CheckoutController < ApplicationController
   def billing_info
     @billing_info = BillingInfo.new
   end
- 
+
   def process_without_payment
     o = Order.create user_id: current_user.id, name: current_user.email
     session[:cart_items_custom].each do |item_tuple|
@@ -30,7 +30,7 @@ class CheckoutController < ApplicationController
 
   def process_payment
     @billing_info = BillingInfo.new(params[:billing_info])
-    
+
     if !@billing_info.valid?
       flash[:alert] = []
       @billing_info.errors.each do |field, msg|
@@ -45,11 +45,11 @@ class CheckoutController < ApplicationController
     session[:cart_items].each do |item_tuple|
       amount += Product.find(item_tuple[1]).price*item_tuple[2].to_f
     end
-    if !session[:donation].nil?  
+    if !session[:donation].nil?
       amount += session[:donation].to_f
     end
-    
-    # The card verification value is also known as CVV2, CVC2, or CID 
+
+    # The card verification value is also known as CVV2, CVC2, or CID
     @credit_card ||= ActiveMerchant::Billing::CreditCard.new(
                 :first_name         => params[:billing_info][:first_name],
                 :last_name          => params[:billing_info][:last_name],
@@ -59,7 +59,7 @@ class CheckoutController < ApplicationController
                 :verification_value => params[:billing_info][:cvv])
 
     # Validating the card automatically detects the card type
-    if @credit_card.valid? 
+    if @credit_card.valid?
       # Capture $10 from the credit card
       response = GATEWAY.purchase((amount * 100).round, @credit_card)
 
@@ -77,7 +77,7 @@ class CheckoutController < ApplicationController
           @line_item.price = @product.price
           o.line_items << @line_item
         end
-  
+
         if !session[:cart_items_custom].blank? && session[:cart_items_custom].size > 0
           session[:cart_items_custom].each do |item_tuple|
             @wishlist_item = WishlistItem.find(item_tuple[1])
@@ -116,24 +116,16 @@ class CheckoutController < ApplicationController
         end
 
         session[:cart_items].each do |item_tuple|
-          wishlist_item = Wishlist.find_by_patient_id(item_tuple[0]).wishlist_products.find_by_product_id(item_tuple[1])
-          requested_quantity = wishlist_item.qty.to_i
-          purchased_qty = item_tuple[2].to_i
-          qty_remaining = requested_quantity - purchased_qty
-          if qty_remaining <= 0
-            wishlist_item.delete
-          else
-            wishlist_item.update_attributes :qty => qty_remaining
-          end
+          Wishlist.find_by_patient_id(item_tuple[0]).wishlist_products.find_by_product_id(item_tuple[1]).delete
         end
         session[:cart_items] = Set.new
         render 'success'
       else
-        raise StandardError, response.message 
+        raise StandardError, response.message
       end
     else
       abort 'card invalid'
-      redirect_to checkout_billing_info_path 
+      redirect_to checkout_billing_info_path
     end
   end
 
@@ -148,10 +140,10 @@ class CheckoutController < ApplicationController
       end
     end
   end
- 
+
   def email_custom_item_vouchers(order)
     order.line_items.each do |line_item|
-      if !line_item.wishlist_item.blank? 
+      if !line_item.wishlist_item.blank?
         OrderMailer.custom_item_voucher(line_item).deliver
       end
     end
@@ -160,6 +152,6 @@ class CheckoutController < ApplicationController
   private
 
   def validate_payment_info
-    include ActiveModel::Validations  
+    include ActiveModel::Validations
   end
 end

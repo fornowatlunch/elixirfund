@@ -42,8 +42,8 @@ ElixirFund::Application.routes.draw do
     end
   end
   resources :invitations, :only => [:new, :create]
-  resources :wishlist_items, :only => [:destroy] 
-  get '/checkout/billing_info', to: 'checkout#billing_info' 
+  resources :wishlist_items, :only => [:destroy]
+  get '/checkout/billing_info', to: 'checkout#billing_info'
   post '/checkout/process_payment', to: 'checkout#process_payment'
   post '/checkout/process_without_payment', to: 'checkout#process_without_payment'
   get '/checkout/success', to: 'checkout#success'

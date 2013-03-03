@@ -1,30 +1,30 @@
 <div class="row">
   <div class="span4">
-    
+
     <div class="box">
     <% if !session[:cart_items].blank? && (session[:cart_items].size > 0 || !session[:donation].blank?) %>
-      <h3><%= t('label.card_info') %></h3> 
+      <h3><%= t('label.card_info') %></h3>
       <%= form_for @billing_info, :url => checkout_process_payment_path(@billing_info) do |bi| %>
-  
+
         <%= bi.label t('label.card_first_name') %>
         <%= bi.text_field :first_name %>
-  
+
         <%= bi.label t('label.card_last_name') %>
         <%= bi.text_field :last_name %>
- 
+
         <%= bi.label t('label.card_card_number') %>
         <%= bi.text_field :card_number %>
 
         <%= bi.label :exp_month, t('label.card_exp_month'), :class => "month"  %>
         <%= bi.label :exp_year, t('label.card_exp_year'), :class => "year" %>
         <%= bi.label :cvv, t('label.card_cvv'), :class => "cvv" %>
- 
+
         <%= bi.text_field :exp_month, :class => "month", :placeholder => 'mm' %>
         <%= bi.text_field :exp_year, :class => "year", :placeholder => 'yyyy' %>
         <%= bi.text_field :cvv, :class => "cvv" %>
 
         <%= bi.submit "Submit Payment", :class => "btn btn-primary" %>
-    
+
       <% end %>
     <% else %>
       <p>No payment is required for Special Request items.</p>
@@ -37,19 +37,19 @@
   <div class="span8">
     <div class="box">
       <h3><%= t('label.order_summary') %></h3>
-  
-      <% 
+
+      <%
       if !session[:cart_items].blank? && (session[:cart_items].size > 0 || !session[:donation].blank?)
         cart_items = session[:cart_items]
         @items = []
         @total = 0.00
-	      cart_items.each do |item_tuple|
-	        @items << [item_tuple[0], Product.find(item_tuple[1]), item_tuple[2]]
+        cart_items.each do |item_tuple|
+          @items << [item_tuple[0], Product.find(item_tuple[1]), item_tuple[2]]
           @total += Product.find(item_tuple[1]).price*item_tuple[2].to_i
-	      end
-      
+        end
+
         if !session[:donation].nil?
-          @total += session[:donation]  
+          @total += session[:donation]
         end
         %>
 
@@ -99,9 +99,9 @@
         <%
           cart_items_custom = session[:cart_items_custom]
           @custom_items = []
-	        cart_items_custom.each do |item_tuple|
-	          @custom_items << [item_tuple[0], WishlistItem.find(item_tuple[1]), item_tuple[2]]
-	        end
+          cart_items_custom.each do |item_tuple|
+            @custom_items << [item_tuple[0], WishlistItem.find(item_tuple[1]), item_tuple[2]]
+          end
         %>
 
         <table class="bill">
@@ -133,7 +133,7 @@
       <%= form_tag "/cart/add_donation" do %>
         <div class="input-prepend pull-left">
           <span class="add-on">$</span>
-          <%= text_field_tag "donation", "", :style => 'width: auto;' %>
+          <%= text_field_tag "donation", "25", :style => 'width: auto;' %>
         </div>
         &nbsp;<%= submit_tag "Add Donation", :class => "btn btn-primary pull-left", :style => 'width: auto; margin: 0 0 0 8px; float: left; display: inline-block;' %>
       <% end %>
