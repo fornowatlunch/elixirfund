@@ -40,6 +40,7 @@ ElixirFund::Application.routes.draw do
   get "/cart",        to: 'carts#show',     as: :cart
   put "/cart/add",    to: 'carts#add',      as: :add_to_cart
   put "/cart/remove", to: 'carts#remove',   as: :remove_from_cart
+  post "/cart/update_quantity", to: 'carts#update_quantity',   as: :update_cart_quantities
 
   get '/:id', :to => 'pages#show', :as => :pages
 end

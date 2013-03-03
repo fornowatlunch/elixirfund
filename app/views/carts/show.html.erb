@@ -39,6 +39,7 @@
     </div>
 
   <div class="span10">
+    <%= form_tag update_cart_quantities_path do |f| %>
     <% @items.each do |item| %>
       <div class="media">
         <div class="box">
@@ -51,12 +52,18 @@
               <p><span class="label label-success">$<%= item[1].price %></span></p>
             <% end %>
             <p>
-              <%= link_to t('label.view_product'), item[1], :class => "btn btn-info" %>
-              <%= link_to "Remove from cart", remove_from_cart_path(patient_id: item[0], product_id: item[1].id), method: :put, :class => "btn btn-danger" %>
+              <%= link_to t('label.view_product'), item[1], :class => "btn btn-info", :style => 'float: left; margin-right: 8px;' %>
+              <%= link_to "Remove from cart", remove_from_cart_path(patient_id: item[0], product_id: item[1].id), method: :put, :class => "btn btn-danger", :style => 'float: left; margin-right: 100px;' %>
+              <%= submit_tag "Update", :class => 'btn btn-warning', :style => 'float:right; width: 100px; margin:0;' %>
+              <div class="input-prepend" style="float:right; margin-right: 8px;">
+                <div class="add-on">Quantity</div>
+                <%= text_field_tag "quantities[]", item[2], :size => '2', :class => 'input-mini', :style => 'width: 40px' %> 
+              </div>
             </p>
           </div>
         </div>
       </div>
+      <% end %>
     <% end %>
   </div>    
 <% end %>

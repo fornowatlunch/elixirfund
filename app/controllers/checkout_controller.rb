@@ -20,7 +20,7 @@ class CheckoutController < ApplicationController
     # ActiveMerchant accepts all amounts as Integer values in cents
     amount = 0
     session[:cart_items].each do |item_tuple|
-      amount += Product.find(item_tuple[1]).price
+      amount += Product.find(item_tuple[1]).price*item_tuple[2].to_f
     end
         
     
@@ -48,6 +48,7 @@ class CheckoutController < ApplicationController
           @line_item.patient_id = item_tuple[0]
           @line_item.order_id = o.id
           @line_item.name = @product.title
+          @line_item.qty = item_tuple[2].to_i
           @line_item.price = @product.price
           o.line_items << @line_item
           o.status = "complete"

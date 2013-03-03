@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121126032404) do
+ActiveRecord::Schema.define(:version => 20130303025357) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20121126032404) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "patient_id"
+    t.integer  "qty"
   end
 
   add_index "line_items", ["order_id"], :name => "index_line_items_on_order_id"

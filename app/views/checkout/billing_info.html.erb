@@ -13,12 +13,12 @@
         <%= bi.label t('label.card_card_number') %>
         <%= bi.text_field :card_number %>
 
-        <%= bi.label t('label.card_exp_month'), :class => "month"  %>
-        <%= bi.label t('label.card_exp_year'), :class => "year" %>
-        <%= bi.label t('label.card_cvv'), :class => "cvv" %>
+        <%= bi.label :exp_month, t('label.card_exp_month'), :class => "month"  %>
+        <%= bi.label :exp_year, t('label.card_exp_year'), :class => "year" %>
+        <%= bi.label :cvv, t('label.card_cvv'), :class => "cvv" %>
  
-        <%= bi.text_field :exp_month, :class => "month" %>
-        <%= bi.text_field :exp_year, :class => "year" %>
+        <%= bi.text_field :exp_month, :class => "month", :placeholder => 'mm' %>
+        <%= bi.text_field :exp_year, :class => "year", :placeholder => 'yyyy' %>
         <%= bi.text_field :cvv, :class => "cvv" %>
 
         <%= bi.submit "Submit Payment", :class => "btn btn-primary" %>
@@ -36,8 +36,8 @@
 	    @items = []
       @total = 0.00
 	    cart_items.each do |item_tuple|
-	      @items << [item_tuple[0], Product.find(item_tuple[1])]
-        @total += Product.find(item_tuple[1]).price
+	      @items << [item_tuple[0], Product.find(item_tuple[1]), item_tuple[2]]
+        @total += Product.find(item_tuple[1]).price*item_tuple[2].to_i
 	    end
       %>
 
@@ -46,6 +46,7 @@
           <tr>
             <th>Patient</th>
             <th>Item</th>
+            <th>Qty</th>
             <th>Price</th>
           </tr>
         </thead>
@@ -54,13 +55,14 @@
           <tr>
             <td><%= Patient.find(item[0]).name %></td>
             <td><%= item[1].title %></td>
-            <td class="price"><span class="label label-success"><%= number_to_currency item[1].price %></span></td>
+            <td align="center"><%= item[2] %></td>
+            <td class="price"><span class="label label-success"><%= number_to_currency item[1].price*item[2].to_i %></span></td>
           </tr>
         <% end %>
         </tbody>
         <tfoot>
           <tr>
-            <th colspan="2" class="price">Total</th>
+            <th colspan="3" class="price">Total</th>
             <td class="price"><span class="label label-success"><%= number_to_currency @total %></span></td>
         </tfoot>
       </table>
