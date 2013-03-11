@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121126032404) do
+ActiveRecord::Schema.define(:version => 20130311011330) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20121126032404) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "patient_id"
+    t.integer  "qty"
   end
 
   add_index "line_items", ["order_id"], :name => "index_line_items_on_order_id"
@@ -158,8 +159,13 @@ ActiveRecord::Schema.define(:version => 20121126032404) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
   end
 
+  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 

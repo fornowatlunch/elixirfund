@@ -67,19 +67,8 @@ ElixirFund::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # ActionMailer
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  config.action_mailer.delivery_method = :sendmail
-  config.action_mailer.smtp_settings = {
-    :address              => "smtp.gmail.com",
-    :port                 => 587,
-    :domain               => 'aktionlab.com',
-    :user_name            => 'mailer@aktionlab.com',
-    :password             => 'aktionmailer',
-    :authentication       => 'plain',
-    :enable_starttls_auto => true
-  }
-
+  config.action_mailer.raise_delivery_errors = false
+  
   # ActiveMerchant
   config.after_initialize do
     ActiveMerchant::Billing::Base.mode = :test
