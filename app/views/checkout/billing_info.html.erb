@@ -46,8 +46,9 @@
           <tr>
             <th>Patient</th>
             <th>Item</th>
-            <th>Qty</th>
             <th>Price</th>
+            <th>Qty</th>
+            <th>Subtotal</th>
           </tr>
         </thead>
         <tbody>
@@ -55,17 +56,40 @@
           <tr>
             <td><%= Patient.find(item[0]).name %></td>
             <td><%= item[1].title %></td>
+            <td class="price"><%= number_to_currency item[1].price %></td>
             <td align="center"><%= item[2] %></td>
             <td class="price"><span class="label label-success"><%= number_to_currency item[1].price*item[2].to_i %></span></td>
+          </tr>
+          <% end %>
+          <% if !session[:donation].nil? %>
+          <tr>
+            <td>ElixirFund Commnuity</td>
+            <td>Additional Donation</td>
+            <td></td>
+            <td></td>
+            <td class="price">
+            <%= form_tag "/cart/remove_donation", :id => 'remove-donation', :method => 'delete' do %>
+              <span class="label label-success"><%= number_to_currency session[:donation] %></span><i class="icon-remove" onclick="$('form#remove-donation').submit()" style="cursor:pointer;"></i></td>
+            <% end %>
           </tr>
         <% end %>
         </tbody>
         <tfoot>
           <tr>
-            <th colspan="3" class="price">Total</th>
+            <th colspan="4" class="price">Total</th>
             <td class="price"><span class="label label-success"><%= number_to_currency @total %></span></td>
         </tfoot>
       </table>
+
+      <h3>Make a Donation to the Elixir Fund</h3>
+      <p>If you would like to include a tax-deductible donation to the Elixir Fund with your purchase, please specify here:</p>
+      <%= form_tag "/cart/add_donation" do %>
+        <div class="input-prepend pull-left">
+          <span class="add-on">$</span>
+          <%= text_field_tag "donation", "25", :style => 'width: auto;' %>
+        </div>
+        &nbsp;<%= submit_tag "Add Donation", :class => "btn btn-primary pull-left", :style => 'width: auto; margin: 0 0 0 8px; float: left; display: inline-block;' %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -37,4 +37,17 @@ class CartsController < ApplicationController
     redirect_to :back
   end
 
+  def add_donation
+    if session[:donation].nil?
+      session[:donation] = params[:donation].to_f
+    else
+      session[:donation] += params[:donation].to_f
+    end
+    redirect_to :back
+  end
+
+  def remove_donation
+    session[:donation] = nil
+    redirect_to :back
+  end
 end

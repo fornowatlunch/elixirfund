@@ -30,7 +30,12 @@ ElixirFund::Application.routes.draw do
   resources :partners, :only => [:index, :show]
   resources :patients, :only => [:index, :show, :new, :edit, :create, :update]
   resources :products, :only => [:index, :show]
-  resource :cart, :only => [:show, :add]
+  resource :cart, :only => [:show, :add] do
+    member do
+      post :add_donation
+      delete :remove_donation
+    end
+  end
   resources :invitations, :only => [:new, :create]
   
   get '/checkout/billing_info', to: 'checkout#billing_info' 
