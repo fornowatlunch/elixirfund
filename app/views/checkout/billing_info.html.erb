@@ -31,14 +31,18 @@
     <div class="box">
       <h3><%= t('label.order_summary') %></h3>
   
-      <% 
+      <%
       cart_items = session[:cart_items]
-	    @items = []
+      @items = []
       @total = 0.00
 	    cart_items.each do |item_tuple|
 	      @items << [item_tuple[0], Product.find(item_tuple[1]), item_tuple[2]]
         @total += Product.find(item_tuple[1]).price*item_tuple[2].to_i
 	    end
+      
+      if !session[:donation].nil?
+        @total += session[:donation]  
+      end
       %>
 
       <table class="bill">

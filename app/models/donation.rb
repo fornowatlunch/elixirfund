@@ -1,4 +1,4 @@
 class Donation < ActiveRecord::Base
   belongs_to :order
-  attr_accessible :amount, :name
+  attr_accessible :order, :amount, :name
 end

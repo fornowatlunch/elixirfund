@@ -22,7 +22,9 @@ class CheckoutController < ApplicationController
     session[:cart_items].each do |item_tuple|
       amount += Product.find(item_tuple[1]).price*item_tuple[2].to_f
     end
-        
+    if !session[:donation].nil?  
+      amount += session[:donation].to_f
+    end
     
     # The card verification value is also known as CVV2, CVC2, or CID 
     @credit_card ||= ActiveMerchant::Billing::CreditCard.new(
