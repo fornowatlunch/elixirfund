@@ -54,7 +54,11 @@ class CheckoutController < ApplicationController
           o.status = "complete"
           o.save
         end
-    
+   
+        if !session[:donation].nil?
+          @donation = Donation.create order: o, name: current_user.email, amount: session[:donation]
+        end
+
         o.line_items.each do |line_item|
           v = Voucher.create(status: "purchased", line_item_id: line_item.id)
         end
