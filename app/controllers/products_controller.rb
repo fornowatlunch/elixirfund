@@ -27,6 +27,7 @@ class ProductsController < ApplicationController
         if @zip9 < 10000 then @zip9 = "0#{@zip9.to_s}" end
         @zip10 = @zip + 5
         if @zip10 < 10000 then @zip10 = "0#{@zip10.to_s}" end
+        if @zip < 10000 then @zip = "0#{@zip.to_s}" end
         @partners.concat(Partner.where("
           zip_code = ? OR zip_code = ? OR zip_code = ? OR zip_code = ? OR zip_code = ? OR zip_code = ?
           OR zip_code = ? OR zip_code = ? OR zip_code = ? OR zip_code = ? OR zip_code = ?",
