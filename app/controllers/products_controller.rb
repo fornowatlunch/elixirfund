@@ -8,15 +8,25 @@ class ProductsController < ApplicationController
       @zip = @search.to_i
       if @zip != 0
         @zip1 = @zip - 1
+        if @zip1 < 10000 then @zip1 = "0#{@zip1.to_s}" end
         @zip2 = @zip - 2
+        if @zip2 < 10000 then @zip2 = "0#{@zip2.to_s}" end
         @zip3 = @zip - 3
+        if @zip3 < 10000 then @zip3 = "0#{@zip3.to_s}" end
         @zip4 = @zip - 4
+        if @zip4 < 10000 then @zip4 = "0#{@zip4.to_s}" end
         @zip5 = @zip - 5
+        if @zip5 < 10000 then @zip5 = "0#{@zip5.to_s}" end
         @zip6 = @zip + 1
+        if @zip6 < 10000 then @zip6 = "0#{@zip6.to_s}" end
         @zip7 = @zip + 2
+        if @zip7 < 10000 then @zip7 = "0#{@zip7.to_s}" end
         @zip8 = @zip + 3
+        if @zip8 < 10000 then @zip8 = "0#{@zip8.to_s}" end
         @zip9 = @zip + 4
+        if @zip9 < 10000 then @zip9 = "0#{@zip9.to_s}" end
         @zip10 = @zip + 5
+        if @zip10 < 10000 then @zip10 = "0#{@zip10.to_s}" end
         @partners.concat(Partner.where("
           zip_code = ? OR zip_code = ? OR zip_code = ? OR zip_code = ? OR zip_code = ? OR zip_code = ?
           OR zip_code = ? OR zip_code = ? OR zip_code = ? OR zip_code = ? OR zip_code = ?",
