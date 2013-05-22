@@ -1,15 +1,36 @@
-<section class="patient_profile private">
-  <h2><%= @patient.name %>'s Private Profile</h2>
-  <p><%= @patient.avatar %></p>
+<div class="row patient">
+  <div class="span12">
+    <div class="box gutter">
+      <div class="patient-avatar">
+        <%= patient_presenter.avatar %>
+      </div>
+      
+      <h2><%= patient_presenter.name %>'s Public Profile</h2>
+      <p class="lead">
+        <%= patient_presenter.location %>
+      </p>
+      <p><%= patient_presenter.private_bio %></p>
+    </div>
+  </div>
+</div>
 
-  <h3><%= @patient.name %></h3>
-  <p><%= @patient.location %></p>
-  <p><%= @patient.private_bio %></p>
-  <p><%= @patient.special_requests %></p>
-  <p>You're connected to <%= @patient.name %></p>
-  <p><%= link_to t('manage_connections'), user_connections_path(current_user) %></p>
+<div class="row patient">
+  <div class="span2 gutter">
+    <div class="links">
+      <%= link_to t('label.back_to_patients'), patients_path, :class => "btn btn-primary" %>
+    </div>
+  </div>
 
-  <h3><%= @patient.name %>'s Wishlist</h3>
-  <%= render :partial => 'wishlist_item', :collection => @wishlist.items %>
-  <p>*Advertising Section / Pitch Box on Donor Profiles</p>
-</section>
+  <div class="span10">
+    <div class="box">
+      <h3><%= patient_presenter.name %>'s Public Wishlist</h3>
+      <% if patient_presenter.public_wishlist_items.size <= 0 %>
+        <p class="lead"><%= patient_presenter.name %> hasn't added anything to their wishlist!</p>
+        <p>Please check back later.</p>
+      <% else %>
+        <%= render :partial => 'wishlist_item', collection: patient_presenter.public_wishlist_items, as: :wishlist_item, locals: {patient_id: params[:id]} %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

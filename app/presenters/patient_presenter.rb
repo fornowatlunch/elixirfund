@@ -25,4 +25,8 @@ class PatientPresenter < BasePresenter
   def link_to
     h.link_to name, h.patient_path(patient) 
   end
+
+  def special_requests
+    "Special Requests (Items not available from our list of Gifts)"
+  end
 end
