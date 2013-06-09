@@ -1,5 +1,7 @@
 class Partner < ActiveRecord::Base 
-  attr_accessible :address1, :address2, :city, :state, :zip_code, :contact_email, :contact_name, :description, :fax, :image, :name, :phone
+  attr_accessible :approved, :address1, :address2, :city, :state,
+                  :zip_code, :contact_email, :contact_name,
+                  :description, :fax, :image, :name, :phone
   
   mount_uploader :image, LogoUploader
 

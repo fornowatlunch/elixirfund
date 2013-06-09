@@ -1,6 +1,7 @@
 <% present product do |p| %>
-  <div class="media">
+  <div class="media product">
     <div class="box">
+      <% if p.partner.approved %><div class="elixir-approved"></div><% end %>
       <div class="media-object pull-left">
         <%= p.list_image %>
       </div>

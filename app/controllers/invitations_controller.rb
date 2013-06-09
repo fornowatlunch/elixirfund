@@ -1,6 +1,11 @@
 class InvitationsController < ApplicationController
   def new
     @invitation = Invitation.new
+    if !params[:type].blank? && params[:type] == 'caregiver'
+      render :new_caregiver
+    else
+      render :new
+    end 
   end
 
   def create

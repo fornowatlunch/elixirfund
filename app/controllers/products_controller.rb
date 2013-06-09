@@ -2,9 +2,16 @@ class ProductsController < ApplicationController
   load_and_authorize_resource
   
   def index
-    if params.has_key?(:products) && params[:products].has_key?(:search)
+    if params.has_key?(:products) && params[:products].has_key?(:search) && !params[:products][:search].blank?
       @search = params[:products][:search]
-      @partners = Partner.where("city LIKE ?","%#{@search}%").map {|p| p.id} 
+      if !@search.blank?
+        city_state = @search.split(/,/)
+        if city_state.length == 1
+          @partners = Partner.where("city LIKE ? OR state = ?","%#{city_state[0].strip}%","#{city_state[0].strip}").map {|p| p.id} 
+        else
+          @partners = Partner.where("city LIKE ? AND state = ?","%#{city_state[0].strip}%", "#{city_state[1].strip.split(/ /)[0].strip}").map {|p| p.id} 
+        end 
+      end
       @zip = @search.to_i
       if @zip != 0
         @zip1 = @zip - 1

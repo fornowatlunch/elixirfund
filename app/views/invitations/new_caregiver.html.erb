@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="span4 offset4">
+    <div class="box">
+      <h3>Inivite a Caregiver</h3>
+      <%= form_for(@invitation) do |f| %>
+        <%= f.label :to %>
+        <%= f.email_field :to, :autofocus => "autofocus" %>
+        <%= f.text_field :subject, :value => "You've been invited to join Elixir Fund", :style => "display: none;" %>
+        <%= f.label :message %>
+        <%= f.text_area :message %>
+        <%= f.submit t('label.send_invitation'), :class => "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

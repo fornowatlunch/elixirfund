@@ -12,6 +12,7 @@ ActiveAdmin.register Partner do
       image_tag partner.image_url(:thumb) unless partner.image.file.nil?
     end
     column :name
+    column :approved
     column :description
     column :city
     column :state
@@ -22,6 +23,7 @@ ActiveAdmin.register Partner do
     panel "Partner Details" do
     attributes_table_for partner do
       row :name
+      row :approved
       row :description
       row :logo do
         image_tag partner.image_url(:thumb)
@@ -42,6 +44,7 @@ ActiveAdmin.register Partner do
   form(:html => { :multipart => true }) do |f|
     f.inputs "Details" do
       f.input :name
+      f.input :approved
       f.input :image, :label => "Logo", :as => :file
       f.input :description
       f.input :contact_name
