@@ -18,7 +18,7 @@ set :use_sudo, false
 set :server_hostname, "50.57.171.23"
 
 # include any files that need to be symlinked into the new release, usually configuration files are loaded this way.
-set :symlinks, %w(config/database.yml config/unicorn.rb)
+set :symlinks, %w(config/database.yml config/unicorn.rb public/uploads)
 
 role :web, server_hostname
 role :app, server_hostname
