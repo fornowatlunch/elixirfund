@@ -111,7 +111,7 @@ def us_states_abbr
 end %>
 
   <div class="row">
-    <div class="span8 offset2">
+    <div class="span10 offset1">
       <div class="box half">
         <%= form_for(@patient, :as => :patient, :html => {:multipart => true}) do |f| %>
           <h2>Edit Patient</h2>
@@ -135,6 +135,7 @@ end %>
             <%= f.text_area :public_bio %>
             <%= f.label :private_bio, "Private Biography" %>
             <%= f.text_area :private_bio %>
+            <%= f.check_box :private_wishlist %> Make Wishlist private (uncheck to make public) 
             <%= f.submit "Update", :class => "btn btn-primary" %>
           </div>
         <% end %>

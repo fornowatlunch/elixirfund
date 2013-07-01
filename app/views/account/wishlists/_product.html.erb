@@ -5,8 +5,8 @@
     </div>
     <div class="media-body">
       <h4 class="media-heading"><%= p.title %></h4>
+      <p>Supplied by: <%= p.partner.name %></p>
       <p>
-        <%= link_to t('label.view_product'), product, :class => "btn btn-info" %>
         <%= p.wishlist_button %>
       </p>
     </div>

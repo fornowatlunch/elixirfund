@@ -14,7 +14,7 @@ module Account
 
     def remove_product
       @wishlist = current_user.patient.wishlist
-      @wishlist.products -= Product.where(id: params[:product_id])
+      WishlistProduct.where(product_id: params[:product_id]).where(wishlist_id: @wishlist.id).first.delete
 
       redirect_to account_wishlist_path
     end

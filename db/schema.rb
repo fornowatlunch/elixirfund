@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130608212815) do
+ActiveRecord::Schema.define(:version => 20130701080208) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -133,8 +133,9 @@ ActiveRecord::Schema.define(:version => 20130608212815) do
     t.text     "private_bio"
     t.string   "avatar"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.boolean  "private_wishlist"
   end
 
   add_index "patients", ["user_id"], :name => "index_profiles_on_user_id"
@@ -204,6 +205,7 @@ ActiveRecord::Schema.define(:version => 20130608212815) do
     t.integer  "patient_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.boolean  "private"
   end
 
   add_index "wishlists", ["patient_id"], :name => "index_wishlists_on_user_id"

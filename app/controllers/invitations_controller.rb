@@ -10,6 +10,7 @@ class InvitationsController < ApplicationController
 
   def create
     @invitation = Invitation.new(params[:invitation])
+    @invitation.invitor_id = current_user.id
     if @invitation.save
       Invitations.invite(@invitation, current_user).deliver
       redirect_to account_path, notice: I18n.t('flash.create_invitation')

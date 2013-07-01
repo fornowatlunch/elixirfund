@@ -35,8 +35,18 @@ class ProductPresenter < BasePresenter
     end
   end
 
+  def add_another
+    if h.user_signed_in? and h.current_user.patient? and h.current_user.patient.wishlist.has_product(product) 
+      add_another_to_wishlist
+    end
+  end
+
   private
-  
+ 
+  def add_another_to_wishlist
+    h.link_to I18n.t('label.add_another_to_wishlist'), h.add_product_account_wishlist_path(:product_id => product.id), :method => :post, :class => 'btn btn-primary'
+  end
+ 
   def add_to_wishlist
     h.link_to I18n.t('label.add_to_wishlist'), h.add_product_account_wishlist_path(:product_id => product.id), :method => :post, :class => 'btn btn-primary'
   end

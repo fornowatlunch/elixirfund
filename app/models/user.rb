@@ -19,4 +19,15 @@ class User < ActiveRecord::Base
     !patient.nil?
   end
 
+  protected
+  
+  def make_connections
+    if !session[:invite_token].blank?
+      invitation = Invitation.find_by_token(session[:token])
+      invitor = User.find(invitation.invitor_id) 
+      Connection.create! :user => self, :to_user => invitor.id
+      Connection.create! :user => invitor, :to_user => self
+    end
+  end
+    
 end

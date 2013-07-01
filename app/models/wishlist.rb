@@ -5,6 +5,6 @@ class Wishlist < ActiveRecord::Base
   attr_accessible :description, :title, :patient
 
   def has_product(product)
-    self.include? product
+    self.products.include? product
   end
 end
