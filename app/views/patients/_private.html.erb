@@ -5,7 +5,7 @@
         <%= patient_presenter.avatar %>
       </div>
       
-      <h2><%= patient_presenter.name %>'s Public Profile</h2>
+      <h2><%= patient_presenter.name %></h2>
       <p class="lead">
         <%= patient_presenter.location %>
       </p>
@@ -23,7 +23,7 @@
 
   <div class="span10">
     <div class="box">
-      <h3><%= patient_presenter.name %>'s Public Wishlist</h3>
+      <h3>Wishlist</h3>
       <% if patient_presenter.public_wishlist_items.size <= 0 %>
         <p class="lead"><%= patient_presenter.name %> hasn't added anything to their wishlist!</p>
         <p>Please check back later.</p>

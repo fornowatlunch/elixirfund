@@ -1,6 +1,6 @@
 def create_products
 	puts "Creating Products..."
-	60.times do |n|
+	30.times do |n|
 	  Product.create!(
 	    :title => Faker::Company.bs,
 	    :description => Faker::Lorem.paragraph,

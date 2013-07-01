@@ -1,6 +1,6 @@
 def create_partners
 	puts "Creating Partners..."
-	50.times do |n|
+	10.times do |n|
 	  Partner.create!(
 	    :name => Faker::Company.bs,
 	    :description => Faker::Lorem.paragraph,

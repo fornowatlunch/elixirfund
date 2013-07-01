@@ -1,6 +1,6 @@
 def create_users
 	puts "Creating Users..."
-	150.times do |n|
+	10.times do |n|
 	  User.create!(
 	    :email => Faker::Internet.email,
 	    :password => 'password',
