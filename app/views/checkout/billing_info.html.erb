@@ -2,7 +2,7 @@
   <div class="span4">
     
     <div class="box">
-    <% if session[:cart_items].size > 0 || !session[:donation].blank?%>
+    <% if !session[:cart_items].blank? && (session[:cart_items].size > 0 || !session[:donation].blank?) %>
       <h3><%= t('label.card_info') %></h3> 
       <%= form_for @billing_info, :url => checkout_process_payment_path(@billing_info) do |bi| %>
   
@@ -39,7 +39,7 @@
       <h3><%= t('label.order_summary') %></h3>
   
       <% 
-      if session[:cart_items].size > 0 || !session[:donation].blank?
+      if !session[:cart_items].blank? && (session[:cart_items].size > 0 || !session[:donation].blank?)
         cart_items = session[:cart_items]
         @items = []
         @total = 0.00
@@ -94,7 +94,7 @@
         </table>
       <% end %>
 
-      <% if session[:cart_items_custom].size > 0 %>
+      <% if !session[:cart_items_custom].blank? && session[:cart_items_custom].size > 0 %>
         <h3>Special Request Items</h3>
         <%
           cart_items_custom = session[:cart_items_custom]
