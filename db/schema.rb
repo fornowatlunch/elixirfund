@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130701080208) do
+ActiveRecord::Schema.define(:version => 20130702044049) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -84,10 +84,11 @@ ActiveRecord::Schema.define(:version => 20130701080208) do
     t.integer  "partner_id"
     t.string   "name"
     t.float    "price"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.integer  "patient_id"
     t.integer  "qty"
+    t.integer  "wishlist_item_id"
   end
 
   add_index "line_items", ["order_id"], :name => "index_line_items_on_order_id"
@@ -188,6 +189,16 @@ ActiveRecord::Schema.define(:version => 20130701080208) do
   end
 
   add_index "vouchers", ["line_item_id"], :name => "index_vouchers_on_line_item_id"
+
+  create_table "wishlist_items", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "wishlist_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "wishlist_items", ["wishlist_id"], :name => "index_wishlist_items_on_wishlist_id"
 
   create_table "wishlist_products", :force => true do |t|
     t.integer  "wishlist_id"

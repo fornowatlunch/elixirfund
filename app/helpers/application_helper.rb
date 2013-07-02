@@ -1,4 +1,5 @@
 module ApplicationHelper
+  
   def present(object, klass = nil, &block)
     klass ||= "#{object.class}Presenter".constantize
     presenter = klass.new(object, self)
@@ -122,5 +123,24 @@ module ApplicationHelper
     ['WV', 'WV'],
     ['WY', 'WY']
   ]
+  end
+
+  def item_in_cart? cart, patient_id, product_id
+    cart.each do |item|
+      if item[0] == patient_id.to_i && item[1] == product_id.to_i 
+        return true
+        break
+      end
+    end     
+    false
+  end
+
+  def remove_cart_item cart, patient_id, product_id
+    cart.each do |item|
+      if item[0] == patient_id.to_i && item[1] == product_id.to_i 
+        cart.remove item
+        break
+      end
+    end  
   end
 end

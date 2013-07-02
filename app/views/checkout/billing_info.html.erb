@@ -1,6 +1,8 @@
 <div class="row">
   <div class="span4">
+    
     <div class="box">
+    <% if session[:cart_items].size > 0 || !session[:donation].blank?%>
       <h3><%= t('label.card_info') %></h3> 
       <%= form_for @billing_info, :url => checkout_process_payment_path(@billing_info) do |bi| %>
   
@@ -24,6 +26,11 @@
         <%= bi.submit "Submit Payment", :class => "btn btn-primary" %>
     
       <% end %>
+    <% else %>
+      <p>No payment is required for Special Request items.</p>
+      <p>After clicking Submit Order, your order will be completed and the patient will receive an email notifying them that a Special Request Item from their Wishlist has been purchased.</p>
+        <%= button_to "Submit Order", checkout_process_without_payment_path, :class => 'btn btn-primary' %>
+    <% end %>
     </div>
   </div>
 
@@ -31,59 +38,95 @@
     <div class="box">
       <h3><%= t('label.order_summary') %></h3>
   
-      <%
-      cart_items = session[:cart_items]
-      @items = []
-      @total = 0.00
-	    cart_items.each do |item_tuple|
-	      @items << [item_tuple[0], Product.find(item_tuple[1]), item_tuple[2]]
-        @total += Product.find(item_tuple[1]).price*item_tuple[2].to_i
-	    end
+      <% 
+      if session[:cart_items].size > 0 || !session[:donation].blank?
+        cart_items = session[:cart_items]
+        @items = []
+        @total = 0.00
+	      cart_items.each do |item_tuple|
+	        @items << [item_tuple[0], Product.find(item_tuple[1]), item_tuple[2]]
+          @total += Product.find(item_tuple[1]).price*item_tuple[2].to_i
+	      end
       
-      if !session[:donation].nil?
-        @total += session[:donation]  
-      end
-      %>
+        if !session[:donation].nil?
+          @total += session[:donation]  
+        end
+        %>
 
-      <table class="bill">
-        <thead>
-          <tr>
-            <th>Patient</th>
-            <th>Item</th>
-            <th>Price</th>
-            <th>Qty</th>
-            <th>Subtotal</th>
-          </tr>
-        </thead>
-        <tbody>
-        <% @items.each do |item| %>
-          <tr>
-            <td><%= Patient.find(item[0]).name %></td>
-            <td><%= item[1].title %></td>
-            <td class="price"><%= number_to_currency item[1].price %></td>
-            <td align="center"><%= item[2] %></td>
-            <td class="price"><span class="label label-success"><%= number_to_currency item[1].price*item[2].to_i %></span></td>
-          </tr>
-          <% end %>
-          <% if !session[:donation].nil? %>
-          <tr>
-            <td>ElixirFund Commnuity</td>
-            <td>Additional Donation</td>
-            <td></td>
-            <td></td>
-            <td class="price">
-            <%= form_tag "/cart/remove_donation", :id => 'remove-donation', :method => 'delete' do %>
-              <span class="label label-success"><%= number_to_currency session[:donation] %></span><i class="icon-remove" onclick="$('form#remove-donation').submit()" style="cursor:pointer;"></i></td>
+        <table class="bill">
+          <thead>
+            <tr>
+              <th>Patient</th>
+              <th>Item</th>
+              <th>Price</th>
+              <th>Qty</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @items.each do |item| %>
+            <tr>
+              <td><%= Patient.find(item[0]).name %></td>
+              <td><%= item[1].title %></td>
+              <td class="price"><%= number_to_currency item[1].price %></td>
+              <td align="center"><%= item[2] %></td>
+              <td class="price"><span class="label label-success"><%= number_to_currency item[1].price*item[2].to_i %></span></td>
+            </tr>
             <% end %>
-          </tr>
-        <% end %>
-        </tbody>
-        <tfoot>
-          <tr>
-            <th colspan="4" class="price">Total</th>
-            <td class="price"><span class="label label-success"><%= number_to_currency @total %></span></td>
-        </tfoot>
-      </table>
+            <% if !session[:donation].nil? %>
+            <tr>
+              <td>Elixir Fund Community</td>
+              <td>Tax-deductible Donation</td>
+              <td></td>
+              <td></td>
+              <td class="price">
+              <%= form_tag "/cart/remove_donation", :id => 'remove-donation', :method => 'delete' do %>
+                <span class="label label-success"><%= number_to_currency session[:donation] %></span><i class="icon-remove" onclick="$('form#remove-donation').submit()" style="cursor:pointer;"></i></td>
+              <% end %>
+            </tr>
+          <% end %>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th colspan="4" class="price">Total</th>
+              <td class="price"><span class="label label-success"><%= number_to_currency @total %></span></td>
+          </tfoot>
+        </table>
+      <% end %>
+
+      <% if session[:cart_items_custom].size > 0 %>
+        <h3>Special Request Items</h3>
+        <%
+          cart_items_custom = session[:cart_items_custom]
+          @custom_items = []
+	        cart_items_custom.each do |item_tuple|
+	          @custom_items << [item_tuple[0], WishlistItem.find(item_tuple[1]), item_tuple[2]]
+	        end
+        %>
+
+        <table class="bill">
+          <thead>
+            <tr>
+              <th>Patient</th>
+              <th>Item</th>
+              <th></th>
+              <th>Qty</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @custom_items.each do |item| %>
+            <tr>
+              <td><%= Patient.find(item[0]).name %></td>
+              <td><%= item[1].title %></td>
+              <td class="price"></td>
+              <td align="center"><%= item[2] %></td>
+              <td class="price"></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
 
       <h3>Make a Donation to the Elixir Fund</h3>
       <p>If you would like to include a tax-deductible donation to the Elixir Fund with your purchase, please specify here:</p>

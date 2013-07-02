@@ -4,7 +4,29 @@ class CheckoutController < ApplicationController
   def billing_info
     @billing_info = BillingInfo.new
   end
-  
+ 
+  def process_without_payment
+    o = Order.create user_id: current_user.id, name: current_user.email
+    session[:cart_items_custom].each do |item_tuple|
+      @wishlist_item = WishlistItem.find(item_tuple[1])
+      @line_item = LineItem.new
+      @line_item.wishlist_item = @wishlist_item
+      @line_item.patient_id = item_tuple[0]
+      @line_item.order_id = o.id
+      @line_item.name = @wishlist_item.title
+      @line_item.qty = item_tuple[2].to_i
+      o.subtotal = 0.0
+      o.line_items << @line_item
+      o.status = "complete"
+      o.save
+    end
+    email_receipt(o)
+    email_custom_item_vouchers(o)
+
+    session[:cart_items_custom] = Set.new
+    render 'success'
+  end
+
   def process_payment
     @billing_info = BillingInfo.new(params[:billing_info])
     
@@ -53,10 +75,25 @@ class CheckoutController < ApplicationController
           @line_item.qty = item_tuple[2].to_i
           @line_item.price = @product.price
           o.line_items << @line_item
-          o.status = "complete"
-          o.save
         end
-   
+  
+        if !session[:cart_items_custom].blank? && session[:cart_items_custom].size > 0
+          session[:cart_items_custom].each do |item_tuple|
+            @wishlist_item = WishlistItem.find(item_tuple[1])
+            @line_item = LineItem.new
+            @line_item.wishlist_item = @wishlist_item
+            @line_item.patient_id = item_tuple[0]
+            @line_item.order_id = o.id
+            @line_item.name = @wishlist_item.title
+            @line_item.qty = item_tuple[2].to_i
+            @line_item.price = 0.00
+            o.line_items << @line_item
+          end
+        end
+
+        o.status = "complete"
+        o.save
+
         if !session[:donation].nil?
           @donation = Donation.create order: o, name: current_user.email, amount: session[:donation]
         end
@@ -67,6 +104,11 @@ class CheckoutController < ApplicationController
 
         email_receipt(o)
         email_vouchers(o)
+
+        if session[:cart_items_custom].blank? && session[:cart_items_custom].size > 0
+          email_custom_item_vouchers(o)
+          session[:cart_items_custom] = Set.new
+        end
 
         session[:cart_items] = Set.new
         render 'success'
@@ -85,7 +127,17 @@ class CheckoutController < ApplicationController
 
   def email_vouchers(order)
     order.line_items.each do |line_item|
-      OrderMailer.voucher(line_item).deliver
+      if !line_item.product.blank?
+        OrderMailer.voucher(line_item).deliver
+      end
+    end
+  end
+ 
+  def email_custom_item_vouchers(order)
+    order.line_items.each do |line_item|
+      if !line_item.wishlist_item.blank? 
+        OrderMailer.custom_item_voucher(line_item).deliver
+      end
     end
   end
 

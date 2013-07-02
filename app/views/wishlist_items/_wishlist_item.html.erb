@@ -1,0 +1,18 @@
+<div class="media product">
+  <div class="box">
+      <div class="media-body">
+        <h4 class="media-heading"><%= wishlist_item.title %></h4>
+        <p>
+          <%= wishlist_item.description %>
+        </p>
+        <% if user_signed_in? %>
+          <% if session[:cart_items_custom] and item_in_cart? session[:cart_items_custom], params[:id], wishlist_item.id %>
+            <%= link_to "Remove from cart", remove_from_custom_cart_path(patient_id: params[:id], wishlist_item_id: wishlist_item.id), method: :put, :class => "btn btn-danger" %>
+          <% else %>
+            <%= link_to "Add to cart", add_to_custom_cart_path(patient_id: params[:id], wishlist_item_id: wishlist_item.id), method: :put, :class => "btn btn-success" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+

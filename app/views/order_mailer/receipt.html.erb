@@ -12,15 +12,27 @@
           <td><b>Recipient</b></td>
           <td><b>Item</b></td>
           <td><b>Provider</b></td>
+          <td><b>Qty</b></td>
           <td><b>Amount</b></td>
         </tr>
         <% @order.line_items.each do |line_item| %>
-        <tr>
-          <td><%= line_item.patient.name %></td>
-          <td><%= line_item.name %></td>
-          <td><%= line_item.partner.name %></td>
-          <td><%= number_to_currency(line_item.price) %></td>
-        </tr>
+          <% if !line_item.product_id.blank? %>
+          <tr>
+            <td><%= line_item.patient.name %></td>
+            <td><%= line_item.name %></td>
+            <td><%= line_item.partner.name %></td>
+            <td><%= line_item.qty %></td>
+            <td><%= number_to_currency(line_item.price * line_item.qty) %></td>
+          </tr>
+          <% elsif !line_item.wishlist_item_id.blank?  %>
+          <tr>
+            <td><%= line_item.patient.name %></td>
+            <td><%= line_item.name %></td>
+            <td></td>
+            <td><%= line_item.qty %></td>
+            <td><%= number_to_currency(0.00) %></td>
+          </tr> 
+          <% end %>
         <% end %>
         <% @donation = Donation.find_by_order_id(@order.id) %>
         <% if !@donation.nil? %>

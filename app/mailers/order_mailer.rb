@@ -12,4 +12,10 @@ class OrderMailer < ActionMailer::Base
     @voucher = Voucher.find_by_line_item_id(line_item.id)
     mail to: @patient.user.email, subject: I18n.t('email.voucher_subject')
   end
+ 
+  def custom_item_voucher(line_item)
+    @patient = line_item.patient
+    @line_item = line_item
+    mail to: @patient.user.email, subject: I18n.t('email.voucher_subject')
+  end
 end

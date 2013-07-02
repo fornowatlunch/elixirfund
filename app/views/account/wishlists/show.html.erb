@@ -1,9 +1,18 @@
 <div class="box">
   <h2>My Wishlist</h2>
-
-    <% if @wishlist.products.any? %>
-      <%= render :partial => 'products/product', :collection => @wishlist.products %>
-    <% else %>
+  <% if @wishlist.patient.user.id == current_user.id %>
+    <%= button_to "Add a New Custom Item", new_patient_wishlist_wishlist_item_path(@wishlist.patient,@wishlist.patient.wishlist), :method => 'get', :class => 'btn pull-right', :style => 'margin-top: -40px;' %>
+  <% end %>
+    <% if @wishlist.products.any? || @wishlist.wishlist_items.any? %>
+      <% if @wishlist.products.any? %>
+        <h3>Items from Elixir Fund Partners</h3>
+        <%= render :partial => 'products/product', :collection => @wishlist.products %>
+      <% end %>
+      <% if @wishlist.wishlist_items.any? %>
+        <h3>Special Requests</h3>
+        <%= render :partial => 'wishlist_items/wishlist_item', :collection => @wishlist.wishlist_items %>
+      <% end %>
+<% else %>
       <div class="box">
         <p class="lead"><%= I18n.t('messages.no_products_available') %></p>
       </div>

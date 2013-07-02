@@ -29,7 +29,9 @@ ElixirFund::Application.routes.draw do
 
   resources :partners, :only => [:index, :show]
   resources :patients, :only => [:index, :show, :new, :edit, :create, :update] do
-    resources :wishlists
+    resources :wishlists do
+      resources :wishlist_items
+    end
   end
   resources :products, :only => [:index, :show]
   resource :cart, :only => [:show, :add] do
@@ -42,12 +44,16 @@ ElixirFund::Application.routes.draw do
   
   get '/checkout/billing_info', to: 'checkout#billing_info' 
   post '/checkout/process_payment', to: 'checkout#process_payment'
+  post '/checkout/process_without_payment', to: 'checkout#process_without_payment'
   get '/checkout/success', to: 'checkout#success'
 
   get "/cart",        to: 'carts#show',     as: :cart
   put "/cart/add",    to: 'carts#add',      as: :add_to_cart
+  put "/cart/add_custom",    to: 'carts#add_custom',      as: :add_to_custom_cart
   put "/cart/remove", to: 'carts#remove',   as: :remove_from_cart
+  put "/cart/remove_custom", to: 'carts#remove_custom',   as: :remove_from_custom_cart
   post "/cart/update_quantity", to: 'carts#update_quantity',   as: :update_cart_quantities
+  post "/cart/update_quantity_custom", to: 'carts#update_quantity_custom',   as: :update_cart_quantities_custom
 
   get '/:id', :to => 'pages#show', :as => :pages
 end

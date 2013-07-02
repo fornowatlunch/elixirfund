@@ -31,8 +31,12 @@
         <p class="lead"><%= patient_presenter.name %> hasn't added anything to their wishlist!</p>
         <p>Please check back later.</p>
       <% else %>
+        <h3>Items from Elixir Fund Partners</h3> 
         <%= render :partial => 'wishlist_item', collection: patient_presenter.public_wishlist_items, as: :wishlist_item, locals: {patient_id: params[:id]} %>
+        <h3>Special Requests</h3>
+        <%= render :partial => 'wishlist_items/wishlist_item', :collection => @patient.wishlist.wishlist_items %> 
       <% end %>
+      
     </div>
   </div>
 </div>

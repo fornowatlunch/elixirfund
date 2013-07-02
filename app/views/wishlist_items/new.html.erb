@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="span8 offset2">
+<h1>Custom Wishlist Item</h1>
+<%= form_for [@patient,@wishlist,@wishlist_item] do |f| %>
+  <%= f.label 'Title' %>
+  <%= f.text_field :title %>
+  <%= f.label 'Description' %>
+  <%= f.text_area :description %>
+  <%= hidden_field_tag :wishlist_id %> 
+  <%= hidden_field_tag :user_id, :value => @patient.user.id %> 
+  <%= f.submit %>
+<% end %>
