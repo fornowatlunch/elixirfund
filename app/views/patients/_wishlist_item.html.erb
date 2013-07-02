@@ -17,7 +17,6 @@
       <%= wishlist_item.description %>
     </p>
     <p>
-      <%= link_to t('label.view_product'), wishlist_item, :class => "btn btn-info" %> 
       <% if user_signed_in? %>
         <% if session[:cart_items] and item_in_cart? session[:cart_items], patient_id.to_i, wishlist_item.id %>
           <%= link_to "Remove from cart", remove_from_cart_path(patient_id: patient_id, product_id: wishlist_item.id), method: :put, :class => "btn btn-danger" %>
