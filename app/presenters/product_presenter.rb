@@ -41,6 +41,21 @@ class ProductPresenter < BasePresenter
     end
   end
 
+  def adjust_qty
+    if h.user_signed_in? and h.current_user.patient? and h.current_user.patient.wishlist.has_product(product) 
+      p = h.current_user.patient.wishlist.wishlist_products.where(:product_id => product.id).first
+      h.form_for :wishlist_product, :url => h.update_quantity_account_wishlist_path, :method => :post, :html => { :style => 'display: inline-block; margin: 4px 0 0 5px; padding: 0; border: 0; background: none;', :class => 'btn'} do |f|
+        out = f.hidden_field :id, :value => p.id.to_s
+        out << "<div class=\"input-prepend\" style=\" margin-right: 8px;\">".html_safe
+        out << "<div class=\"add-on\">quantity</div>".html_safe
+        out << (f.text_field :qty, :class => 'input-mini', :style => 'width: 40px;', :value => p.qty)
+        out << (h.submit_tag "update", :class => 'btn btn-warning', :style => 'width: 100px; margin:0 0 0 8px;')
+        out << "</div>".html_safe
+        out
+      end
+    end
+  end
+
   private
  
   def add_another_to_wishlist
@@ -54,4 +69,5 @@ class ProductPresenter < BasePresenter
   def remove_from_wishlist
     h.link_to I18n.t('label.remove_product_from_wishlist'), h.remove_product_account_wishlist_path(:product_id => product.id), :method => :delete, :class => "btn btn-danger"
   end
+
 end

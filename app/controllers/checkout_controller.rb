@@ -11,6 +11,7 @@ class CheckoutController < ApplicationController
       @wishlist_item = WishlistItem.find(item_tuple[1])
       @line_item = LineItem.new
       @line_item.wishlist_item = @wishlist_item
+      @line_item.wishlist_item_name = @wishlist_item.title
       @line_item.patient_id = item_tuple[0]
       @line_item.order_id = o.id
       @line_item.name = @wishlist_item.title
@@ -82,6 +83,7 @@ class CheckoutController < ApplicationController
             @wishlist_item = WishlistItem.find(item_tuple[1])
             @line_item = LineItem.new
             @line_item.wishlist_item = @wishlist_item
+            @line_item.wishlist_item_name = @wishlist_item.title
             @line_item.patient_id = item_tuple[0]
             @line_item.order_id = o.id
             @line_item.name = @wishlist_item.title
@@ -105,11 +107,17 @@ class CheckoutController < ApplicationController
         email_receipt(o)
         email_vouchers(o)
 
-        if session[:cart_items_custom].blank? && session[:cart_items_custom].size > 0
+        if !session[:cart_items_custom].blank? && session[:cart_items_custom].size > 0
           email_custom_item_vouchers(o)
+          session[:cart_items_custom].each do |item_tuple|
+            WishlistItem.find(item_tuple[1]).delete
+          end
           session[:cart_items_custom] = Set.new
         end
 
+        session[:cart_items].each do |item_tuple|
+          WishlistProduct.find(item_tuple[1]).delete
+        end
         session[:cart_items] = Set.new
         render 'success'
       else

@@ -38,7 +38,7 @@ class CartsController < ApplicationController
 		unless session[:cart_items]
 			session[:cart_items] = Set.new
 		end
-		session[:cart_items] = session[:cart_items].add(tuple)
+		session[:cart_items].add(tuple)
 		redirect_to :back
 	end
 
@@ -46,10 +46,10 @@ class CartsController < ApplicationController
 		wishlist_item_id = params[:wishlist_item_id]
 		patient_id = params[:patient_id]
 		tuple = [patient_id.to_i, wishlist_item_id.to_i, 1].freeze
-		unless session[:cart_items_custom]
+		if session[:cart_items_custom].blank?
 			session[:cart_items_custom] = Set.new
 		end
-		session[:cart_items_custom] = session[:cart_custom_items].add(tuple)
+		session[:cart_items_custom].add(tuple)
 		redirect_to :back
 	end
 

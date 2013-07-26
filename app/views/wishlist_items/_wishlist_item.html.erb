@@ -12,6 +12,11 @@
             <%= link_to "Add to cart", add_to_custom_cart_path(patient_id: params[:id], wishlist_item_id: wishlist_item.id), method: :put, :class => "btn btn-success" unless wishlist_item.wishlist.patient.user.id == current_user.id %>
           <% end %>
         <% end %>
+        
+        <% if user_signed_in? and current_user.id == wishlist_item.wishlist.patient.user.id %>
+          <%= link_to I18n.t('label.remove_product_from_wishlist'), wishlist_item_path(wishlist_item), :method => :delete, :class => "btn btn-danger" %>
+        <% end %>
+
       </div>
     </div>
   </div>

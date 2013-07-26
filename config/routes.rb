@@ -14,6 +14,7 @@ ElixirFund::Application.routes.draw do
         member do
           post :add_product
           delete :remove_product
+          post :update_quantity
         end
       end
     end
@@ -29,8 +30,8 @@ ElixirFund::Application.routes.draw do
 
   resources :partners, :only => [:index, :show]
   resources :patients, :only => [:index, :show, :new, :edit, :create, :update] do
-    resources :wishlists do
-      resources :wishlist_items
+    resource :wishlist do
+      resources :wishlist_items, :only => [:destroy, :update, :new, :create]
     end
   end
   resources :products, :only => [:index, :show]
@@ -41,7 +42,7 @@ ElixirFund::Application.routes.draw do
     end
   end
   resources :invitations, :only => [:new, :create]
-  
+  resources :wishlist_items, :only => [:destroy] 
   get '/checkout/billing_info', to: 'checkout#billing_info' 
   post '/checkout/process_payment', to: 'checkout#process_payment'
   post '/checkout/process_without_payment', to: 'checkout#process_without_payment'

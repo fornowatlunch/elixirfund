@@ -14,6 +14,7 @@
         <span class="label label-success"><%= number_to_currency wishlist_item.price %></span>
       <% end %>
       By: <%= link_to wishlist_item.partner.name, partner_path(wishlist_item.partner) %> <%= wishlist_item.partner.city %>, <%= wishlist_item.partner.state %></p>
+      <p><b>Quantity Requested:</b> <%= WishlistProduct.where(:product_id => wishlist_item.id, :wishlist_id => Patient.find(patient_id).wishlist.id).first.qty %></p>
       <%= wishlist_item.description %>
     </p>
     <p>
