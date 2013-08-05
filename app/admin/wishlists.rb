@@ -13,7 +13,9 @@ ActiveAdmin.register Wishlist do
     column :created_at
     column :updated_at
     column 'User' do |wishlist|
-      link_to wishlist.user.id, admin_user_path(wishlist.user)
+      if !wishlist.patient.nil?
+        link_to Patient.find(wishlist.patient_id).name, admin_patient_path(Patient.find(wishlist.patient_id))
+      end
     end
     default_actions
   end
