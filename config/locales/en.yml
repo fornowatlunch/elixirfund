@@ -55,6 +55,6 @@ en:
     card_exp_year: "Exp. Year"
     card_cvv: "CVV"
   messages:
-    no_products_available: "No products available"
+    no_products_available: "Your wishlist currently has no items. Add a Custom Item by clicking the 'Add a New Custom Item' button, or click 'Find Gifts' in the main menu to shop for items from our sponsors."
   flash:
     create_invitation: "Invitation sent sucessfully!"
