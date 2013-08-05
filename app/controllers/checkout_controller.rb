@@ -110,13 +110,13 @@ class CheckoutController < ApplicationController
         if !session[:cart_items_custom].blank? && session[:cart_items_custom].size > 0
           email_custom_item_vouchers(o)
           session[:cart_items_custom].each do |item_tuple|
-            WishlistItem.find(item_tuple[1]).delete
+          Wishlist.find_by_patient_id(item_tuple[0]).wishlist_items.find(item_tuple[1]).delete
           end
           session[:cart_items_custom] = Set.new
         end
 
         session[:cart_items].each do |item_tuple|
-          WishlistProduct.find(item_tuple[1]).delete
+          Wishlist.find_by_patient_id(item_tuple[0]).wishlist_products.find_by_product_id(item_tuple[1]).delete
         end
         session[:cart_items] = Set.new
         render 'success'

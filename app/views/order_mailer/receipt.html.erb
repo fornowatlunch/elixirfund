@@ -40,11 +40,12 @@
           <td>Elixir Fund</td>
           <td>Donation</td>
           <td></td>
+          <td></td>
           <td><%= number_to_currency(@donation.amount.to_f) %></td>
         </tr>
         <% end %>  
         <tr>
-          <td colspan="3"><b>Order Total</b></td>
+          <td colspan="4"><b>Order Total</b></td>
           <td><%= number_to_currency(@order.subtotal) %></td>
         </tr>
       </table>
