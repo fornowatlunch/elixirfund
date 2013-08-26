@@ -80,37 +80,48 @@
 <footer>
   <div class="container">
     <div class="row">
-      <div class="span4">
-        <h3>About Us</h3>
-        <p>The Elixir Fund is inspired by Kevin McQuarrie and his unique, life-affirming approach to cancer treatment.</p>
-        <%= link_to t('read_more'), pages_path('about') %>
-
-        <nav>
+      <div class="span12">
+        <nav id="footer">
           <ul>
+            <li><%= link_to 'About Us', 'http://www.elixirfund.org' %></li>
             <li><%= link_to t('contact_us'), pages_path('contact') %></li>
             <li><%= link_to t('terms'), pages_path('terms') %></li>
             <li><%= link_to t('privacy_policy'), pages_path('privacy') %></li>
           </ul>
         </nav>
       </div>
+    </div>
+    
+    <div class="row">
+      <div class="span12 copyright">
+        <p>&copy;2012 Elixir Fund. All Rights Reserved.</p>
+      </div>
+    </div>    
+    
+    <div class="row">
+      <div class="span12">
+        <div class="span2">&nbsp;</div>
+        <div class="span4">
+          <h3>Like Us on Facebook</h3>
+          <script src="http://connect.facebook.net/en_US/all.js#appId=135039393238513&amp;xfbml=1"></script>
+          <fb:like href="http://www.elixirfund.org/" send="true" layout="button_count" width="300" show_faces="true" font="arial" fb-xfbml-state="rendered" class="fb_edge_widget_with_comment fb_iframe_widget">
+            <span style="height: 20px; width: 131px;">
+              <iframe id="f18deb7584" name="f2ce57d738" scrolling="no" style="border: none; overflow: hidden; height: 20px; width: 131px;" title="Like this content on Facebook." class="fb_ltr" src="http://www.facebook.com/plugins/like.php?api_key=&amp;locale=en_US&amp;sdk=joey&amp;channel_url=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D17%23cb%3Df3c299744%26origin%3Dhttp%253A%252F%252Fwww.elixirfund.org%252Ff267cfddd8%26domain%3Dwww.elixirfund.org%26relation%3Dparent.parent&amp;href=http%3A%2F%2Fwww.elixirfund.org%2F&amp;node_type=link&amp;width=300&amp;font=arial&amp;layout=button_count&amp;colorscheme=light&amp;show_faces=false&amp;send=true&amp;extended_social_context=false"></iframe>
+            </span>
+          </fb:like>
+        </div>
 
-      <div class="span4">
-        <h3>Like Us on Facebook</h3>
-        <script src="http://connect.facebook.net/en_US/all.js#appId=135039393238513&amp;xfbml=1"></script>
-        <fb:like href="http://www.elixirfund.org/" send="true" layout="button_count" width="300" show_faces="true" font="arial" fb-xfbml-state="rendered" class="fb_edge_widget_with_comment fb_iframe_widget">
-          <span style="height: 20px; width: 131px;">
-            <iframe id="f18deb7584" name="f2ce57d738" scrolling="no" style="border: none; overflow: hidden; height: 20px; width: 131px;" title="Like this content on Facebook." class="fb_ltr" src="http://www.facebook.com/plugins/like.php?api_key=&amp;locale=en_US&amp;sdk=joey&amp;channel_url=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D17%23cb%3Df3c299744%26origin%3Dhttp%253A%252F%252Fwww.elixirfund.org%252Ff267cfddd8%26domain%3Dwww.elixirfund.org%26relation%3Dparent.parent&amp;href=http%3A%2F%2Fwww.elixirfund.org%2F&amp;node_type=link&amp;width=300&amp;font=arial&amp;layout=button_count&amp;colorscheme=light&amp;show_faces=false&amp;send=true&amp;extended_social_context=false"></iframe>
-          </span>
-        </fb:like>
-
-        <div class="social-icons">
-          <h3>Stay Connected</h3>
-          <a href="http://www.facebook.com/pages/Elixir-Fund/131127170043"  class="fb" rel="nofollow" target="_blank" title="Follow Us on Facebook"></a>
-          <a href="http://twitter.com/elixirfund" class="tw" rel="nofollow" target="_blank" title="Follow Us on Twitter"></a>
-          <a href="http://www.youtube.com/user/elixirfund" class="yt" rel="nofollow" target="_blank" title="Follow Us on YouTube"></a>
-          <a href="mailto:contact@elixirfund.org" class="em" rel="nofollow" target="_blank" title="Follow Us on E-mail"></a>
+        <div class="span4">
+          <div class="social-icons">
+            <h3>Stay Connected</h3>
+            <a href="http://www.facebook.com/pages/Elixir-Fund/131127170043"  class="fb" rel="nofollow" target="_blank" title="Follow Us on Facebook"></a>
+            <a href="http://twitter.com/elixirfund" class="tw" rel="nofollow" target="_blank" title="Follow Us on Twitter"></a>
+            <a href="http://www.youtube.com/user/elixirfund" class="yt" rel="nofollow" target="_blank" title="Follow Us on YouTube"></a>
+            <a href="mailto:contact@elixirfund.org" class="em" rel="nofollow" target="_blank" title="Follow Us on E-mail"></a>
+          </div>
         </div>
       </div>
+
 
       <div class="span4">
         <script src="http://widgets.twimg.com/j/2/widget.js"></script>
@@ -147,12 +158,6 @@
       </div>
     </div><!--row-->
 
-    <div class="row">
-      <div class="span12">
-        <p style="float:left">&copy;2012 Elixir Fund. All Rights Reserved.</p>
-        <div class="logo"></div>
-      </div>
-    </div><!--rows-->
   </div><!--container-->
 </footer>
 
