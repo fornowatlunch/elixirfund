@@ -23,12 +23,14 @@
 
 body {
   font-family: 'Domine', serif; font-weight:400;
-  background: #f6f3f1 url('bg-body.jpg') repeat;
+  background-image: url('flower-swirl9.png');
+  background-color: #669100;
+  background-repeat: repeat;
 }
 
 #main-content.container { padding-top: 90px; }
 
-h1, h2 { font-family: 'Satisfy', cursive; }
+
 h3,h4,h5 {
   font-weight:700;
   color:#002f57;
@@ -47,6 +49,7 @@ h1 {
 }
 
 h2 {
+  font-size: 28px;
   font-weight: 400;
 }
 
@@ -113,7 +116,7 @@ a {
 #footer ul {
   list-style-type: none;
   margin: 0 auto;
-  width: 445px;
+  width: 180px;
   li {
     float: left; 
     margin: 0 4%;
