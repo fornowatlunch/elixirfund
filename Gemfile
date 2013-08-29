@@ -28,6 +28,8 @@ gem 'rmagick'
 gem 'mysql2'
 gem 'airbrake'
 
+gem 'letter_opener', group: :development
+
 group :test, :development do
   gem 'aktion_test_rails'
 #  gem 'capybara-webkit'
