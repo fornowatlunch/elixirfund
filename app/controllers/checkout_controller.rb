@@ -116,7 +116,15 @@ class CheckoutController < ApplicationController
         end
 
         session[:cart_items].each do |item_tuple|
-          Wishlist.find_by_patient_id(item_tuple[0]).wishlist_products.find_by_product_id(item_tuple[1]).delete
+          wishlist_item = Wishlist.find_by_patient_id(item_tuple[0]).wishlist_products.find_by_product_id(item_tuple[1])
+          requested_quantity = wishlist_item.qty.to_i
+          purchased_qty = item_tuple[2].to_i
+          qty_remaining = requested_quantity - purchased_qty
+          if qty_remaining <= 0
+            wishlist_item.delete
+          else
+            wishlist_item.update_attributes :qty => qty_remaining
+          end
         end
         session[:cart_items] = Set.new
         render 'success'
