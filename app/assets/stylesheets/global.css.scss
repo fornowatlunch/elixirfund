@@ -23,12 +23,14 @@
 
 body {
   font-family: 'Domine', serif; font-weight:400;
-  background: #f6f3f1 url('bg-body.jpg') repeat;
+  background-image: url('flower-swirl9.png');
+  background-color: #669100;
+  background-repeat: repeat;
 }
 
-#main-content.container { padding-top: 90px; }
+#main-content.container { padding-top: 120px; }
 
-h1, h2 { font-family: 'Satisfy', cursive; }
+
 h3,h4,h5 {
   font-weight:700;
   color:#002f57;
@@ -47,11 +49,12 @@ h1 {
 }
 
 h2 {
+  font-size: 28px;
   font-weight: 400;
 }
 
 a {
-  color:#53b9d7;
+  color: #00477f;
   font-weight:bold;
   &:hover {
     color:#002f57;
@@ -64,18 +67,18 @@ a {
     background:#f9f9f8;
   }
   a.brand {
-    width:250px;
-    height:40px;
+    width:230px;
+    height:71px;
     padding:10px 12px 10px 0;
     margin:0;
     display:block;
     text-indent:-9999px;
-    background:url('elixir-logo.png') 0 10px no-repeat;
+    background:url('elixir-logo3.png') 0 10px no-repeat;
   }
   .pull-right {
-    margin:10px 0 0 0;
+    margin:30px 0 0 0;
     & > li > a {
-      color:#53b9d7;
+      color:#00477f;
       font-weight:bold;
       text-shadow:2px 2px 1px #fff;
       padding:5px;
@@ -87,11 +90,11 @@ a {
   .nav-but {
     border-left:1px solid #eee;
     li > a {
-      color:#53b9d7;
+      color:#00477f;
       font-weight:bold;
       text-shadow:2px 2px 1px #fff;
       line-height:14px;
-      padding:18px 12px 10px;
+      padding:35px 17px 25px;
       border-left:1px solid #fff;
       border-right:1px solid #eee;
       span {
@@ -107,6 +110,16 @@ a {
         }
       }
     }
+  }
+}
+
+#footer ul {
+  list-style-type: none;
+  margin: 0 auto;
+  width: 180px;
+  li {
+    float: left; 
+    margin: 0 4%;
   }
 }
 

@@ -30,11 +30,14 @@ gem 'airbrake'
 
 group :test, :development do
   gem 'aktion_test_rails'
+  gem 'pry'
+  gem 'pry-debugger'  
 #  gem 'capybara-webkit'
 end
 
 group :development do
   gem 'aktion_cap' 
+  gem 'letter_opener'
 end
 
 group :development, :staging do

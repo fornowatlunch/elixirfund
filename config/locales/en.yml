@@ -4,7 +4,7 @@
 en:
   hello: "Hello world"
   email:
-    order_receipt_subject: "Elixir Fund Giving: Tax-deductible Order Receipt"
+    order_receipt_subject: "Elixir Fund Giving: Order Receipt"
     voucher_subject: "Elixir Fund Giving: Someone bought you a gift!"
   button:
     user:

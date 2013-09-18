@@ -6,7 +6,11 @@ class ProductPresenter < BasePresenter
   end
 
   def list_image
-    h.image_tag product.image.url unless product.image.file.nil?
+    unless product.image.file.nil?
+      h.image_tag product.image.url 
+    else
+      h.image_tag product.partner.image
+    end
   end
 
   def company

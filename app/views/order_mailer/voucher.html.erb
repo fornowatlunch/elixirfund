@@ -7,7 +7,7 @@
       </p>
       <table>
         <tr>
-          <td><%= image_tag @line_item.product.image_url(:thumb) unless @line_item.product.image.file.nil? %></td>
+          <td><%= image_tag 'http://' + ActionMailer::Base.default_url_options[:host] + @line_item.product.image_url(:thumb) unless @line_item.product.image.file.nil? %></td>
           <td><h3><%= @line_item.name %></h3></td>
         <tr>
       </table>

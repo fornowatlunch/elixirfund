@@ -4,7 +4,7 @@
     <% if wishlist_item.image == nil %>
       <img src="/assets/ghost.png" alt="No image provided"/>
     <% else %>
-      <% wishlist_item.image %>
+      <%= image_tag wishlist_item.image  %>
     <% end %>
   </div>
   <div class="media-body">
