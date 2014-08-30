@@ -27,6 +27,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'mysql2'
 gem 'airbrake'
+# gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 group :test, :development do
   gem 'aktion_test_rails'
