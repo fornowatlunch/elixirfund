@@ -133,7 +133,7 @@
       <%= form_tag "/cart/add_donation" do %>
         <div class="input-prepend pull-left">
           <span class="add-on">$</span>
-          <%= text_field_tag "donation", "25", :style => 'width: auto;' %>
+          <%= text_field_tag "donation", "", :style => 'width: auto;' %>
         </div>
         &nbsp;<%= submit_tag "Add Donation", :class => "btn btn-primary pull-left", :style => 'width: auto; margin: 0 0 0 8px; float: left; display: inline-block;' %>
       <% end %>
