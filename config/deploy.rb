@@ -15,7 +15,8 @@ set :scm, :git
 set :rvm_type, :user
 set :rvm_ruby_string, "1.9.3-p194@#{application}"
 set :use_sudo, false
-set :server_hostname, "50.57.171.23"
+set :server_hostname, "104.131.2.217"
+set :port, 44221
 
 # include any files that need to be symlinked into the new release, usually configuration files are loaded this way.
 set :symlinks, %w(config/database.yml config/unicorn.rb public/uploads)
