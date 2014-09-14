@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.16'
 gem 'sqlite3'
 
 
@@ -27,7 +27,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'mysql2'
 gem 'airbrake'
-# gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'stripe', git: 'https://github.com/stripe/stripe-ruby'
 
 group :test, :development do
   gem 'aktion_test_rails'
