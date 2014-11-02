@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/stripe/stripe-ruby
+  remote: git://github.com/stripe/stripe-ruby
   revision: 2c6f4caa99916c33d3f9af57f66422ff5ea913cf
   specs:
     stripe (1.15.0)

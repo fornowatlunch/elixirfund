@@ -27,13 +27,12 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'mysql2'
 gem 'airbrake'
-gem 'stripe', git: 'https://github.com/stripe/stripe-ruby'
+gem 'stripe', git: 'git://github.com/stripe/stripe-ruby'
 
 group :test, :development do
   gem 'aktion_test_rails'
   gem 'pry'
-  gem 'pry-debugger'  
-#  gem 'capybara-webkit'
+  gem 'pry-debugger'
 end
 
 group :development do
