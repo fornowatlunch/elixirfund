@@ -83,6 +83,8 @@ class CheckoutController < ApplicationController
     # Validating the card automatically detects the card type
     begin
 
+
+#I think this should be sent to the ui and replaced with the ui guidget
       @charge = Stripe::Charge.create(
         :customer    => @customer,
         :amount      => amount,

@@ -57,4 +57,6 @@ ElixirFund::Application.routes.draw do
   post "/cart/update_quantity_custom", to: 'carts#update_quantity_custom',   as: :update_cart_quantities_custom
 
   get '/:id', :to => 'pages#show', :as => :pages
+
+  resources :charges
 end

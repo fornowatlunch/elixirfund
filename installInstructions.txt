@@ -1,0 +1,4 @@
+First install git
+bundlerl
+cd to the elixir
+bundle
