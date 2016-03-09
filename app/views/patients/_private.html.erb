@@ -27,7 +27,7 @@
       <% if @patient.user.id == current_user.id %>
         Your wishlist is currently <%= @patient.private_wishlist ? "<b>Private</b>".html_safe : "<b>Public</b>".html_safe %> <%= link_to "Change visibility settings", edit_patient_path(@patient.wishlist) %> 
       <% end %>
-<% if patient_presenter.public_wishlist_items.size <= 0 %>
+<% if patient_presenter || patient_presenter.public_wishlist_items.size <= 0 %>
         <p class="lead"><%= patient_presenter.name %> hasn't added anything to their wishlist!</p>
         <p>Please check back later.</p>
       <% else %>
