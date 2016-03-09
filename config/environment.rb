@@ -2,9 +2,9 @@
 require File.expand_path('../application', __FILE__)
 
 ElixirFund::Application.configure do
-  config.action_mailer.default_url_options = { host: "elixir.bzlabs.org" }
+#  config.action_mailer.default_url_options = { host: "elixir.bzlabs.org" }
   ActionMailer::Base.smtp_settings = {
-    :user_name => "elixirfund",
+    :user_name => "elixirfund2",
     :password => "last2canard",
     :domain => "elixirfund.org",
     :address => "smtp.sendgrid.net",
