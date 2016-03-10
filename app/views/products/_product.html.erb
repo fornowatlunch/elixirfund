@@ -6,7 +6,7 @@
         <%= p.list_image %>
       </div>
       <div class="media-body">
-        <h4 class="media-heading"><%= p.title %></h4>
+        <h4 class="media-heading"><%= link_to p.title, product_url(p.id) %></h4>
         <p>
           <% if !p.price.nil? %>
             <span class="label label-success"><%= number_to_currency p.price %></span>
