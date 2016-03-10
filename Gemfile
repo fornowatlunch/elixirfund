@@ -15,7 +15,7 @@ end
 
 gem 'jquery-rails', "2.0.2"
 #gem 'activeadmin'
-gem "activeadmin", "0.6.0"
+gem "activeadmin", "0.6.6"
 gem 'devise'
 gem 'bootstrap-sass',"2.1.0"
 gem 'unicorn', "4.3.1"
