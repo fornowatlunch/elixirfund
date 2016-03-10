@@ -204,6 +204,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
+    rmagick (2.15.4)
     rubinius-actor (0.0.2)
       rubinius-core-api
     rubinius-core-api (0.0.1)
@@ -268,12 +269,10 @@ DEPENDENCIES
   paperclip (= 3.3.1)
   pg
   rails (= 3.2.21)
+  rmagick
   sass-rails (~> 3.2.3)
   sqlite3
   stripe (= 1.15.0)
   therubyracer
   uglifier (>= 1.0.3)
   unicorn (= 4.3.1)
-
-BUNDLED WITH
-   1.11.2
