@@ -1,5 +1,5 @@
 class OrderMailer < ActionMailer::Base
-  default from: "meg@elixirfund.org"
+  default from: "mailer@elixirfund.org"
 
   def receipt(order)
     @order = order
