@@ -1,5 +1,5 @@
 class Invitations < ActionMailer::Base
-  default from: "mailer@aktionlab.com"
+  default from: "meg@elixirfund.org"
 
   def invite(invitation, invitor)
     @invitation = invitation
