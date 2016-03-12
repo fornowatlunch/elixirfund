@@ -92,7 +92,8 @@ class CheckoutController < ApplicationController
         :currency    => 'usd'
       )
 
-      o = Order.create user_id: current_user.id, name: current_user.email, subtotal: amount
+      amount_not_in_cents = (amount / 100).to_i
+      o = Order.create user_id: current_user.id, name: current_user.email, subtotal: amount_not_in_cents
       session[:cart_items].each do |item_tuple|
         @product = Product.find(item_tuple[1])
         @line_item = LineItem.new
