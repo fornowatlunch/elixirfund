@@ -5,7 +5,7 @@
       <table width="75%">
         <tr>
           <td>
-            <p>You have been invited to join the Elixir Fund site by <%= @invitor.email %>.<br/>To accept this invitation click the link below.</p>
+            <p>You have been invited to join the Elixir Fund site by <%= @invitor.email %>.<br/>To accept this invitation, click the link below or copy and past the link into your browser.</p>
             <p><%= @invitor.email %> said:</p>
             <blockquote>"<%= @invitation.message %>"</blockquote>
             <p><%= new_user_registration_url(:token => @invitation.token) %></p>
