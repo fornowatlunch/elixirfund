@@ -7,9 +7,9 @@ class ProductsController < ApplicationController
       if !@search.blank?
         city_state = @search.split(/,/)
         if city_state.length == 1
-          @partners = Partner.where("city LIKE ? OR state = ?","%#{city_state[0].strip}%","#{city_state[0].strip}").map {|p| p.id}
+          @partners = Partner.where("city ILIKE ? OR state = ?","%#{city_state[0].strip}%","#{city_state[0].strip}").map {|p| p.id}
         else
-          @partners = Partner.where("city LIKE ? AND state = ?","%#{city_state[0].strip}%", "#{city_state[1].strip.split(/ /)[0].strip}").map {|p| p.id}
+          @partners = Partner.where("city ILIKE ? AND state = ?","%#{city_state[0].strip}%", "#{city_state[1].strip.split(/ /)[0].strip}").map {|p| p.id}
         end
       end
       @zip = @search.to_i
@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
           OR zip_code = ? OR zip_code = ? OR zip_code = ? OR zip_code = ? OR zip_code = ?",
                                        "#{@zip}","#{@zip1}","#{@zip2}","#{@zip3}","#{@zip4}","#{@zip5}","#{@zip6}","#{@zip7}","#{@zip8}","#{@zip9}","#{@zip10}").map {|p| p.id})
       end
-      @products = Product.where("title LIKE ? OR partner_id IN (?)", '%' + params[:products][:search] + '%', @partners.join(",").to_i).page(params[:page])
+      @products = Product.where("title ILIKE ? OR partner_id IN (?)", '%' + params[:products][:search] + '%', @partners.join(",").to_i).page(params[:page])
     else
       @products = Product.order(:created_at).page params[:page]
       params[:products] = { :search => '' }
