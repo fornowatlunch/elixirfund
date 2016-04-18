@@ -63,7 +63,7 @@ class ProductsController < ApplicationController
                                        "#{@zip}", "#{@zip1}", "#{@zip2}", "#{@zip3}", "#{@zip4}", "#{@zip5}",
                                        "#{@zip6}", "#{@zip7}", "#{@zip8}", "#{@zip9}", "#{@zip10}").map { |p| p.id })
       end
-      @partners.concat(Partner.where("title ILIKE ?", params[:products][:search]))
+      @partners.concat(Partner.where("name ILIKE ?", params[:products][:search]))
       @products = Product.where("title ILIKE ? OR partner_id IN (?)", '%' + params[:products][:search] + '%', @partners.join(",").to_i).page(params[:page])
     else
       @products = Product.order(:created_at).page params[:page]
