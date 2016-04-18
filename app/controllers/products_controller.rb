@@ -57,6 +57,8 @@ class ProductsController < ApplicationController
         if @zip < 10000 then
           @zip = "0#{@zip.to_s}"
         end
+        @partners.concat(Partner.where("title ILIKE ?", params[:products][:search]))
+
         @partners.concat(Partner.where("
           zip_code = ? OR zip_code = ? OR zip_code = ? OR zip_code = ? OR zip_code = ? OR zip_code = ?
           OR zip_code = ? OR zip_code = ? OR zip_code = ? OR zip_code = ? OR zip_code = ?",
